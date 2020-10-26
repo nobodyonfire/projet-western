@@ -66,12 +66,14 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
         pressenter();clearScreen(1);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        clearScreen(1);
         System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
         pressenter();clearScreen(1);
         System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
         pressenter();clearScreen(1);
-        le7iemeciel.question();clearScreen(1);
         Barman Luis = new Barman("Luis","7 ième ciel","NULL" , "Barman" , 20, 1000);
+        le7iemeciel.questiontuto(Luis);clearScreen(1);
+        
         
         
         

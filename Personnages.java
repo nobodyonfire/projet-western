@@ -16,6 +16,9 @@ public class Personnages {
     protected int Niveau;
     protected int Argent;
     
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    
     public Personnages(String Name, String Location, String Gun , String Job , int Niveau, int Argent) {
         this.Name = Name;
         this.Location=Location;
@@ -78,6 +81,12 @@ public class Personnages {
     
     public void talk(String say){
         System.out.println(Name + " : " + say);
+    }
+    public void talkstr(String say){
+        System.out.println(Name + " : " + say);
+    }
+    public void talkb(String say){
+        System.out.println(ANSI_GREEN +Name + " : " + say + ANSI_RESET);
     }
     
     
