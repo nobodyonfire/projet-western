@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projet.java.western;
 
 import java.lang.constant.ConstantDesc;
 
-/**
- *
- * @author ASUS
- */
+
+
+
+
 public class Personnages {
     
     protected String Name;

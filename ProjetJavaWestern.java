@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projet.java.western;
 import static java.lang.constant.ConstantDescs.NULL;
+import java.util.Scanner; 
 
-/**
- *
- * @author ASUS
- */
+
+
+
 public class ProjetJavaWestern {
     
     public static final String ANSI_RESET = "\u001B[0m";
@@ -39,7 +35,7 @@ public class ProjetJavaWestern {
         
         
         Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         
         Player Joueur = new Player("Alexis","le7iemeciel","NULL" , "NULL", 1, 0); 
         
@@ -54,11 +50,37 @@ public class ProjetJavaWestern {
         didactitiel();
         
         
-        le7iemeciel.question();
+        
         
   
     }
     
+    
+    
+    
+    
+    public static void didactitiel(){
+        
+        System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt." +  ANSI_RESET);
+        System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes." +  ANSI_RESET);
+        System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
+        pressenter();clearScreen(1);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
+        pressenter();clearScreen(1);
+        System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
+        pressenter();clearScreen(1);
+        le7iemeciel.question();clearScreen(1);
+        Barman Luis = new Barman("Luis","7 ième ciel","NULL" , "Barman" , 20, 1000);
+        
+        
+        
+        
+        
+         /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
+        
+        
+    }
     
     
     
@@ -68,16 +90,14 @@ public class ProjetJavaWestern {
 
     }
     
-    public static void didactitiel(){
-        
-        System.out.println(ANSI_CYAN +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt.");
-        System.out.println(ANSI_CYAN + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes.");
-        System.out.println(ANSI_CYAN + "Les risques et les récompenses sont toutes deux élevés. »");
-        
-        try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   
-    
+    public static void pressenter(){
+        Scanner readinput = new Scanner(System.in);
+        String enterkey = "appuyer sur entrer...";
+        System.out.print(enterkey);
+        enterkey = readinput.nextLine();
+        System.out.print(enterkey);
+        if(enterkey == ""){
+            System.out.println("It works!"); }
     
     }
-    
-        
 }

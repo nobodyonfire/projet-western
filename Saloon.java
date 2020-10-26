@@ -9,9 +9,11 @@ public class Saloon extends Location{
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
+    protected String Name;
     
-    public Saloon(String Nom,int Danger){
+    public Saloon(String Nom,int Danger,String Name){
         super(Nom,Danger);
+        this.Name=Name;
         introduction(Nom);
     }
     
@@ -42,7 +44,7 @@ public class Saloon extends Location{
     
     public void display_menu() 
     {
-	System.out.println("1) boire \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) leave");
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) leave");
 	System.out.print("Selection: ");
         
     }
