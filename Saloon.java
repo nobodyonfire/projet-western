@@ -3,10 +3,6 @@ package projet.java.western;
 import java.util.Scanner; 
 
 
-/**
- *
- * @author ASUS
- */
 
 
 public class Saloon extends Location{
