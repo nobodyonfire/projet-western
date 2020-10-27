@@ -26,12 +26,14 @@ public class Saloon extends Location implements Move_Location{
     }
     
     public void introduction(String Nom){
+        System.out.println();
         System.out.println(ANSI_RED + "Le nouveau saloon : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
-
+        System.out.println();
     }
     public void boire(){
-        Barman Barman = new Barman("Barman","7 ième ciel","NULL","Barman" ,0,1000);       
+        Barman Barman = new Barman("Luis","7 ième ciel","NULL","Barman" ,0,1000);       
         Barman.questionboisson();
+        
     }
     @SuppressWarnings("empty-statement")
     public void Jouer(){
@@ -62,6 +64,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void question() 
     {
+        System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
 	System.out.println("Que voulez vous faire ?");
 	Scanner q = new Scanner(System.in);
