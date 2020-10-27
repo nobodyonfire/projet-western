@@ -35,16 +35,31 @@ public class ProjetJavaWestern {
         
         
         Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
+       Robbert.StoryTelling();
+        
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.println( "           Quel est ton nom cowboy ?" );
+        String Player_name = scanner.nextLine();
+        
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         
-        Player Joueur = new Player("Alexis","le7iemeciel","NULL" , "NULL", 1, 0); 
+        
+        Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
+        Robbert.talk("Ainsi soit-il " + Joueur.Name + ". Bienvenue en enfer.");
+        
+        try {
+            sleep(1500);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProjetJavaWestern.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println(" ");
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+  "FIN INITIALISATION " + ANSI_RESET);
         System.out.println(" ");
         System.out.println(" ");
   
-        clearScreen(1);
+        clearScreen(4);
   
         
         didactitiel();

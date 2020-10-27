@@ -32,4 +32,12 @@ public class Sherif extends CowBoy{
         talk(" Je suis également le Sherif de cette ville et j'ai déjà "+this.NombreDeCapture+ " captures à mon actif !"); 
     }
     
+    public void StoryTelling(){
+        String say = " Toi le nouveau! Tu viens jouer les chasseurs de prime à Widowchapel. \n"
+                + "           Quelle erreur minable. On appelle pas cette ville Widowchapel pour rien. \n"
+        + "           C'est ici que viennent se recueillir les femmes qui ont perdu leurs maris \n"
+        + "           Mais toi tu m'as l'air d'être un chasseur de prime déterminé.";
+        super.talk(say);
+    }
+    
 }
