@@ -39,18 +39,15 @@ public class ProjetJavaWestern {
         
         Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
         
-        Robbert.StoryTelling();
         
         
-        Scanner scanner = new Scanner(System.in);
-        System.out.println( "           Quel est ton nom cowboy ?" );
-        String Player_name = scanner.nextLine();
-        
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         
         
+        
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");       
+        String Player_name = Robbert.StoryTelling();     
         Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
-        Robbert.talk("Ainsi soit-il " + Joueur.Name + ". Bienvenue en enfer.");
+        
         
         try {
             sleep(1500);
