@@ -44,7 +44,7 @@ public class CowBoy extends Personnages {
     @Override 
     public void introduceYourself(){
         super.introduceYourself();
-        talk(" Je suis là pour faire reigner l'ordre et la discipline"); 
+        talkb(" Je suis là pour faire reigner l'ordre et la discipline"); 
     }
     
      /*
