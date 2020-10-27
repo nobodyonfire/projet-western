@@ -1,4 +1,3 @@
-
 package projet.java.western;
 import static java.lang.Thread.sleep;
 import static java.lang.constant.ConstantDescs.NULL;
@@ -32,37 +31,8 @@ public class ProjetJavaWestern {
 
     public static void main(String[] args) {
         
-        System.out.println(" ");
-        System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+ "DEBUT INITIALISATION " + ANSI_RESET);
-        System.out.println(" ");
         
-        
-        Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
-        
-        
-        
-        
-        
-        
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");       
-        String Player_name = Robbert.StoryTelling();     
-        Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
-        
-        
-        try {
-            sleep(1500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ProjetJavaWestern.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        System.out.println(" ");
-        System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+  "FIN INITIALISATION " + ANSI_RESET);
-        System.out.println(" ");
-        System.out.println(" ");
-  
-        clearScreen(4);
-  
-        
+        initialisation();
         didactitiel();
         
         
@@ -72,7 +42,32 @@ public class ProjetJavaWestern {
     }
     
     
-    
+    public static void initialisation(){
+        
+        
+        System.out.println(" ");
+        System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+ "DEBUT INITIALISATION " + ANSI_RESET);
+        System.out.println(" ");
+        
+        
+        Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
+        
+        
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");       
+        String Player_name = Robbert.StoryTelling();     
+        Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
+        
+        
+        try { sleep(1500);} catch (InterruptedException ex) { Logger.getLogger(ProjetJavaWestern.class.getName()).log(Level.SEVERE, null, ex);}
+        
+        System.out.println(" ");
+        System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+  "FIN INITIALISATION " + ANSI_RESET);
+        System.out.println(" ");
+        System.out.println(" ");
+        clearScreen(4);
+        
+        
+    }
     
     
     public static void didactitiel(){
@@ -90,8 +85,8 @@ public class ProjetJavaWestern {
         Barman Luis = new Barman("Luis","7 ième ciel","NULL" , "Barman" , 20, 1000);
         le7iemeciel.questiontuto();
         clearScreen(1);
-        Luis.talk("Alors, ça fait du bien de se désaltérer un petit peu ?");
-        Luis.talk("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
+        Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
+        Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
         le7iemeciel.question();
         
         
