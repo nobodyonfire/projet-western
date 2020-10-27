@@ -77,6 +77,7 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
         pressenter();clearScreen(1);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Armurie Bangout = new Armurie("Bangout",10,"NULL");
         clearScreen(1);
         System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
         pressenter();clearScreen(1);
@@ -89,11 +90,7 @@ public class ProjetJavaWestern {
         Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
         le7iemeciel.question();
         
-        
-        
-        
-        
-        
+
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
         
         
