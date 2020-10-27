@@ -83,7 +83,7 @@ public class Personnages {
         System.out.println(Name + " : " + say);
     }
     public void talkstr(String say){
-        System.out.println(Name + " : " + say);
+        System.out.print(Name + " : " + say);
     }
     public void talkb(String say){
         System.out.println(ANSI_GREEN +Name + " : " + say + ANSI_RESET);
@@ -91,7 +91,7 @@ public class Personnages {
     
     
     public void introduceYourself (){
-        talk( " Bonjour à tous, je suis " + Name);
+        talkb( " Bonjour à tous, je suis " + Name);
     }
     
     
