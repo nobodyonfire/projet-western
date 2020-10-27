@@ -30,14 +30,18 @@ public class Saloon extends Location implements Move_Location{
         System.out.println(ANSI_RED + "Le nouveau saloon : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
         System.out.println();
     }
+    
+    
     public void boire(){
+        
         Barman Barman = new Barman("Luis","7 ième ciel","NULL","Barman" ,0,1000);       
         Barman.questionboisson();
         
     }
     @SuppressWarnings("empty-statement")
-    public void Jouer(){
-        
+    
+    
+    public void Jouer(){  
         
     }
     public void Seduire(){
@@ -152,10 +156,11 @@ public class Saloon extends Location implements Move_Location{
 	
     }
     
+    
     @Override
     public void changelocation() {
         
-        System.out.println("Where do youu want to go ?");
+        System.out.println("Where do you want to go ?");
         Scanner q = new Scanner(System.in);
         
         display_location();
@@ -163,7 +168,6 @@ public class Saloon extends Location implements Move_Location{
         switch (q.nextInt()) 
 	{
    
-  
 	    case 1:
             System.out.println();    
 	    System.out.println ("Let's see if the sheriff has something for us" );
@@ -175,7 +179,7 @@ public class Saloon extends Location implements Move_Location{
 	    break;
   
 	    case 3:
-	    System.out.println ( "I must by a new gun, this one is starting to get rusty");
+	    System.out.println ( "I must buy a new gun, this one is starting to get rusty");
 	    break;
             case 4:
  
