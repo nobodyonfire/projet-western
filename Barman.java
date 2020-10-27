@@ -55,13 +55,24 @@ public class Barman extends Personnages{
         talk("Je vous mets autre chose ? ");
 	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
         System.out.print("Selection: ");
+        choixboisson();
     }
+    
+    
+    
     
     public void questionboisson()
     {
-	Scanner q = new Scanner(System.in);
         display_menuboisson();
+        choixboisson();
+    }
+    
+    
+    
+    
+    public void choixboisson(){
         
+    Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
 	{
    
@@ -102,17 +113,9 @@ public class Barman extends Personnages{
             
 	    default:
             questionboisson();
-	    break;
-            
-            
-            
+	    break;     
 	}
     }
-    
-    
-    
-
-
     
     
     
