@@ -1,11 +1,13 @@
 
 package projet.java.western;
 import java.util.Scanner; 
+import projet.java.western.Barman;
 
 
 
 
-public class Saloon extends Location{
+
+public class Saloon extends Location implements Move_Location{
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -27,10 +29,13 @@ public class Saloon extends Location{
         System.out.println(ANSI_RED + "Le nouveau saloon : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
 
     }
-    public void boire(Barman Barman){
+    public void boire(){
+        Barman Barman = new Barman("Barman","7 ième ciel","NULL","Barman" ,0,1000);       
         Barman.questionboisson();
     }
+    @SuppressWarnings("empty-statement")
     public void Jouer(){
+        
         
     }
     public void Seduire(){
@@ -55,7 +60,7 @@ public class Saloon extends Location{
     }
     
     
-    public void question(Barman Barman) 
+    public void question() 
     {
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
 	System.out.println("Que voulez vous faire ?");
@@ -71,21 +76,24 @@ public class Saloon extends Location{
 	    case 1:
             System.out.println();    
 	    System.out.println ("Il est temps de boire un coup !" );
-            boire(Barman);
+            boire();
 	    break;
   
 	    case 2:
             System.out.println();
 	    System.out.println ( "You picked option 2" );
-	    question(Barman);
+	    question();
 	    break;
   
 	    case 3:
 	    System.out.println ( "You picked option 3" );
-	    question(Barman);
+	    question();
 	    break;
+            case 5:
+                System.out.println("I'm gonna leave this place");
+                changelocation();
 	    default:
-            question(Barman);
+            question();
             System.out.println();
 	    System.err.println ( "Unrecognized option" );
 	    break;
@@ -103,7 +111,7 @@ public class Saloon extends Location{
         
     }
     
-    public void questiontuto(Barman Barman)
+    public void questiontuto()
     {   
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
@@ -120,17 +128,68 @@ public class Saloon extends Location{
 	    case 1:
             System.out.println();
 	    System.out.println ("Il est temps de boire un coup !" );
-            boire(Barman);
+            boire();
 	    break;
 	    default:
             System.out.println();
 	    System.out.println(ANSI_GREEN+ "Il faut aller voir le barman !" +ANSI_RESET);
-            questiontuto(Barman);
+            questiontuto();
 	    break;
             
             
             
 	}
+    }
+    
+    
+    public void display_location()
+    {
+        System.out.print("Selection: ");
+        System.out.println("1) Townhall  \n2) Bank \n3) Weapon Shop \n4) Outside the town \n5) Stay");
+	
+    }
+    
+    @Override
+    public void changelocation() {
+        
+        System.out.println("Where do youu want to go ?");
+        Scanner q = new Scanner(System.in);
+        
+        display_location();
+        
+        switch (q.nextInt()) 
+	{
+   
+  
+	    case 1:
+            System.out.println();    
+	    System.out.println ("Let's see if the sheriff has something for us" );
+	    break;
+  
+	    case 2:
+            System.out.println();
+	    System.out.println ("Need to save my money");
+	    break;
+  
+	    case 3:
+	    System.out.println ( "I must by a new gun, this one is starting to get rusty");
+	    break;
+            case 4:
+ 
+            System.out.println();
+	    System.err.println ( "Let's capture some bad guy ! " );
+	    break;
+            
+            case 5:
+ 
+            System.out.println();
+	    System.err.println ( "Never mind, I think I'm gonna drink a little bit more" );
+            question();
+	    break;
+              
+	}
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

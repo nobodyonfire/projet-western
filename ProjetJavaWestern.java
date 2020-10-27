@@ -1,7 +1,10 @@
 
 package projet.java.western;
+import static java.lang.Thread.sleep;
 import static java.lang.constant.ConstantDescs.NULL;
 import java.util.Scanner; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -35,7 +38,8 @@ public class ProjetJavaWestern {
         
         
         Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
-       Robbert.StoryTelling();
+        
+        Robbert.StoryTelling();
         
         
         Scanner scanner = new Scanner(System.in);
@@ -87,7 +91,11 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
         pressenter();clearScreen(1);
         Barman Luis = new Barman("Luis","7 ième ciel","NULL" , "Barman" , 20, 1000);
-        le7iemeciel.questiontuto(Luis);clearScreen(1);
+        le7iemeciel.questiontuto();
+        clearScreen(1);
+        Luis.talk("Alors, ça fait du bien de se désaltérer un petit peu ?");
+        Luis.talk("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
+        le7iemeciel.question();
         
         
         
