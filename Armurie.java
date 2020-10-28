@@ -63,7 +63,7 @@ public class Armurie extends Location implements Move_Location {
     
     private static void printList(ArrayList<Arme> maliste) {
        int compteur=0;
-       System.out.print("N* "+"Nom                       "+"PMAX"+" PMIN"+ " ACC." + "    Prix" ); 
+       System.out.print("N*  "+"Nom                       "+"PMAX"+" PMIN"+ "  ACC." + "    Prix" ); 
        clearScreen(2);
        for (Arme Arme1 : maliste) {
            System.out.print(compteur+ ")"+" "); 

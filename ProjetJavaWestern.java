@@ -47,6 +47,9 @@ public class ProjetJavaWestern {
     public static void initialisation(){
         
         
+        clearScreen(50);
+        
+        
         System.out.println(" ");
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+ "DEBUT INITIALISATION " + ANSI_RESET);
         System.out.println(" ");
@@ -73,6 +76,9 @@ public class ProjetJavaWestern {
         
 
         /* ZONE TEST */
+        
+        System.out.println(" CARTE: ");
+        map.printcarte();
         Bangout.questionAcheter();
         
         
