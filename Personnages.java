@@ -76,6 +76,7 @@ public class Personnages {
     public void SetArgent(int Argent){
         this.Argent = Argent;
     } 
+
     
     
     

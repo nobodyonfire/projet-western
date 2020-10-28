@@ -128,13 +128,20 @@ public class ProjetJavaWestern {
         
         
         /* TROISIEME PARTIE */
+        player.SetLocation("Prison");
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
-        Robbert.talkb("Rhaaa ! J'ai pas mon flingue sur moi ! eh " + player.getName() + " fait tes preuves et attrape le.");
-        Robbert.talkb("Tu auras le droit à la moitié de sa prime.");
+        Robbert.talkb("Hh " + player.getName() + " fait tes preuves et attrape le.");
+        Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tient un flingue je l'ai trouvé par terre.");
+        player.SetGun(Pistolet_de_seconde_main);
+        pressenter();clearScreen(1);
         
         duel(player, Jacob);
+        Robbert.talkb("Chapeau l'artiste! Tu as attrapé ta première prime à Widowchapel.");
+        Robbert.talkb("Voici ta récompense, et approche je vais soigner tes blessures.");
+        player.SetHP(100);
+        player.SetArgent(500);
               
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
@@ -194,6 +201,7 @@ public class ProjetJavaWestern {
     
     public static boolean duel(Player player, Brigand brigand){
         
+        System.out.println("");
         boolean victoire = false;
         int degat;
         
@@ -233,9 +241,12 @@ public class ProjetJavaWestern {
         }
         else {
             System.out.println("Vous avez eu " + brigand.getName() + ".");
+            System.out.println("Il fera moins le malin en prison.");
             victoire = true;
+            brigand.setEstEnPrison(victoire);
+            
         }
-        
+        System.out.println("");   
         return victoire;
     }
     
@@ -265,7 +276,7 @@ public class ProjetJavaWestern {
     private static final Player player = new Player("Billi","le7iemeciel",Couteau, "NULL", 1, 0, 0, 100); 
     private static final Sherif Robbert = new Sherif("Robbert", "Saloon", Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
     private static final Barman Luis = new Barman("Luis","7 ième ciel",Couteau, "Barman" , 20, 1000);
-    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Couteau, "Voleur" , 1, 0,1,false, 11);
+    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Pistolet_de_seconde_main, "Voleur" , 1, 0,1,false, 11);
     
     /*
     Initialisation des lieux 
