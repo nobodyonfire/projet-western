@@ -58,7 +58,7 @@ public class ProjetJavaWestern {
         Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
         
         
-        try { sleep(1500);} catch (InterruptedException ex) { Logger.getLogger(ProjetJavaWestern.class.getName()).log(Level.SEVERE, null, ex);}
+        sleep(1500);
         
         System.out.println(" ");
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+  "FIN INITIALISATION " + ANSI_RESET);
@@ -72,12 +72,16 @@ public class ProjetJavaWestern {
     
     public static void didactitiel(){
         
+        
+         /* PREMIERE  PARTIE */
         System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt." +  ANSI_RESET);
         System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes." +  ANSI_RESET);
         System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
         pressenter();clearScreen(1);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        
+        
         clearScreen(1);
         System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
         pressenter();clearScreen(1);
@@ -88,15 +92,49 @@ public class ProjetJavaWestern {
         clearScreen(1);
         Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
         Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
-        le7iemeciel.question();
+        sleep(1500);
         
-
+        
+        /* DEUXIEME PARTIE */
+        le7iemeciel.questiontuto2();
+        Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
+        clearScreen(1);
+        Robbert.talkb("Comme tu es nouveau je vais te présenter un peu la ville ...");
+        Robbert.talkb("Quand tu te situe dans un lieu tu peux le quitter pour en rejoindre d'autres");
+        Robbert.talkb("Il y a l'amurie, le saloon, l'allée centrale, la prison , la banque et en dehors de la ville..");
+        
+        pressenter();
+        clearScreen(1);
+        Robbert.talkb("Dans l'armurie tu peux acheter de nouvelles armes et vendre la tienne");
+        pressenter();clearScreen(1);
+        Robbert.talkb("Dans le saloon tu peux jouer, récuperer et boire..etc");
+        pressenter();clearScreen(1);
+        Robbert.talkb("La banque est l'endroit où tu pourras stocker ton argent et le retirer");
+        pressenter();clearScreen(1);
+        Robbert.talkb("Tu pourras aussi me trouver en prison, où j'aurais des missions pour toi !");
+        pressenter();clearScreen(1);
+        Robbert.talkb("Et enfin dehors , le far west , il faudra faire très attentions aux rencontres que tu vas faire..");
+        pressenter();clearScreen(2); 
+        /* CHANGER DE LOCATION LE JOUEUR*/
+        Robbert.talkb("Tant que tu es là, j'aurais besoin de ton aide en prison ..");
+        pressenter();clearScreen(1);
+        Prison Lockcity = new Prison("Lockcity",50,"NULL");
+        Brigand Jacob = new Brigand("Jacob", "Prison", "NULL", "Voleur" , 1, 0,1,false);
+        clearScreen(1);
+        Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
+        pressenter();clearScreen(1);
+        
+        
+        
+        
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
         
         
     }
     
-    
+    public static void sleep(int temps){
+        try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
+    }
     
     public static void clearScreen(int j) {  
 
@@ -110,8 +148,6 @@ public class ProjetJavaWestern {
         System.out.print(enterkey);
         enterkey = readinput.nextLine();
         System.out.print(enterkey);
-        if(enterkey == ""){
-            System.out.println("It works!"); }
     
     }
 }
