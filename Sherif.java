@@ -44,7 +44,7 @@ public class Sherif extends CowBoy{
         + "           Mais toi tu m'as l'air d'être un chasseur de prime déterminé.";
         super.talkb(ANSI_GREEN+ say+ANSI_RESET);
         Scanner scanner = new Scanner(System.in);
-        talkb( "           Quel est ton nom cowboy ?" );
+        talkb( "Quel est ton nom cowboy ?" );
         System.out.println();
         String Player_name = scanner.nextLine();
         System.out.println();

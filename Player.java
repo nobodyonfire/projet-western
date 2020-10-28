@@ -40,4 +40,17 @@ public class Player extends Personnages{
        System.out.println("Vous avez été soigné. Vous avez actuellement " + HP + " points de vie.");
    }
    
+   public void soin(int amount, Player player){
+       if (player.HP + amount >= 100){
+           player.SetHP(100);
+       }
+       else{
+           player.SetHP(player.HP + amount);
+       }      
+   }
+   
+   public void add_argent(int amount, Player player){
+       player.SetArgent(amount + player.Argent);
+   }
+   
 }

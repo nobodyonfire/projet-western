@@ -132,7 +132,7 @@ public class ProjetJavaWestern {
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
-        Robbert.talkb("Hh " + player.getName() + " fait tes preuves et attrape le.");
+        Robbert.talkb("Eh " + player.getName() + " fait tes preuves et attrape le.");
         Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tient un flingue je l'ai trouvé par terre.");
         player.SetGun(Pistolet_de_seconde_main);
         pressenter();clearScreen(1);
@@ -140,8 +140,8 @@ public class ProjetJavaWestern {
         duel(player, Jacob);
         Robbert.talkb("Chapeau l'artiste! Tu as attrapé ta première prime à Widowchapel.");
         Robbert.talkb("Voici ta récompense, et approche je vais soigner tes blessures.");
-        player.SetHP(100);
-        player.SetArgent(500);
+        player.soin(100, player);
+        player.add_argent(500, player);
               
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
@@ -213,7 +213,7 @@ public class ProjetJavaWestern {
 
                 degat = player.Gun.puissance(player.Gun);
                 brigand.HP = brigand.HP - degat;
-                System.out.println("Touché ! Vous lui avait fait " + degat + " dégat! Il lui reste encore " + brigand.HP + " HP");
+                System.out.println("Touché ! Vous lui avait fait " + degat + " dégats! Il lui reste encore " + brigand.HP + " HP");
             } 
             else               
             {
