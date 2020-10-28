@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Scanner; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Random;
 
 
 
@@ -57,7 +58,8 @@ public class ProjetJavaWestern {
         
       
         String Player_name = Robbert.StoryTelling();     
-        Player Joueur = new Player(Player_name,"le7iemeciel",Couteau, "NULL", 1, 0); 
+        player.SetName(Player_name);
+        
         
         
         sleep(1500);
@@ -77,9 +79,9 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
         
-        System.out.println(" CARTE: ");
+       /* System.out.println(" CARTE: ");
         map.printcarte();
-        Bangout.questionAcheter();
+        Bangout.questionAcheter(); */
         
         
         
@@ -129,10 +131,11 @@ public class ProjetJavaWestern {
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
+        Robbert.talkb("Rhaaa ! J'ai pas mon flingue sur moi ! eh " + player.getName() + " fait tes preuves et attrape le.");
+        Robbert.talkb("Tu auras le droit à la moitié de sa prime.");
         
-        
-     
-        
+        duel(player, Jacob);
+              
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
         
@@ -189,6 +192,53 @@ public class ProjetJavaWestern {
     
     }
     
+    public static boolean duel(Player player, Brigand brigand){
+        
+        boolean victoire = false;
+        int degat;
+        
+        System.out.println("Le duel vous oppose à " + brigand.getName() + ".");
+        sleep(750);
+
+        while (player.HP > 0 && brigand.HP > 0){
+            if (player.Gun.toucher(player.Gun) == true){
+
+                degat = player.Gun.puissance(player.Gun);
+                brigand.HP = brigand.HP - degat;
+                System.out.println("Touché ! Vous lui avait fait " + degat + " dégat! Il lui reste encore " + brigand.HP + " HP");
+            } 
+            else               
+            {
+                System.out.println("Vous l'avez rateé de peu...");  
+            }
+            
+            if (brigand.HP < 0 ){
+                break;
+            }
+            if (brigand.Gun.toucher(brigand.Gun) == true){
+                degat = brigand.Gun.puissance(brigand.Gun);
+                player.HP = player.HP - degat;
+                System.out.println("Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP);
+            }
+            else
+            {
+                System.out.println("Vous avez esquivé son tir!");
+            }
+
+            sleep(1200);
+            
+        }
+        if (player.HP <= 0){
+            System.out.println("Vous êtes mort!");
+        }
+        else {
+            System.out.println("Vous avez eu " + brigand.getName() + ".");
+            victoire = true;
+        }
+        
+        return victoire;
+    }
+    
     
      /* 
     Initialisation des armes
@@ -207,15 +257,15 @@ public class ProjetJavaWestern {
     private static final Arme Fusil_double_canon = new Arme("Fusil double canon", 130, 40, 55, 700);
     private static final Arme Fusil_canon_scie = new Arme("Fusil a canon scié", 170, 50, 33, 900);
     private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
-    private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
+    private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
   
     /*
     Initialisation des personnages
     */
-    
+    private static final Player player = new Player("Billi","le7iemeciel",Couteau, "NULL", 1, 0, 0, 100); 
     private static final Sherif Robbert = new Sherif("Robbert", "Saloon", Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
     private static final Barman Luis = new Barman("Luis","7 ième ciel",Couteau, "Barman" , 20, 1000);
-    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Couteau, "Voleur" , 1, 0,1,false);
+    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Couteau, "Voleur" , 1, 0,1,false, 11);
     
     /*
     Initialisation des lieux 

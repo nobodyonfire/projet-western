@@ -1,5 +1,6 @@
 
 package projet.java.western;
+import java.util.Random;
 
 public class Arme implements Comparable{
     String name;
@@ -54,6 +55,22 @@ public class Arme implements Comparable{
     public void Setprix(int prix){
         this.prix = prix;
     } 
+    
+    public int puissance(Arme gun){
+        Random r = new Random();
+        int interval = gun.puissanceMax - gun.puissanceMin;
+        int degat = r.nextInt(interval) + gun.puissanceMin;
+        return degat;
+    }
+    
+    public boolean toucher(Arme gun){
+        Random r = new Random();
+        boolean toucher = false;
+        if (r.nextInt(100)< gun.accuracy){
+            toucher = true;
+        }
+        return toucher;
+    }
     
     
     @Override

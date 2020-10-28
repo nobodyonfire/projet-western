@@ -9,11 +9,13 @@ public class Brigand extends Personnages {
     
     protected int NombreCapture;
     protected Boolean EstEnPrison;
+    public int HP;
     
-    public Brigand(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,int NombreCapture,Boolean EstEnPrison) {
+    public Brigand(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,int NombreCapture,Boolean EstEnPrison, int HP) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         this.NombreCapture=NombreCapture;
         this.EstEnPrison=EstEnPrison;
+        this.HP = HP;
 
     }
     
