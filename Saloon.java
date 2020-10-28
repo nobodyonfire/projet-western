@@ -112,7 +112,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void display_menututo() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) leave");
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n6) leave");
 	System.out.print("Selection: ");
         
         
@@ -125,13 +125,11 @@ public class Saloon extends Location implements Move_Location{
 	System.out.println("Que voulez vous faire ?");
 	Scanner q = new Scanner(System.in);
        
-	
         display_menututo();
         
 	switch (q.nextInt()) 
 	{
    
-  
 	    case 1:
             System.out.println();
 	    System.out.println ("Il est temps de boire un coup !" );
@@ -141,9 +139,39 @@ public class Saloon extends Location implements Move_Location{
             System.out.println();
 	    System.out.println(ANSI_GREEN+ "Il faut aller voir le barman !" +ANSI_RESET);
             questiontuto();
+	    break;     
+            
+	}
+    }
+    
+    public void display_menututo2() 
+    {
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
+	System.out.print("Selection: ");
+        
+        
+    }
+    
+    public void questiontuto2()
+    {   
+        System.out.println();
+	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+	System.out.println("Que voulez vous faire ?");
+	Scanner q = new Scanner(System.in);
+       
+        display_menututo2();
+        
+	switch (q.nextInt()) 
+	{
+   
+	    case 5:
+            System.out.println();
 	    break;
-            
-            
+	    default:
+            System.out.println();
+	    System.out.println(ANSI_GREEN+ "Il faut aller voir le Sherif !" +ANSI_RESET);
+            questiontuto2();
+	    break;     
             
 	}
     }
@@ -160,7 +188,7 @@ public class Saloon extends Location implements Move_Location{
     @Override
     public void changelocation() {
         
-        System.out.println("Where do you want to go ?");
+        System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
         
         display_location();
@@ -170,27 +198,27 @@ public class Saloon extends Location implements Move_Location{
    
 	    case 1:
             System.out.println();    
-	    System.out.println ("Let's see if the sheriff has something for us" );
+	    System.out.println ("Allons voir si le sherif à de nouvelles choses.." );
 	    break;
   
 	    case 2:
             System.out.println();
-	    System.out.println ("Need to save my money");
+	    System.out.println ("Allons faire un tour à la banque..");
 	    break;
   
 	    case 3:
-	    System.out.println ( "I must buy a new gun, this one is starting to get rusty");
+	    System.out.println ( "Allons acheter une nouvelle arme..");
 	    break;
             case 4:
  
-            System.out.println();
-	    System.err.println ( "Let's capture some bad guy ! " );
+            System.out.println();   
+	    System.err.println ( "Allons à l'aventure !" );
 	    break;
             
             case 5:
  
             System.out.println();
-	    System.err.println ( "Never mind, I think I'm gonna drink a little bit more" );
+	    System.err.println ( "Hum , je vais rester encore un peu ici" );
             question();
 	    break;
               
