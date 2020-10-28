@@ -5,8 +5,14 @@
  */
 package projet.java.western;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import static projet.java.western.Personnages.ANSI_RESET;
+import static projet.java.western.ProjetJavaWestern.ANSI_BLUE;
+import static projet.java.western.ProjetJavaWestern.ANSI_RESET;
+import static projet.java.western.ProjetJavaWestern.clearScreen;
+import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
@@ -14,7 +20,7 @@ import static projet.java.western.Saloon.ANSI_WHITE;
  *
  * @author ASUS
  */
-public class Armurie extends Location implements Move_Location{
+public class Armurie extends Location implements Move_Location {
     
     
     
@@ -48,12 +54,168 @@ public class Armurie extends Location implements Move_Location{
      
     public void Acheter(){  
         
+        questionAcheterArme();
+        
+        
     }
+    
+
+    
+    private static void printList(ArrayList<Arme> maliste) {
+       int compteur=0;
+       System.out.print("N* "+"Nom                       "+"PMAX"+" PMIN"+ " ACC." + "    Prix" ); 
+       clearScreen(2);
+       for (Arme Arme1 : maliste) {
+           System.out.print(compteur+ ")"+" "); 
+           if (compteur<10) {System.out.print(" ");}
+           System.out.print(Arme1.getname()+" "); 
+           taille(Arme1.getname(),25);taille(String.valueOf(Arme1.getpuissanceMax()),4);
+           System.out.print(Arme1.getpuissanceMax()+" "); 
+           taille(String.valueOf(Arme1.getpuissanceMin()),4);
+           System.out.print(Arme1.getpuissanceMin()+" "); 
+           taille(String.valueOf(Arme1.getaccuracy()),4);
+           System.out.print(Arme1.getaccuracy()+" "); 
+           taille(String.valueOf(Arme1.getprix()),7);
+           System.out.print(ANSI_BLUE + Arme1.getprix()+" " +ANSI_RESET); 
+
+           clearScreen(1);
+           compteur = compteur + 1;
+           
+    }   
+    }
+    
+    
+      private static void taille(String mot,int max){
+        int taillemot=mot.length();
+        for (int i = 0; i < max-taillemot; ++i) 
+            System.out.print(" ");
+    }
+   
+    public static void clearScreen(int j) {  
+
+        for (int i = 0; i < j; ++i) System.out.println("");
+
+    }
+    
+    
+    
+    public void display_menuAcheter() 
+    {
+	ArrayList <Arme> listearme = new ArrayList < Arme> ();
+        listearme=listearme();
+        Collections.sort(listearme);
+        clearScreen(2);
+        printList(listearme);
+        clearScreen(2);
+      
+    }
+    
+    public void questionAcheterArme() 
+    {
+        System.out.println();
+	System.out.println("Que voulez vous Acheter?");
+	Scanner q = new Scanner(System.in);
+       
+
+         display_menuAcheter();
+        
+	switch (q.nextInt()) 
+	{
+   
+  
+	    case 1:
+            System.out.println();    
+	    break;
+  
+	    case 2:
+            System.out.println();
+	    System.out.println ( "Vendons notre arme..." );
+	    break;
+            
+            default:
+            questionAcheterArme();
+            System.out.println();
+	    System.err.println ( "Unrecognized option" );
+	    break;
+              
+	}
+    }
+   
+    public void questionAcheter() 
+    {
+        System.out.println();
+	System.out.println("Que voulez vous Acheter?");
+	Scanner q = new Scanner(System.in);
+       
+
+        display_menu();
+        
+	switch (q.nextInt()) 
+	{
+   
+  
+	    case 1:
+            System.out.println();    
+            Acheter();
+	    break;
+  
+	    case 2:
+            System.out.println();
+	    System.out.println ( "Vendons notre arme..." );
+	    Vendre();
+	    break;
+            
+            default:
+            question();
+            System.out.println();
+	    System.err.println ( "Unrecognized option" );
+	    break;
+              
+	}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public void Vendre(){
         
     }
     
-      public void display_menu() 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void display_menu() 
     {
 	System.out.println("1) Acheter  \n2) Vendre \n3) leave");
 	System.out.print("Selection: ");  
@@ -97,6 +259,13 @@ public class Armurie extends Location implements Move_Location{
               
 	}
     }
+    
+    
+    
+    
+    
+    
+    
     
     
      public void display_location()

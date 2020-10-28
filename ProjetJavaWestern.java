@@ -1,6 +1,8 @@
 package projet.java.western;
 import static java.lang.Thread.sleep;
 import static java.lang.constant.ConstantDescs.NULL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,6 +71,11 @@ public class ProjetJavaWestern {
     
     public static void didactitiel(){
         
+
+        /* ZONE TEST */
+        Bangout.questionAcheter();
+        
+        
         
          /* PREMIERE  PARTIE */
         System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt." +  ANSI_RESET);
@@ -112,11 +119,13 @@ public class ProjetJavaWestern {
         pressenter();clearScreen(1);
         
         
+        /* TROISIEME PARTIE */
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
         
         
+     
         
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
@@ -124,6 +133,37 @@ public class ProjetJavaWestern {
         
     }
     
+    
+    
+    public static ArrayList<Arme> listearme(){
+        ArrayList <Arme> listearme = new ArrayList < Arme> ();
+        listearme.add(Pistolet_de_seconde_main);
+        listearme.add(Colt_anaconda);
+        listearme.add(Calibre_44_PN);  
+        listearme.add(Colt_baby_dragon );
+        listearme.add(Remington_1875_USA_army);
+        listearme.add(Fusil_henry); 
+        listearme.add(Fusil_sharps);
+        listearme.add(Winchester_modele_1873);
+        listearme.add(Winchester_modele_1887); 
+        listearme.add(Winchester_modele_1895);
+        listearme.add(Winchester_modele_1897);
+        listearme.add(Fusil_double_canon); 
+        listearme.add(Fusil_canon_scie);
+        listearme.add(The_Lucky_Luck );
+        listearme.add(Couteau);    
+        
+        return listearme;
+    }
+    
+    
+    private static void taille(String mot,int max){
+        int taillemot=mot.length();
+        for (int i = 0; i < max-taillemot; ++i) 
+            System.out.print(" ");
+    }
+    
+   
     public static void sleep(int temps){
         try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
     }
@@ -155,14 +195,14 @@ public class ProjetJavaWestern {
     private static final Arme Fusil_henry = new Arme("Fusil_Henry", 30, 15, 95, 500);
     private static final Arme Fusil_sharps = new Arme("fusil Sharps", 35, 10, 97, 550);
     private static final Arme Winchester_modele_1873 = new Arme("Winchester modele 1873", 20, 5, 99, 600);
-    private static final Arme Winchester_modele_1887 = new Arme("Winchester modeke 1887", 35, 20, 100, 700);
-    private static final Arme Winchester_modele_1895 = new Arme("whinchester modele 1895", 45, 30, 100, 800); 
+    private static final Arme Winchester_modele_1887 = new Arme("Winchester modele 1887", 35, 20, 100, 700);
+    private static final Arme Winchester_modele_1895 = new Arme("Whinchester modele 1895", 45, 30, 100, 800); 
     private static final Arme Winchester_modele_1897 = new Arme("Whinchester modele 1897", 150, 60, 60, 1520);
     private static final Arme Fusil_double_canon = new Arme("Fusil double canon", 130, 40, 55, 700);
     private static final Arme Fusil_canon_scie = new Arme("Fusil a canon scié", 170, 50, 33, 900);
     private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
     private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
-    
+  
     /*
     Initialisation des personnages
     */
