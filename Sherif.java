@@ -10,7 +10,7 @@ public class Sherif extends CowBoy{
     public static final String ANSI_GREEN = "\u001B[32m";
     protected int NombreDeCapture;
     
-    public Sherif(String Name, String Location, String Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate,int NombreDeCapture) {
+    public Sherif(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate,int NombreDeCapture) {
         super(Name,Location,Gun,Job,Niveau,Argent,TruthLevel,FavoritePlate);
         this.NombreDeCapture=NombreDeCapture;
         
@@ -44,9 +44,8 @@ public class Sherif extends CowBoy{
         + "           Mais toi tu m'as l'air d'être un chasseur de prime déterminé.";
         super.talkb(ANSI_GREEN+ say+ANSI_RESET);
         Scanner scanner = new Scanner(System.in);
-        talkb( "           Quel est tonA nom cowboy ?" );
+        talkb( "           Quel est ton nom cowboy ?" );
         System.out.println();
-        System.out.print( "Nom = " );
         String Player_name = scanner.nextLine();
         System.out.println();
         talkb("Ainsi soit-il " + Player_name + ". Bienvenue en enfer.");

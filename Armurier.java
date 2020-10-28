@@ -9,7 +9,7 @@ public class Armurier extends Personnages{
     
     protected Boolean SeFaitCambrioler;
     
-    public Armurier(String Name, String Location, String Gun , String Job , int Niveau, int Argent) {
+    public Armurier(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent) {
         super(Name,Location,Gun,Job,Niveau,Argent);
 
     }

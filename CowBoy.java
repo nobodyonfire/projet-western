@@ -11,7 +11,7 @@ public class CowBoy extends Personnages {
     protected int TruthLevel;
     protected String FavoritePlate;
     
-    public CowBoy(String Name, String Location, String Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate) {
+    public CowBoy(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         this.TruthLevel=TruthLevel;
         this.FavoritePlate=FavoritePlate;

@@ -50,12 +50,9 @@ public class ProjetJavaWestern {
         System.out.println(" ");
         
         
-        Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
-        
-        
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");       
+      
         String Player_name = Robbert.StoryTelling();     
-        Player Joueur = new Player(Player_name,"le7iemeciel","NULL" , "NULL", 1, 0); 
+        Player Joueur = new Player(Player_name,"le7iemeciel",Couteau, "NULL", 1, 0); 
         
         
         sleep(1500);
@@ -78,16 +75,12 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes." +  ANSI_RESET);
         System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
         pressenter();clearScreen(1);
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
-        
-        
+      
         clearScreen(1);
         System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
         pressenter();clearScreen(1);
         System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
         pressenter();clearScreen(1);
-        Barman Luis = new Barman("Luis","7 ième ciel","NULL" , "Barman" , 20, 1000);
         le7iemeciel.questiontuto();
         clearScreen(1);
         Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
@@ -97,11 +90,10 @@ public class ProjetJavaWestern {
         
         /* DEUXIEME PARTIE */
         le7iemeciel.questiontuto2();
-        Sherif Robbert = new Sherif("Robbert", "Saloon", "NULL", "NULL", 0,0,100,"pate bolo",10);
         clearScreen(1);
         Robbert.talkb("Comme tu es nouveau je vais te présenter un peu la ville ...");
         Robbert.talkb("Quand tu te situe dans un lieu tu peux le quitter pour en rejoindre d'autres");
-        Robbert.talkb("Il y a l'amurie, le saloon, l'allée centrale, la prison , la banque et en dehors de la ville..");
+        Robbert.talkb("Il y a l'amurie, le saloon, l'allée centrale, la prison , la banque et l'extérieur de la ville..");
         
         pressenter();
         clearScreen(1);
@@ -111,15 +103,15 @@ public class ProjetJavaWestern {
         pressenter();clearScreen(1);
         Robbert.talkb("La banque est l'endroit où tu pourras stocker ton argent et le retirer");
         pressenter();clearScreen(1);
-        Robbert.talkb("Tu pourras aussi me trouver en prison, où j'aurais des missions pour toi !");
+        Robbert.talkb("Tu pourras aussi me trouver à la prison, où j'aurais des missions pour toi !");
         pressenter();clearScreen(1);
         Robbert.talkb("Et enfin dehors , le far west , il faudra faire très attentions aux rencontres que tu vas faire..");
         pressenter();clearScreen(2); 
         /* CHANGER DE LOCATION LE JOUEUR*/
         Robbert.talkb("Tant que tu es là, j'aurais besoin de ton aide en prison ..");
         pressenter();clearScreen(1);
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
-        Brigand Jacob = new Brigand("Jacob", "Prison", "NULL", "Voleur" , 1, 0,1,false);
+        
+        
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
@@ -150,4 +142,49 @@ public class ProjetJavaWestern {
         System.out.print(enterkey);
     
     }
+    
+    
+     /* 
+    Initialisation des armes
+    */
+    private static final Arme Pistolet_de_seconde_main = new Arme("Pistolet de seconde main", 10, 1, 80, 10);
+    private static final Arme Colt_anaconda = new Arme("Colt anaconda", 60, 30, 85, 400);
+    private static final Arme Calibre_44_PN = new Arme("Calibre .44 PN", 70, 25, 70, 450);
+    private static final Arme Colt_baby_dragon = new Arme("Colt baby dragon", 80, 10, 80, 600);
+    private static final Arme Remington_1875_USA_army = new Arme("Remington 1875 USA Army", 80, 53, 85, 1000);
+    private static final Arme Fusil_henry = new Arme("Fusil_Henry", 30, 15, 95, 500);
+    private static final Arme Fusil_sharps = new Arme("fusil Sharps", 35, 10, 97, 550);
+    private static final Arme Winchester_modele_1873 = new Arme("Winchester modele 1873", 20, 5, 99, 600);
+    private static final Arme Winchester_modele_1887 = new Arme("Winchester modeke 1887", 35, 20, 100, 700);
+    private static final Arme Winchester_modele_1895 = new Arme("whinchester modele 1895", 45, 30, 100, 800); 
+    private static final Arme Winchester_modele_1897 = new Arme("Whinchester modele 1897", 150, 60, 60, 1520);
+    private static final Arme Fusil_double_canon = new Arme("Fusil double canon", 130, 40, 55, 700);
+    private static final Arme Fusil_canon_scie = new Arme("Fusil a canon scié", 170, 50, 33, 900);
+    private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
+    private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
+    
+    /*
+    Initialisation des personnages
+    */
+    
+    private static final Sherif Robbert = new Sherif("Robbert", "Saloon", Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
+    private static final Barman Luis = new Barman("Luis","7 ième ciel",Couteau, "Barman" , 20, 1000);
+    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Couteau, "Voleur" , 1, 0,1,false);
+    
+    /*
+    Initialisation des lieux 
+    */
+    
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+    private static final Prison Lockcity = new Prison("Lockcity",50,"NULL");
+    private static final Armurie Bangout = new Armurie("Bangout",10,"NULL");
+
+
+
+
+
+
+
+
+
 }

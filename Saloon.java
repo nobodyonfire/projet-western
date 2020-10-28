@@ -16,6 +16,7 @@ public class Saloon extends Location implements Move_Location{
     public static final String ANSI_BLUE = "\u001B[34m";
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
     
     protected String Name;
     
@@ -34,7 +35,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void boire(){
         
-        Barman Barman = new Barman("Luis","7 ième ciel","NULL","Barman" ,0,1000);       
+        Barman Barman = new Barman("Luis","7 ième ciel",Couteau,"Barman" ,0,1000);       
         Barman.questionboisson();
         
     }

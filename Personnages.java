@@ -11,7 +11,7 @@ public class Personnages {
     
     protected String Name;
     protected String Location;
-    protected String Gun;
+    protected Arme Gun;
     protected String Job;
     protected int Niveau;
     protected int Argent;
@@ -19,7 +19,7 @@ public class Personnages {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     
-    public Personnages(String Name, String Location, String Gun , String Job , int Niveau, int Argent) {
+    public Personnages(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent) {
         this.Name = Name;
         this.Location=Location;
         this.Gun=Gun;
@@ -38,7 +38,7 @@ public class Personnages {
     public String getLocation (){
         return this.Location;
     }
-    public String getGun (){
+    public Arme getGun (){
         return this.Gun;
     }
     public String getJob (){
@@ -67,7 +67,7 @@ public class Personnages {
     public void SetJob(String Job){
         this.Job = Job;
     } 
-    public void SetGun(String Gun){
+    public void SetGun(Arme Gun){
         this.Gun = Gun;
     } 
     public void SetNiveau(int Niveau){
