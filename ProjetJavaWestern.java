@@ -79,6 +79,10 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
         
+        
+        Arme.minijeu2();
+        
+        sleep(10000);
        /* System.out.println(" CARTE: ");
         map.printcarte();
         Bangout.questionAcheter(); */

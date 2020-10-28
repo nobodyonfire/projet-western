@@ -1,6 +1,7 @@
 
 package projet.java.western;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Arme implements Comparable{
     String name;
@@ -73,6 +74,120 @@ public class Arme implements Comparable{
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   public static int minijeu1(){
+       System.out.println("TIR 1 ; Des chiffres vont apparaitre, il faut les écrire le plus vite possible !");
+       pressenter();
+       System.out.println("3");
+       sleep(1000);
+       System.out.println("2");
+       sleep(1000);
+       System.out.println("1");
+       sleep(1000);
+       System.out.println("GO ");
+       sleep(1000);
+       System.out.println(" ");
+       System.out.println("///////////////////////////"); 
+       System.out.println(" ");
+       int succes=0;
+       
+       for (int i = 0; i <3 ; ++i) {
+       
+            int a =getRandomNumberInRange(1,100);
+            System.out.print(a);
+            System.out.println(" ");
+            
+            Reminder test= new Reminder(2);
+            sleep(5000);
+            int valeur =test.getvaleur();
+
+            if (a==valeur){succes=succes+1;}
+ 
+       }
+      
+       System.out.println("Vous avez fait un " + succes +" / " + "3");
+       return succes;
+   }
+   
+  
+  
+   public static int minijeu2(){
+       System.out.println("TIR 2 ; Des chiffres vont apparaitre, il faut les réécrier le plus vite possible !");
+       pressenter();
+       System.out.println("3");
+       sleep(1000);
+       System.out.println("2");
+       sleep(1000);
+       System.out.println("1");
+       sleep(1000);
+       System.out.println("GO ");
+       sleep(1000);
+       System.out.println(" ");
+       System.out.println("///////////////////////////"); 
+       System.out.println(" ");
+
+       int a =getRandomNumberInRange(10000,1000000);
+       System.out.print(a);
+       System.out.println(" ");
+
+       Reminder test= new Reminder(8);
+       sleep(5000);
+       int valeur =test.getvaleur();
+       if (a==valeur){
+           System.out.println("Vous avez fait un réussi !");
+           return 1;
+       }
+       else{
+           System.out.println("Vous avez échoué..");
+           return 0;
+       }  
+       
+       
+   }
+
+
+   
+   
+   
+   
+    private static int getRandomNumberInRange(int min, int max) {
+	if (min >= max) {
+		throw new IllegalArgumentException("max must be greater than min");
+	}
+	Random r = new Random();
+	return r.nextInt((max - min) + 1) + min;
+    }
+    
+    public static void sleep(int temps){
+        try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
+    }
+    
+    public static void clearScreen(int j) {  
+
+        for (int i = 0; i < j; ++i) System.out.println("");
+
+    }
+    public static void pressenter(){
+        Scanner readinput = new Scanner(System.in);
+        String enterkey = "appuyer sur entrer...";
+        System.out.print(enterkey);
+        enterkey = readinput.nextLine();
+        System.out.print(enterkey);
+    
+    }
+    
+    
+    
+    
+    
     @Override
     public int compareTo(Object other) {
         Arme user1 = (Arme) other;
@@ -81,3 +196,9 @@ public class Arme implements Comparable{
 
     }
 }
+    
+    
+    
+    
+    
+    
