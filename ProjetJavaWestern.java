@@ -100,7 +100,7 @@ public class ProjetJavaWestern {
         clearScreen(1);
         Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
         Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
-        sleep(1500);
+        pressenter();
         
         
         /* DEUXIEME PARTIE */
@@ -133,13 +133,14 @@ public class ProjetJavaWestern {
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
         Robbert.talkb("Eh " + player.getName() + " fait tes preuves et attrape le.");
-        Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tient un flingue je l'ai trouvé par terre.");
+        Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tiens un flingue je l'ai trouvé par terre.");
         player.SetGun(Pistolet_de_seconde_main);
         pressenter();clearScreen(1);
         
         duel(player, Jacob);
         Robbert.talkb("Chapeau l'artiste! Tu as attrapé ta première prime à Widowchapel.");
         Robbert.talkb("Voici ta récompense, et approche je vais soigner tes blessures.");
+        pressenter();
         player.soin(100, player);
         player.add_argent(500, player);
               
@@ -204,9 +205,44 @@ public class ProjetJavaWestern {
         System.out.println("");
         boolean victoire = false;
         int degat;
+      
+        /* AFFICHAGE DUEL */
         
-        System.out.println("Le duel vous oppose à " + brigand.getName() + ".");
-        sleep(750);
+        for (int i = 0; i < player.getName().length() + 26 ; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
+        System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+"DUEL"+ANSI_RESET);
+        for (int i = 0; i < brigand.getName().length() +26; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
+        
+        /* AFFICHAGE NOM*/
+        
+        System.out.println("");
+        System.out.println(player.getName()+ "                           VS                          "+ brigand.getName());
+        
+        /* AFFICHAGE HP*/
+       
+        System.out.print(player.getHP());
+         for (int i = 0; i < player.getName().length()-Integer.toString(player.getHP()).length() ; ++i) System.out.print(" ");
+         if (brigand.getHP()>99){
+             System.out.println("                           HP                            "+ brigand.getHP());}
+         else{
+             System.out.println("                           HP                             "+ brigand.getHP());
+         }
+         
+        
+         /* AFFICHAGE ARMES*/
+        
+        for (int i = 0; i < player.getName().length()-player.Gun.getname().length() ; ++i) System.out.print(" ");
+        
+        System.out.print(player.Gun.getname());
+        for (int i = 0; i < 32-player.Gun.getname().length() ; ++i) System.out.print(" ");
+        System.out.print("GUN");
+        for (int i = 0; i < 31-brigand.Gun.getname().length() ; ++i) System.out.print(" ");
+        System.out.print(brigand.Gun.getname());
+        
+        
+        System.out.println("");
+        System.out.println("");
+        pressenter();
+        System.out.println("");
 
         while (player.HP > 0 && brigand.HP > 0){
             if (player.Gun.toucher(player.Gun) == true){
@@ -226,14 +262,15 @@ public class ProjetJavaWestern {
             if (brigand.Gun.toucher(brigand.Gun) == true){
                 degat = brigand.Gun.puissance(brigand.Gun);
                 player.HP = player.HP - degat;
-                System.out.println("Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP);
+                System.out.println("Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP+" HP");
             }
             else
             {
                 System.out.println("Vous avez esquivé son tir!");
             }
 
-            sleep(1200);
+            pressenter();
+            System.out.println("");
             
         }
         if (player.HP <= 0){
@@ -241,7 +278,9 @@ public class ProjetJavaWestern {
         }
         else {
             System.out.println("Vous avez eu " + brigand.getName() + ".");
+            clearScreen(1);
             System.out.println("Il fera moins le malin en prison.");
+            pressenter();
             victoire = true;
             brigand.setEstEnPrison(victoire);
             

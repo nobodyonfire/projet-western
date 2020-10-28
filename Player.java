@@ -8,6 +8,9 @@ public class Player extends Personnages{
     
     int etat;
     int HP;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+
     
     
     public Player(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent, int etat, int HP) {
@@ -26,19 +29,38 @@ public class Player extends Personnages{
    @Override
    public void SetGun(Arme Gun){
         this.Gun = Gun;
-        System.out.println("Vous avez obtenu un " + Gun.getname() + ".");
+        System.out.println("");
+        System.out.println(ANSI_BLUE + "Vous avez obtenu un " + Gun.getname() + "."+ANSI_RESET);
+        System.out.println("");
     } 
    
    @Override
    public void SetArgent(int Argent){
         this.Argent = Argent;
-        System.out.println("Vous avez obtenu " + Argent  +" $.");
+        System.out.println("");
+        System.out.println(ANSI_BLUE+"Vous avez obtenu " + Argent  +" $."+ANSI_RESET);
+        System.out.println("");
     } 
    
    public void SetHP(int HP){
        this.HP = HP;
-       System.out.println("Vous avez été soigné. Vous avez actuellement " + HP + " points de vie.");
+       System.out.println("");
+       System.out.println(ANSI_BLUE + "Vous avez été soigné. Vous avez actuellement " + HP + " points de vie."+ANSI_RESET);
+       System.out.println("");
    }
+   
+     
+    public int getHP(){
+        return this.HP;
+    }
+    
+    public Arme getGun(){
+        return this.Gun;
+    }
+    
+  
+    
+ 
    
    public void soin(int amount, Player player){
        if (player.HP + amount >= 100){

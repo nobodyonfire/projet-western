@@ -113,7 +113,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void display_menututo() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n6) leave");
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n6) Quitter");
 	System.out.print("Selection: ");
         
         
@@ -155,8 +155,9 @@ public class Saloon extends Location implements Move_Location{
     
     public void questiontuto2()
     {   
-        System.out.println();
+        System.out.println("");
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+        System.out.println("");
 	System.out.println("Que voulez vous faire ?");
 	Scanner q = new Scanner(System.in);
        

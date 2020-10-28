@@ -106,6 +106,7 @@ public class Barman extends Personnages{
 	    break;
             
             case 5:
+            System.out.println();
 	    talkb( "Bonne journée à vous !" );
             /* EFFET DE LA BOISSON */
             

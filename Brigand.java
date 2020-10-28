@@ -39,6 +39,9 @@ public class Brigand extends Personnages {
         this.EstEnPrison=EstEnPrison;
     }
     
+     public int getHP(){
+        return this.HP;
+    }
     
   
     
