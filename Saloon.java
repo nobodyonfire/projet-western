@@ -41,19 +41,41 @@ public class Saloon extends Location implements Move_Location, Menu{
     public void Jouer(){  
         
     }
-    public void Seduire(){
-        
+    public void Seduire(Player player){
+        System.out.println("");
+        System.out.println(ANSI_BLUE+"Jouer pour augmenter vos HP max !"+ANSI_RESET);
+        System.out.println("");
+     display_seduire(player);
     }
-    public void PlayPiano(){
-        
+    
+    public void PlayPiano(Player player){
+        System.out.println("");
+        System.out.println(ANSI_BLUE+"Jouer pour gagner de l'argent et des HP !"+ANSI_RESET);
+        System.out.println("");
+        display_piano(player);  
     }
+    
     public void leave(){
         
     }
     
     
     
-    
+    public void recompensepiano(Player player){
+        int a =getRandomNumberInRange(1,5);
+        int b =getRandomNumberInRange(1,3);
+        
+        if (b==1){
+            if (player.getHP()+1<101){
+                player.setHP(player.getHP()+1);
+                System.out.println(ANSI_BLUE+"Vous avez été soigné de 1HP, vous avez maintenant :"+ player.getHP()+" HP"+ANSI_RESET);
+            }
+        }
+        if (a==1){
+            player.SetArgent(player.getArgent()+1);
+            System.out.println(ANSI_BLUE +"Vous avez été gagné 1$ ! " + ANSI_RESET);   
+        }  
+    }      
     public void display_piano(Player player){
        int a =getRandomNumberInRange(1,9);
        int b =getRandomNumberInRange(0,20);
@@ -70,21 +92,68 @@ public class Saloon extends Location implements Move_Location, Menu{
             }
        }
        if (Stop == true){
-           Menu(player);
+            Menu(player);
        }
        else{
+         recompensepiano(player);
          display_piano(player);  
        }
      
     }
+    
+    
+    public void recompenseseduire(Player player){
+        int a =getRandomNumberInRange(1,5);
+ 
+        if (a==1){
+            if (player.getHP()+1<101){
+                player.setHP(player.getHP()+1);
+                System.out.println(ANSI_BLUE+"Vous avez été soigné de 1HP, vous avez maintenant :"+ player.getHP()+" HP"+ANSI_RESET);
+            }
+            else {
+                player.setHP(player.getHP()+1);
+                System.out.println(ANSI_BLUE+"Vos HP max ont augmentés:"+ player.getHP()+" HP"+ANSI_RESET);
+            }
+        }
+    }      
+     public void display_seduire(Player player){
+          int a =getRandomNumberInRange(0,35);
+          map.printseduire(a);
+          int A =50;int B =50;boolean Stop = false;int valeur=50;
+          System.out.println("Rentrer le nombre que vous voyez ( A puis B ), rentrer "+ "55" +" pour quiter");
+       
+       while((a!=valeur) && (Stop == false)){
+            System.out.print("A= ");
+            Scanner q = new Scanner(System.in);
+            int tmp = q.nextInt();
+            System.out.print("B= ");
+            Scanner q1 = new Scanner(System.in);
+            int tmp2 = q1.nextInt();
+            valeur = tmp*6+tmp2;
+            if (valeur == 55 ){
+                Stop = true; 
+            }
+       }
+       if (Stop == true){
+            Menu(player);
+       }
+       else{
+         recompenseseduire(player);
+         display_seduire(player);  
+       }
+     
+     }
+    
+    
+    
+    
+    
     
     public void display_menu() 
     {
 	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) leave");
 	System.out.print("Selection: ");  
     }
-    
-
     
     
     
@@ -131,7 +200,6 @@ public class Saloon extends Location implements Move_Location, Menu{
 	    case 3:
                 System.out.println ( "Allons acheter une nouvelle arme..");
                 System.out.println("Vous entrez dans l'armurie.");
-                player.SetLocation(Bangout);
                 Bangout.Menu(player);
                 break;
             case 4:
@@ -155,7 +223,53 @@ public class Saloon extends Location implements Move_Location, Menu{
     }
     
     
-    
+    @Override
+    public void Menu(Player player) {
+
+        System.out.println();
+	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+	System.out.println("Que voulez vous faire ?");
+	Scanner q = new Scanner(System.in);
+
+
+        display_menu();
+
+	switch (q.nextInt()) 
+	{
+
+
+	    case 1:
+            System.out.println();    
+	    System.out.println ("Il est temps de boire un coup !" );
+            boire(player);
+	    break;
+
+	    case 2:
+            System.out.println();
+	    System.out.println ( "You picked option 2" );
+	    Menu(player);
+	    break;
+
+	    case 3:
+	    System.out.println ( "You picked option 3" );
+	    Menu(player);
+	    break;
+
+            case 4:
+                System.out.println("Piano");
+                display_piano(player);
+            case 5:
+                System.out.println("I'm gonna leave this place");
+                changelocation(player);
+	    default:
+            Menu(player);
+            System.out.println();
+	    System.err.println ( "Unrecognized option" );
+	    break;
+
+	}
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
@@ -243,54 +357,6 @@ public class Saloon extends Location implements Move_Location, Menu{
 	    break;     
             
 	}
-    }
-
-    @Override
-    public void Menu(Player player) {
-        
-        System.out.println();
-	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
-	System.out.println("Que voulez vous faire ?");
-	Scanner q = new Scanner(System.in);
-       
-	
-        display_menu();
-        
-	switch (q.nextInt()) 
-	{
-   
-  
-	    case 1:
-            System.out.println();    
-	    System.out.println ("Il est temps de boire un coup !" );
-            boire(player);
-	    break;
-  
-	    case 2:
-            System.out.println();
-	    System.out.println ( "You picked option 2" );
-	    Menu(player);
-	    break;
-  
-	    case 3:
-	    System.out.println ( "You picked option 3" );
-	    Menu(player);
-	    break;
-            
-            case 4:
-                System.out.println("Piano");
-                display_piano(player);
-            case 5:
-                System.out.println("I'm gonna leave this place");
-                changelocation(player);
-	    default:
-            Menu(player);
-            System.out.println();
-	    System.err.println ( "Unrecognized option" );
-	    break;
-              
-	}
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
  
