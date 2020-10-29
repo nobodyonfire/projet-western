@@ -80,10 +80,9 @@ public class ProjetJavaWestern {
         /* ZONE TEST */
         
         
-        Arme.minijeu2();
-        
-        sleep(10000);
-       /* System.out.println(" CARTE: ");
+        player.playersave();
+        player.playerload();
+       /* 
         map.printcarte();
         Bangout.questionAcheter(); */
         
@@ -115,7 +114,12 @@ public class ProjetJavaWestern {
         Robbert.talkb("Il y a l'amurie, le saloon, l'allée centrale, la prison , la banque et l'extérieur de la ville..");
         
         pressenter();
-        clearScreen(1);
+        Robbert.talkb("Voilà la carte de la ville");
+        
+        clearScreen(2);
+        System.out.println("CARTE: ");
+        map.printcarte();
+        clearScreen(2);
         Robbert.talkb("Dans l'armurie tu peux acheter de nouvelles armes et vendre la tienne");
         pressenter();clearScreen(1);
         Robbert.talkb("Dans le saloon tu peux jouer, récuperer et boire..etc");
@@ -212,10 +216,13 @@ public class ProjetJavaWestern {
       
         /* AFFICHAGE DUEL */
         
+                
+        for (int i = 0; i < player.getName().length() + 61 ; ++i) System.out.print("_");clearScreen(1);
+
         for (int i = 0; i < player.getName().length() + 26 ; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
         System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+"DUEL"+ANSI_RESET);
-        for (int i = 0; i < brigand.getName().length() +26; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
-        
+        for (int i = 0; i < brigand.getName().length() +26; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);        clearScreen(1);
+        for (int i = 0; i < player.getName().length() + 61 ; ++i) System.out.print("¯");
         /* AFFICHAGE NOM*/
         
         System.out.println("");
@@ -237,7 +244,7 @@ public class ProjetJavaWestern {
         for (int i = 0; i < player.getName().length()-player.Gun.getname().length() ; ++i) System.out.print(" ");
         
         System.out.print(player.Gun.getname());
-        for (int i = 0; i < 32-player.Gun.getname().length() ; ++i) System.out.print(" ");
+        for (int i = 0; i < 31-player.Gun.getname().length() ; ++i) System.out.print(" ");
         System.out.print("GUN");
         for (int i = 0; i < 31-brigand.Gun.getname().length() ; ++i) System.out.print(" ");
         System.out.print(brigand.Gun.getname());

@@ -10,7 +10,7 @@ public class Player extends Personnages{
     int HP;
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLUE = "\u001B[34m";
-
+    private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
     
     
     public Player(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent, int etat, int HP) {
@@ -49,16 +49,83 @@ public class Player extends Personnages{
        System.out.println("");
    }
    
-     
+   
+   public void setName(String Name){
+       if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
+   }
+    public void setLocation(String Location){
+       this.Location = Location;
+   }
+    public void setJob(String Job){
+       this.Job = Job;
+   }
+    public void setNiveau(int Niveau){
+       this.Niveau = Niveau;
+   }
+    public void setEtat(int etat){
+       this.etat = etat;
+   }
+   
+   
+    public String getName(){
+     return this.Name;
+    }
+    
+    public String getLocation(){
+     return this.Location;
+    }
+     public Arme getGun(){
+     return this.Gun;
+    }
+    public String getJob(){
+     return this.Job;
+    }
+    public int getNiveau(){
+     return this.Niveau;
+    }
+    public int getArgent(){
+     return this.Argent;
+    }
+    
+    public int getetat(){
+        return this.etat;
+    }
     public int getHP(){
         return this.HP;
     }
     
-    public Arme getGun(){
-        return this.Gun;
+    public void playersave(){
+        String string="";
+        string = string +getName()+" "+getLocation()+ " "+this.Gun.getname()+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP() ;
+        save.Save(string);
     }
     
-  
+    public void playerload(){
+        Player player = new Player("Billi","le7iemeciel",Couteau, "NULL", 1, 0, 0, 100); 
+        String string = save.lire();
+        final String SEPARATEUR = " ";
+        String mots[] = string.split(SEPARATEUR);
+        setName(mots[0]);
+        setLocation(mots[1]);
+        this.Gun.Setname(mots[2]);
+        this.Gun.SetpuissanceMax(Integer.parseInt((mots[3])));
+        this.Gun.SetpuissanceMax(Integer.parseInt((mots[4])));
+        this.Gun.Setaccuracy(Integer.parseInt((mots[5])));
+        this.Gun.Setprix(Integer.parseInt((mots[6])));
+        setJob(mots[7]);
+
+        setNiveau(Integer.parseInt((mots[8])));
+        SetArgent(Integer.parseInt((mots[9])));
+        setEtat(Integer.parseInt((mots[10])));
+
+        
+        final String SEPARATEUR2 = "null";
+        String mots2[] = mots[11].split(SEPARATEUR2);
+        SetHP(100);
+
+        }
+    
+
     
  
    

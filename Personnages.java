@@ -20,7 +20,7 @@ public class Personnages {
     public static final String ANSI_GREEN = "\u001B[32m";
     
     public Personnages(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent) {
-        this.Name = Name;
+        if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
         this.Location=Location;
         this.Gun=Gun;
         this.Job=Job;
@@ -59,7 +59,7 @@ public class Personnages {
    
     
     public void SetName(String Name){
-        this.Name = Name;
+        if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
     } 
     public void SetLocation(String Location){
         this.Location = Location;
