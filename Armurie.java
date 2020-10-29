@@ -21,7 +21,7 @@ import static projet.java.western.Saloon.ANSI_WHITE;
  *
  * @author ASUS
  */
-public class Armurie extends Location implements Move_Location {
+public class Armurie extends Location implements Move_Location, Menu{
     
     
     
@@ -171,7 +171,7 @@ public class Armurie extends Location implements Move_Location {
 	    break;
             
             default:
-            question(player);
+            Menu(player);
             System.out.println();
 	    System.err.println ( "Unrecognized option" );
 	    break;
@@ -225,53 +225,7 @@ public class Armurie extends Location implements Move_Location {
 	System.out.println("1) Acheter  \n2) Vendre \n3) leave");
 	System.out.print("Selection: ");  
     }
-    
-    
-    
-    public void question(Player player) 
-    {
-        System.out.println();
-	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'armurie !"+ ANSI_RESET);
-	System.out.println("Que voulez vous faire ?");
-	Scanner q = new Scanner(System.in);
-       
-	
-        display_menu();
-        
-	switch (q.nextInt()) 
-	{
-   
-  
-	    case 1:
-            System.out.println();    
-	    System.out.println ("Achetons une nouvelle arme !" );
-            Acheter();
-	    break;
-  
-	    case 2:
-            System.out.println();
-	    System.out.println ( "Vendons notre arme..." );
-	    Vendre();
-	    break;
-            case 3:
-                System.out.println("I'm gonna leave this place");
-                changelocation(player);
-	    default:
-            question(player);
-            System.out.println();
-	    System.err.println ( "Unrecognized option" );
-	    break;
-              
-	}
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+
     
      public void display_location()
     {
@@ -314,11 +268,50 @@ public class Armurie extends Location implements Move_Location {
  
             System.out.println();
 	    System.err.println ( "Let's drink a bit more" );
-            question(player);
+            Menu(player);
 	    break;
               
 	}
         
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Menu(Player player) {
+        
+        System.out.println();
+	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'armurie !"+ ANSI_RESET);
+	System.out.println("Que voulez vous faire ?");
+	Scanner q = new Scanner(System.in);
+       
+	
+        display_menu();
+        
+	switch (q.nextInt()) 
+	{
+   
+  
+	    case 1:
+            System.out.println();    
+	    System.out.println ("Achetons une nouvelle arme !" );
+            Acheter();
+	    break;
+  
+	    case 2:
+            System.out.println();
+	    System.out.println ( "Vendons notre arme..." );
+	    Vendre();
+	    break;
+            case 3:
+                System.out.println("I'm gonna leave this place");
+                changelocation(player);
+	    default:
+            Menu(player);
+            System.out.println();
+	    System.err.println ( "Unrecognized option" );
+	    break;
+              
+	}
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

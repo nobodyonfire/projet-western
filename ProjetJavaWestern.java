@@ -155,7 +155,7 @@ public class ProjetJavaWestern {
         player.add_argent(500, player);
         Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
         Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
-        Lockcity.question(player);
+        Lockcity.Menu(player);
               
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
@@ -317,6 +317,7 @@ public class ProjetJavaWestern {
      /* 
     Initialisation des armes
     */
+    
     private static final Arme Pistolet_de_seconde_main = new Arme("Pistolet de seconde main", 10, 1, 80, 10);
     private static final Arme Colt_anaconda = new Arme("Colt anaconda", 60, 30, 85, 400);
     private static final Arme Calibre_44_PN = new Arme("Calibre .44 PN", 70, 25, 70, 450);

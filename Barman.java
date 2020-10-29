@@ -117,7 +117,7 @@ public class Barman extends Personnages{
             case 5: 
                 Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
                 System.out.println("A plus tard " + player.getName() + ".");
-                le7iemeciel.question(player);
+                le7iemeciel.Menu(player);
             /* EFFET DE LA BOISSON */
             
 	    break;

@@ -14,7 +14,7 @@ import static projet.java.western.Saloon.ANSI_WHITE;
  *
  * @author ASUS
  */
-public class Prison extends Location implements Move_Location{
+public class Prison extends Location implements Move_Location, Menu{
     
     
     
@@ -49,14 +49,74 @@ public class Prison extends Location implements Move_Location{
     
       public void display_menu() 
     {
-	System.out.println("1) Acheter  \n2) Vendre \n3) leave");
+	System.out.println("1) Acheter  \n2) Vendre \n3) Partir");
 	System.out.print("Selection: ");  
     }
     
     
     
-    public void question(Player player) 
+     public void display_location()
     {
+        System.out.println("Selection: ");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
+	
+    }
+    
+    @Override
+    public void changelocation(Player player) {
+        
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
+        
+        System.out.println("Where do you want to go ?");
+        Scanner q = new Scanner(System.in);
+        
+        display_location();
+        
+        switch (q.nextInt()) 
+	{
+   
+	    case 1:
+                System.out.println();    
+                System.out.println ("Je vais aller au bar, envie de m'amuser un petit peu." );
+                player.SetLocation(le7iemeciel);
+                le7iemeciel.Menu(player);
+                break;
+  
+	    case 2:
+                System.out.println();
+                System.out.println ("Need to save my money");
+                player.SetLocation(Banque_Populaire);
+                Banque_Populaire.Menu(player);
+                break;
+  
+	    case 3:
+                System.out.println ( "J'ai besoin d'une nouvelle arme. Elle a souffert lors de mon dernier affrontement.");
+                player.setLocation(Bangout);
+                Bangout.Menu(player);
+                break;
+            case 4:
+ 
+                System.out.println();
+                System.err.println ( "Let's capture some bad guy ! " );
+                break;
+            
+            case 5:
+ 
+                System.out.println();
+                System.err.println ( "Je vais rester. Peut être qu'un prisonnier va s'échapper." );
+                Menu(player);
+                break;
+              
+	}
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Menu(Player player) {
+        
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
 	System.out.println("Que voulez vous faire ?");
@@ -84,7 +144,7 @@ public class Prison extends Location implements Move_Location{
                 System.out.println("I'm gonna leave this place");
                 changelocation(player);
 	    default:
-                question(player);
+                Menu(player);
                 System.out.println();
                 System.err.println ( "Unrecognized option" );
 	    break;
@@ -92,63 +152,6 @@ public class Prison extends Location implements Move_Location{
 	}
     }
     
-    
-     public void display_location()
-    {
-        System.out.println("Selection: ");
-        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
-	
-    }
-    
-    @Override
-    public void changelocation(Player player) {
-        
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
-        
-        System.out.println("Where do you want to go ?");
-        Scanner q = new Scanner(System.in);
-        
-        display_location();
-        
-        switch (q.nextInt()) 
-	{
-   
-	    case 1:
-                System.out.println();    
-                System.out.println ("Je vais aller au bar, envie de m'amuser un petit peu." );
-                player.SetLocation(le7iemeciel);
-                le7iemeciel.question(player);
-                break;
-  
-	    case 2:
-                System.out.println();
-                System.out.println ("Need to save my money");
-                break;
-  
-	    case 3:
-                System.out.println ( "J'ai besoin d'une nouvelle arme. Elle a souffert lors de mon dernier affrontement.");
-                player.setLocation(Bangout);
-                Bangout.question(player);
-                break;
-            case 4:
- 
-                System.out.println();
-                System.err.println ( "Let's capture some bad guy ! " );
-                break;
-            
-            case 5:
- 
-                System.out.println();
-                System.err.println ( "Je vais rester. Peut être qu'un prisonnier va s'échapper." );
-                question(player);
-	    break;
-              
-	}
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
     
