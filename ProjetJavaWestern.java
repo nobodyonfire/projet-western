@@ -79,7 +79,7 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
  
-        
+        le7iemeciel.display_piano();
         
         /*
         Bangout.questionAcheter(player) ;

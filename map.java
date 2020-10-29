@@ -36,4 +36,20 @@ public class map {
         
     }
     
+    public static void printpiano(int emplacement,String valeur){
+        String[] liste= {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "};
+        liste[emplacement]=valeur;
+        
+        System.out.println("");
+        System.out.println(" ____________________________________________________________________________________");
+        System.out.println("|  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |");
+        System.out.println("|  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |");
+        System.out.println("|  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |");
+        System.out.println("|  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |  |#| |#| |#|  |  |#| |#|  |");
+        System.out.println("|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |");
+        System.out.println("| "+liste[0]+" | "+liste[1]+" | "+liste[2]+" | "+liste[3]+" | "+liste[4]+" | "+liste[5]+" | "+liste[6]+" | "+liste[7]+" | "+liste[8]+" | "+liste[9]+" | "+liste[10]+" | "+liste[11]+" | "+liste[12]+" | "+liste[13]+" | "+liste[14]+" | "+liste[15]+" | "+liste[16]+" | "+liste[17]+" | "+liste[18]+" | "+liste[19]+" | "+liste[20]+" | ");
+        System.out.println("|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|");
+        System.out.println("");
+    }
+    
 }

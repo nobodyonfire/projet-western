@@ -1,6 +1,8 @@
 
 package projet.java.western;
+import java.util.Random;
 import java.util.Scanner; 
+import static projet.java.western.Arme.sleep;
 import projet.java.western.Barman;
 
 
@@ -59,7 +61,26 @@ public class Saloon extends Location implements Move_Location{
     
     
     
+    public void display_piano(){
+       int a =getRandomNumberInRange(1,9);
+       int b =getRandomNumberInRange(0,20);
+       map.printpiano(b,  Integer.toString(a));
+       int valeur =50;int y =0;
+       System.out.println("Rentrer le nombre que vous voyez, rentrer "+ "0" +" pour quiter");
+       
+       while((a!=valeur) && (y==0)){
+       System.out.println("");
+       Scanner q = new Scanner(System.in);
+       valeur = q.nextInt();
+       if (valeur == 0 ){
+           y=1; 
+       }
+       }
+       display_piano();
+       
     
+        
+    }
     
     public void display_menu() 
     {
@@ -241,5 +262,27 @@ public class Saloon extends Location implements Move_Location{
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    
+    
+    private static int getRandomNumberInRange(int min, int max) {
+	if (min >= max) {
+		throw new IllegalArgumentException("max must be greater than min");
+	}
+	Random r = new Random();
+	return r.nextInt((max - min) + 1) + min;
+    }
+    
+    public static void sleep(int temps){
+        try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
+    }
+    
+    public static void clearScreen(int j) {  
+
+        for (int i = 0; i < j; ++i) System.out.println("");
+
+    }
+    
  
 }
