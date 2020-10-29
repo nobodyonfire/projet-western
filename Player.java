@@ -46,6 +46,11 @@ public class Player extends Personnages{
        System.out.println("");
    }
    
+    
+   public void setHP(int HP){
+       this.HP = HP;
+   }
+   
    
    public void setName(String Name){
        if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
