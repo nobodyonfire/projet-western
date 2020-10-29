@@ -52,4 +52,24 @@ public class map {
         System.out.println("");
     }
     
+    
+    
+    public static void printseduire(int emplacement){
+        String[] liste= {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "};
+        liste[emplacement]="X";
+        
+        
+        System.out.println("");
+        System.out.println(" B 0 1 2 3 4 5 ");
+        System.out.println("A _____________");
+        System.out.println("0 |"+liste[0]+" "+liste[1]+" "+liste[2]+" "+liste[3]+" "+liste[4]+" "+liste[5]+"|");
+        System.out.println("1 |"+liste[6]+" "+liste[7]+" "+liste[8]+" "+liste[9]+" "+liste[10]+" "+liste[11]+"|");
+        System.out.println("2 |"+liste[12]+" "+liste[13]+" "+liste[14]+" "+liste[15]+" "+liste[16]+" "+liste[17]+"|");
+        System.out.println("3 |"+liste[18]+" "+liste[19]+" "+liste[20]+" "+liste[21]+" "+liste[22]+" "+liste[23]+"|");
+        System.out.println("4 |"+liste[24]+" "+liste[25]+" "+liste[26]+" "+liste[27]+" "+liste[28]+" "+liste[29]+"|");
+        System.out.println("5 |"+liste[30]+" "+liste[31]+" "+liste[32]+" "+liste[33]+" "+liste[34]+" "+liste[35]+"|");
+        System.out.println("  ¯¯¯¯¯¯¯¯¯¯¯¯¯");
+        System.out.println("");    
+        
+    }   
 }
