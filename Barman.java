@@ -13,12 +13,13 @@ public class Barman extends Personnages{
     public static final String ANSI_PURPLE = "\u001B[35m";
     
     
+    
     public Barman(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         
     }
     
-    public void boire(){
+    public void boire(Player player){
         talkb("Je te sers quoi ?"); 
     }
     
@@ -48,29 +49,29 @@ public class Barman extends Personnages{
         System.out.print("Selection: ");
     }
     
-    public void display_menuboissonbonus() 
+    public void display_menuboissonbonus(Player player) 
     {   
         try {  Thread.sleep(2000); } catch (InterruptedException ie) {}
         System.out.println();
         talk("Je vous mets autre chose ? ");
 	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
         System.out.print("Selection: ");
-        choixboisson();
+        questionboisson(player);
     }
     
     
     
     
-    public void questionboisson()
+    public void questionboisson(Player player)
     {
         display_menuboisson();
-        choixboisson();
+        choixboisson(player);
     }
     
     
     
     
-    public void choixboisson(){
+    public void choixboisson(Player player){
         
     Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
@@ -81,7 +82,8 @@ public class Barman extends Personnages{
 	    talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
             /* EFFET DE LA BOISSON */
             /* PAYEMENT */
-            display_menuboissonbonus();
+            player.add_argent(-3, player);
+            display_menuboissonbonus(player);
 	    break;
   
 	    case 2:
@@ -89,31 +91,33 @@ public class Barman extends Personnages{
 	    talkb( "Très bon choix ! je vous mets la dose " );
             /* EFFET DE LA BOISSON */
             /* PAYEMENT */
-            display_menuboissonbonus();
+            player.add_argent(-10, player);
+            display_menuboissonbonus(player);
 	    break;
   
 	    case 3:
 	    talkb( "Vous plaisentez ?" );
             talkb( "Que voulez vous sérieusement ?");
-            questionboisson();
+            questionboisson(player);
 	    break;
             
             case 4:
 	    talkb( "Excellent , une pinte pour monsieur !" );
             /* EFFET DE LA BOISSON */
             /* PAYEMENT */
-            display_menuboissonbonus();
+            player.add_argent(-8, player);
+            display_menuboissonbonus(player);
 	    break;
             
-            case 5:
-            System.out.println();
-	    talkb( "Bonne journée à vous !" );
+            case 5:               
+                System.out.println();
+                talkb( "Bonne journée à vous !" );
             /* EFFET DE LA BOISSON */
             
 	    break;
             
 	    default:
-            questionboisson();
+            questionboisson(player);
 	    break;     
 	}
     }

@@ -34,10 +34,10 @@ public class Saloon extends Location implements Move_Location{
     }
     
     
-    public void boire(){
+    public void boire(Player player){
         
         Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,0,1000);       
-        Barman.questionboisson();
+        Barman.questionboisson(player);
         
     }
     @SuppressWarnings("empty-statement")
@@ -85,7 +85,7 @@ public class Saloon extends Location implements Move_Location{
 	    case 1:
             System.out.println();    
 	    System.out.println ("Il est temps de boire un coup !" );
-            boire();
+            boire(player);
 	    break;
   
 	    case 2:
@@ -120,7 +120,7 @@ public class Saloon extends Location implements Move_Location{
         
     }
     
-    public void questiontuto()
+    public void questiontuto(Player player)
     {   
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
@@ -135,12 +135,12 @@ public class Saloon extends Location implements Move_Location{
 	    case 1:
             System.out.println();
 	    System.out.println ("Il est temps de boire un coup !" );
-            boire();
+            boire(player);
 	    break;
 	    default:
             System.out.println();
 	    System.out.println(ANSI_GREEN+ "Il faut aller voir le barman !" +ANSI_RESET);
-            questiontuto();
+            questiontuto(player);
 	    break;     
             
 	}
@@ -191,7 +191,6 @@ public class Saloon extends Location implements Move_Location{
     @Override
     public void changelocation(Player player) {
         
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         

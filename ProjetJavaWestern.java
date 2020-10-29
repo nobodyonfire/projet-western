@@ -99,7 +99,7 @@ public class ProjetJavaWestern {
         pressenter();clearScreen(1);
         System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
         pressenter();clearScreen(1);
-        le7iemeciel.questiontuto();
+        le7iemeciel.questiontuto(player);
         clearScreen(1);
         Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
         Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
