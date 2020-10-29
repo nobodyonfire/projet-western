@@ -38,20 +38,8 @@ public class Armurie extends Location implements Move_Location {
     public Armurie(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
-        introduction(Nom);
     }
-    
-    public void introduction(String Nom){
-        System.out.println();
-        System.out.println(ANSI_RED + "La nouvelle Armurie : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
-        System.out.println();
-    }
-    
-    
-    
-    
-    
-    
+
      
     public void Acheter(){  
         

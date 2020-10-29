@@ -31,14 +31,8 @@ public class Prison extends Location implements Move_Location{
     public Prison(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
-        introduction(Nom);
     }
     
-    public void introduction(String Nom){
-        System.out.println();
-        System.out.println(ANSI_RED + "La nouvelle Prison : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
-        System.out.println();
-    }
     
     
     

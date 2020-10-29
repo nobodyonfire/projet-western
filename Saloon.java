@@ -26,15 +26,8 @@ public class Saloon extends Location implements Move_Location{
     public Saloon(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
-        introduction(Nom);
     }
-    
-    public void introduction(String Nom){
-        System.out.println();
-        System.out.println(ANSI_RED + "Le nouveau saloon : " + Nom +", viens d'apparaitre dans la ville"+ANSI_RESET);
-        System.out.println();
-    }
-    
+
     
     public void boire(Player player){
         
@@ -61,25 +54,28 @@ public class Saloon extends Location implements Move_Location{
     
     
     
-    public void display_piano(){
+    public void display_piano(Player player){
        int a =getRandomNumberInRange(1,9);
        int b =getRandomNumberInRange(0,20);
        map.printpiano(b,  Integer.toString(a));
-       int valeur =50;int y =0;
+       int valeur =50;boolean Stop = false;
        System.out.println("Rentrer le nombre que vous voyez, rentrer "+ "0" +" pour quiter");
        
-       while((a!=valeur) && (y==0)){
-       System.out.println("");
-       Scanner q = new Scanner(System.in);
-       valeur = q.nextInt();
-       if (valeur == 0 ){
-           y=1; 
+       while((a!=valeur) && (Stop == false)){
+            System.out.println("");
+            Scanner q = new Scanner(System.in);
+            valeur = q.nextInt();
+            if (valeur == 0 ){
+                Stop = true; 
+            }
        }
+       if (Stop == true){
+           question(player);
        }
-       display_piano();
-       
-    
-        
+       else{
+         display_piano(player);  
+       }
+     
     }
     
     public void display_menu() 
@@ -119,6 +115,10 @@ public class Saloon extends Location implements Move_Location{
 	    System.out.println ( "You picked option 3" );
 	    question(player);
 	    break;
+            
+            case 4:
+                System.out.println("Piano");
+                display_piano(player);
             case 5:
                 System.out.println("I'm gonna leave this place");
                 changelocation(player);
@@ -133,74 +133,7 @@ public class Saloon extends Location implements Move_Location{
     
     
     
-    public void display_menututo() 
-    {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n5) Quitter");
-	System.out.print("Selection: ");
-        
-        
-    }
-    
-    public void questiontuto(Player player)
-    {   
-        System.out.println();
-	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
-	System.out.println("Que voulez vous faire ?");
-	Scanner q = new Scanner(System.in);
-       
-        display_menututo();
-        
-	switch (q.nextInt()) 
-	{
-   
-	    case 1:
-            System.out.println();
-	    System.out.println ("Il est temps de boire un coup !" );
-            boire(player);
-	    break;
-	    default:
-            System.out.println();
-	    System.out.println(ANSI_GREEN+ "Il faut aller voir le barman !" +ANSI_RESET);
-            questiontuto(player);
-	    break;     
-            
-	}
-    }
-    
-    public void display_menututo2() 
-    {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
-	System.out.print("Selection: ");
-        
-        
-    }
-    
-    public void questiontuto2()
-    {   
-        System.out.println("");
-	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
-        System.out.println("");
-	System.out.println("Que voulez vous faire ?");
-	Scanner q = new Scanner(System.in);
-       
-        display_menututo2();
-        
-	switch (q.nextInt()) 
-	{
-   
-	    case 5:
-            System.out.println();
-	    break;
-	    default:
-            System.out.println();
-	    System.out.println(ANSI_GREEN+ "Il faut aller voir le Sherif !" +ANSI_RESET);
-            questiontuto2();
-	    break;     
-            
-	}
-    }
-    
-    
+ 
     public void display_location()
     {
         System.out.println("Selection: ");
@@ -284,5 +217,75 @@ public class Saloon extends Location implements Move_Location{
 
     }
     
+    /* FONCTION TUTORIEL SALOON */
+    
+    public void display_menututo() 
+    {
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n5) Quitter");
+	System.out.print("Selection: ");    
+    }    
+    
+    public void boiretuto(Player player){
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,0,1000);       
+        Barman.questionboissontuto(player);
+    }
+    
+     public void questiontuto2()
+    {   
+        System.out.println("");
+	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+        System.out.println("");
+	System.out.println("Que voulez vous faire ?");
+	Scanner q = new Scanner(System.in);
+       
+        display_menututo2();
+        
+	switch (q.nextInt()) 
+	{
+   
+	    case 5:
+            System.out.println();
+	    break;
+	    default:
+            System.out.println();
+	    System.out.println(ANSI_GREEN+ "Il faut aller voir le Sherif !" +ANSI_RESET);
+            questiontuto2();
+	    break;     
+            
+	}
+    }
+     
+     public void display_menututo2() 
+    {
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
+	System.out.print("Selection: ");           
+    }
+     
+    public void questiontuto(Player player)
+    {   
+        System.out.println();
+	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+	System.out.println("Que voulez vous faire ?");
+	Scanner q = new Scanner(System.in);
+       
+        display_menututo();
+        
+	switch (q.nextInt()) 
+	{
+   
+	    case 1:
+            System.out.println();
+	    System.out.println ("Il est temps de boire un coup !" );
+            boiretuto(player);
+	    break;
+	    default:
+            System.out.println();
+	    System.out.println(ANSI_GREEN+ "Il faut aller voir le barman !" +ANSI_RESET);
+            questiontuto(player);
+	    break;     
+            
+	}
+    }
+
  
 }
