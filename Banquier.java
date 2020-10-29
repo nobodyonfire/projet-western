@@ -10,7 +10,7 @@ public class Banquier extends Personnages{
     
     protected Boolean SeFaitCambrioler;
     
-    public Banquier(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,Boolean SeFaitCambrioler) {
+    public Banquier(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent,Boolean SeFaitCambrioler) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         this.SeFaitCambrioler=SeFaitCambrioler;
 

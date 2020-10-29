@@ -10,7 +10,7 @@ public class Sherif extends CowBoy{
     public static final String ANSI_GREEN = "\u001B[32m";
     protected int NombreDeCapture;
     
-    public Sherif(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate,int NombreDeCapture) {
+    public Sherif(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent,int TruthLevel,String FavoritePlate,int NombreDeCapture) {
         super(Name,Location,Gun,Job,Niveau,Argent,TruthLevel,FavoritePlate);
         this.NombreDeCapture=NombreDeCapture;
         

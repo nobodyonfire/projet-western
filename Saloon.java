@@ -17,6 +17,7 @@ public class Saloon extends Location implements Move_Location{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
     
     protected String Name;
     
@@ -35,7 +36,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void boire(){
         
-        Barman Barman = new Barman("Luis","7 ième ciel",Couteau,"Barman" ,0,1000);       
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,0,1000);       
         Barman.questionboisson();
         
     }
@@ -67,7 +68,7 @@ public class Saloon extends Location implements Move_Location{
     }
     
     
-    public void question() 
+    public void question(Player player) 
     {
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
@@ -90,18 +91,18 @@ public class Saloon extends Location implements Move_Location{
 	    case 2:
             System.out.println();
 	    System.out.println ( "You picked option 2" );
-	    question();
+	    question(player);
 	    break;
   
 	    case 3:
 	    System.out.println ( "You picked option 3" );
-	    question();
+	    question(player);
 	    break;
             case 5:
                 System.out.println("I'm gonna leave this place");
-                changelocation();
+                changelocation(player);
 	    default:
-            question();
+            question(player);
             System.out.println();
 	    System.err.println ( "Unrecognized option" );
 	    break;
@@ -182,13 +183,17 @@ public class Saloon extends Location implements Move_Location{
     public void display_location()
     {
         System.out.print("Selection: ");
-        System.out.println("1) Townhall  \n2) Bank \n3) Weapon Shop \n4) Outside the town \n5) Stay");
+        System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
 	
     }
     
     
     @Override
-    public void changelocation() {
+    public void changelocation(Player player) {
+        
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50,"NULL");
+        Armurie Bangout = new Armurie("Bangout",10,"NULL");
         
         System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
@@ -199,39 +204,43 @@ public class Saloon extends Location implements Move_Location{
 	{
    
 	    case 1:
-            System.out.println();    
-	    System.out.println ("Allons voir si le sherif à de nouvelles choses.." );
-	    break;
+                System.out.println();    
+                System.out.println ("Allons voir si le sherif à de nouvelles choses.." );
+                System.out.println("Vous entrez dans la prison");
+                player.SetLocation(Lockcity);
+                Lockcity.question(player);
+                break;
   
 	    case 2:
-            System.out.println();
-	    System.out.println ("Allons faire un tour à la banque..");
-	    break;
+                System.out.println();
+                System.out.println ("Allons faire un tour à la banque..");
+                System.out.println("Vous entrez dans la banque.");
+                break;
   
 	    case 3:
-	    System.out.println ( "Allons acheter une nouvelle arme..");
-	    break;
+                System.out.println ( "Allons acheter une nouvelle arme..");
+                System.out.println("Vous entrez dans l'armurie.");
+                player.SetLocation(Bangout);
+                Bangout.question(player);
+                break;
             case 4:
  
-            System.out.println();   
-	    System.err.println ( "Allons à l'aventure !" );
-	    break;
+                System.out.println();   
+                System.err.println ("Allons à l'aventure !");
+                System.out.println("Vous sortez de la ville faites bien attention.");
+
+                break;
             
             case 5:
  
-            System.out.println();
-	    System.err.println ( "Hum , je vais rester encore un peu ici" );
-            question();
-	    break;
+                System.out.println();
+                System.err.println ( "Hum , je vais rester encore un peu ici" );
+                question(player);
+                break;
               
 	}
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
  
-    
-
-  
 }

@@ -61,7 +61,7 @@ public class Prison extends Location implements Move_Location{
     
     
     
-    public void question() 
+    public void question(Player player) 
     {
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
@@ -76,23 +76,23 @@ public class Prison extends Location implements Move_Location{
    
   
 	    case 1:
-            System.out.println();    
-	    System.out.println ("Achetons une nouvelle arme !" );
-            Acheter();
+                System.out.println();    
+                System.out.println ("Achetons une nouvelle arme !" );
+                Acheter();
 	    break;
   
 	    case 2:
-            System.out.println();
-	    System.out.println ( "Vendons notre arme..." );
-	    Vendre();
+                System.out.println();
+                System.out.println ( "Vendons notre arme..." );
+                Vendre();
 	    break;
             case 3:
                 System.out.println("I'm gonna leave this place");
-                changelocation();
+                changelocation(player);
 	    default:
-            question();
-            System.out.println();
-	    System.err.println ( "Unrecognized option" );
+                question(player);
+                System.out.println();
+                System.err.println ( "Unrecognized option" );
 	    break;
               
 	}
@@ -101,13 +101,17 @@ public class Prison extends Location implements Move_Location{
     
      public void display_location()
     {
-        System.out.print("Selection: ");
-        System.out.println("1) Townhall  \n2) Bank \n3) Weapon Shop \n4) Outside the town \n5) Stay");
+        System.out.println("Selection: ");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
 	
     }
     
     @Override
-    public void changelocation() {
+    public void changelocation(Player player) {
+        
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50,"NULL");
+        Armurie Bangout = new Armurie("Bangout",10,"NULL");
         
         System.out.println("Where do you want to go ?");
         Scanner q = new Scanner(System.in);
@@ -118,29 +122,33 @@ public class Prison extends Location implements Move_Location{
 	{
    
 	    case 1:
-            System.out.println();    
-	    System.out.println ("Let's see if the sheriff has something for us" );
-	    break;
+                System.out.println();    
+                System.out.println ("Je vais aller au bar, envie de m'amuser un petit peu." );
+                player.SetLocation(le7iemeciel);
+                le7iemeciel.question(player);
+                break;
   
 	    case 2:
-            System.out.println();
-	    System.out.println ("Need to save my money");
-	    break;
+                System.out.println();
+                System.out.println ("Need to save my money");
+                break;
   
 	    case 3:
-	    System.out.println ( "J'ai encore des choses a faire..");
-	    break;
+                System.out.println ( "J'ai besoin d'une nouvelle arme. Elle a souffert lors de mon dernier affrontement.");
+                player.setLocation(Bangout);
+                Bangout.question(player);
+                break;
             case 4:
  
-            System.out.println();
-	    System.err.println ( "Let's capture some bad guy ! " );
-	    break;
+                System.out.println();
+                System.err.println ( "Let's capture some bad guy ! " );
+                break;
             
             case 5:
  
-            System.out.println();
-	    System.err.println ( "Let's drink a bit more" );
-            question();
+                System.out.println();
+                System.err.println ( "Je vais rester. Peut être qu'un prisonnier va s'échapper." );
+                question(player);
 	    break;
               
 	}

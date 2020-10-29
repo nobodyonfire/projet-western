@@ -10,5 +10,5 @@ package projet.java.western;
  * @author Eloi Texier
  */
 interface Move_Location {
-    public void changelocation();
+    public void changelocation(Player player);
 }

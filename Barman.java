@@ -13,7 +13,7 @@ public class Barman extends Personnages{
     public static final String ANSI_PURPLE = "\u001B[35m";
     
     
-    public Barman(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent) {
+    public Barman(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         
     }

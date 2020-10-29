@@ -79,10 +79,10 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
         
-        
+        /*
         player.playersave();
         player.playerload();
-       /* 
+       
         map.printcarte();
         Bangout.questionAcheter(); */
         
@@ -136,7 +136,7 @@ public class ProjetJavaWestern {
         
         
         /* TROISIEME PARTIE */
-        player.SetLocation("Prison");
+        player.SetLocation(Lockcity);
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
@@ -151,6 +151,9 @@ public class ProjetJavaWestern {
         pressenter();
         player.soin(100, player);
         player.add_argent(500, player);
+        Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
+        Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
+        Lockcity.question(player);
               
         
          /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
@@ -320,28 +323,20 @@ public class ProjetJavaWestern {
     private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
     private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
   
-    /*
-    Initialisation des personnages
-    */
-    private static final Player player = new Player("Billi","le7iemeciel",Couteau, "NULL", 1, 0, 0, 100); 
-    private static final Sherif Robbert = new Sherif("Robbert", "Saloon", Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
-    private static final Barman Luis = new Barman("Luis","7 ième ciel",Couteau, "Barman" , 20, 1000);
-    private static final Brigand Jacob = new Brigand("Jacob", "Prison", Pistolet_de_seconde_main, "Voleur" , 1, 0,1,false, 11);
     
-    /*
+     /*
     Initialisation des lieux 
     */
     
     private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
     private static final Prison Lockcity = new Prison("Lockcity",50,"NULL");
     private static final Armurie Bangout = new Armurie("Bangout",10,"NULL");
-
-
-
-
-
-
-
-
+    /*
+    Initialisation des personnages
+    */
+    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", 1, 0, 0, 100); 
+    private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
+    private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau, "Barman" , 20, 1000);
+    private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, "Voleur" , 1, 0,1,false, 11);
 
 }

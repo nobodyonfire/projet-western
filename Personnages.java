@@ -10,7 +10,7 @@ import java.lang.constant.ConstantDesc;
 public class Personnages {
     
     protected String Name;
-    protected String Location;
+    protected Location Location;
     protected Arme Gun;
     protected String Job;
     protected int Niveau;
@@ -19,7 +19,7 @@ public class Personnages {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     
-    public Personnages(String Name, String Location, Arme Gun , String Job , int Niveau, int Argent) {
+    public Personnages(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent) {
         if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
         this.Location=Location;
         this.Gun=Gun;
@@ -35,7 +35,7 @@ public class Personnages {
     public String getName (){
         return this.Name;
     }
-    public String getLocation (){
+    public Location getLocation (){
         return this.Location;
     }
     public Arme getGun (){
@@ -61,7 +61,7 @@ public class Personnages {
     public void SetName(String Name){
         if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
     } 
-    public void SetLocation(String Location){
+    public void SetLocation(Location Location){
         this.Location = Location;
     } 
     public void SetJob(String Job){

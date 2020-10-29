@@ -141,7 +141,7 @@ public class Armurie extends Location implements Move_Location {
 	}
     }
    
-    public void questionAcheter() 
+    public void questionAcheter(Player player) 
     {
         System.out.println();
 	System.out.println("Que voulez vous Acheter?");
@@ -166,7 +166,7 @@ public class Armurie extends Location implements Move_Location {
 	    break;
             
             default:
-            question();
+            question(player);
             System.out.println();
 	    System.err.println ( "Unrecognized option" );
 	    break;
@@ -223,7 +223,7 @@ public class Armurie extends Location implements Move_Location {
     
     
     
-    public void question() 
+    public void question(Player player) 
     {
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'armurie !"+ ANSI_RESET);
@@ -250,9 +250,9 @@ public class Armurie extends Location implements Move_Location {
 	    break;
             case 3:
                 System.out.println("I'm gonna leave this place");
-                changelocation();
+                changelocation(player);
 	    default:
-            question();
+            question(player);
             System.out.println();
 	    System.err.println ( "Unrecognized option" );
 	    break;
@@ -276,7 +276,7 @@ public class Armurie extends Location implements Move_Location {
     }
     
     @Override
-    public void changelocation() {
+    public void changelocation(Player player) {
         
         System.out.println("Where do you want to go ?");
         Scanner q = new Scanner(System.in);
@@ -309,13 +309,14 @@ public class Armurie extends Location implements Move_Location {
  
             System.out.println();
 	    System.err.println ( "Let's drink a bit more" );
-            question();
+            question(player);
 	    break;
               
 	}
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
     
     
