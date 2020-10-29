@@ -79,6 +79,7 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
         
+        
         /*
         player.playersave();
         player.playerload();
@@ -247,8 +248,8 @@ public class ProjetJavaWestern {
         for (int i = 0; i < player.getName().length()-player.Gun.getname().length() ; ++i) System.out.print(" ");
         
         System.out.print(player.Gun.getname());
-        for (int i = 0; i < 31-player.Gun.getname().length() ; ++i) System.out.print(" ");
-        System.out.print("GUN");
+        for (int i = 0; i < Math.min( player.getName().length() + 26 , 31-player.Gun.getname().length()) ; ++i) System.out.print(" ");
+        System.out.print(" GUN");
         for (int i = 0; i < 31-brigand.Gun.getname().length() ; ++i) System.out.print(" ");
         System.out.print(brigand.Gun.getname());
         
@@ -263,11 +264,17 @@ public class ProjetJavaWestern {
 
                 degat = player.Gun.puissance(player.Gun);
                 brigand.HP = brigand.HP - degat;
-                System.out.println("Touché ! Vous lui avait fait " + degat + " dégats! Il lui reste encore " + brigand.HP + " HP");
+                 if (brigand.HP > 0 ){
+                System.out.println(ANSI_GREEN+"Touché ! Vous lui avait fait " + degat + " dégats! Il lui reste encore " + brigand.HP + " HP"+ANSI_RESET);
+                }
+                 else{
+                System.out.println(ANSI_GREEN+"Touché ! Vous lui avait fait " + degat + " dégats!"+" Le brigand est mort !"+ANSI_RESET); 
+                 }
+                
             } 
             else               
             {
-                System.out.println("Vous l'avez rateé de peu...");  
+                System.out.println(ANSI_GREEN+"Vous l'avez rateé de peu..."+ANSI_RESET);  
             }
             
             if (brigand.HP < 0 ){
@@ -276,11 +283,11 @@ public class ProjetJavaWestern {
             if (brigand.Gun.toucher(brigand.Gun) == true){
                 degat = brigand.Gun.puissance(brigand.Gun);
                 player.HP = player.HP - degat;
-                System.out.println("Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP+" HP");
+                System.out.println(ANSI_RED+"Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP+" HP"+ANSI_RESET);
             }
             else
             {
-                System.out.println("Vous avez esquivé son tir!");
+                System.out.println(ANSI_RED+"Vous avez esquivé son tir!"+ANSI_RESET);
             }
 
             pressenter();
@@ -288,7 +295,7 @@ public class ProjetJavaWestern {
             
         }
         if (player.HP <= 0){
-            System.out.println("Vous êtes mort!");
+            System.out.println(ANSI_RED_BACKGROUND+ANSI_WHITE+"Vous êtes mort!"+ANSI_RESET);
         }
         else {
             System.out.println("Vous avez eu " + brigand.getName() + ".");

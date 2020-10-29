@@ -191,8 +191,11 @@ public class Arme implements Comparable{
     @Override
     public int compareTo(Object other) {
         Arme user1 = (Arme) other;
-        int result = Double.toString(this.getpuissanceMax()).compareTo(Double.toString(user1.getpuissanceMax()));
-        return result;
+        if(this.getprix()<=user1.getprix()) {
+            return this.getprix();
+        } else {
+            return user1.getprix();
+        }
 
     }
 }

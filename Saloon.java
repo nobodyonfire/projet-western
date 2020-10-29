@@ -114,7 +114,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void display_menututo() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n6) Quitter");
+	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n5) Quitter");
 	System.out.print("Selection: ");
         
         
@@ -182,7 +182,7 @@ public class Saloon extends Location implements Move_Location{
     
     public void display_location()
     {
-        System.out.print("Selection: ");
+        System.out.println("Selection: ");
         System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
 	
     }
