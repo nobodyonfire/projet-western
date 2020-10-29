@@ -78,20 +78,24 @@ public class Barman extends Personnages{
 	{
    
 	    case 1:
-            System.out.println();    
-	    talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
-            /* EFFET DE LA BOISSON */
-            /* PAYEMENT */
+            System.out.println();   
             player.add_argent(-3, player);
+            if (player.getArgent()-8>-1){
+                talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
+            }
+	    
             display_menuboissonbonus(player);
+            
 	    break;
   
 	    case 2:
             System.out.println();
-	    talkb( "Très bon choix ! je vous mets la dose " );
-            /* EFFET DE LA BOISSON */
-            /* PAYEMENT */
             player.add_argent(-10, player);
+             if (player.getArgent()-8>-1){
+                talkb( "Très bon choix ! je vous mets la dose " );
+            }
+	    
+            
             display_menuboissonbonus(player);
 	    break;
   
@@ -102,10 +106,10 @@ public class Barman extends Personnages{
 	    break;
             
             case 4:
-	    talkb( "Excellent , une pinte pour monsieur !" );
-            /* EFFET DE LA BOISSON */
-            /* PAYEMENT */
             player.add_argent(-8, player);
+            if (player.getArgent()-8>-1){
+                talkb( "Excellent , une pinte pour monsieur !" );
+            }
             display_menuboissonbonus(player);
 	    break;
             

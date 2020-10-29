@@ -78,9 +78,11 @@ public class ProjetJavaWestern {
         
 
         /* ZONE TEST */
+ 
         
         
         /*
+        Bangout.questionAcheter(player) ;
         player.playersave();
         player.playerload();
        
@@ -218,41 +220,43 @@ public class ProjetJavaWestern {
         boolean victoire = false;
         int degat;
       
-        /* AFFICHAGE DUEL */
+        int taille = Math.max( player.getName().length() +8 , player.Gun.getname().length()+8);
         
-                
-        for (int i = 0; i < player.getName().length() + 61 ; ++i) System.out.print("_");clearScreen(1);
-
-        for (int i = 0; i < player.getName().length() + 26 ; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
+        /* AFFICHAGE DUEL */
+  
+        for (int i = 0; i < taille*2+2 ; ++i) System.out.print("_");clearScreen(1);
+        for (int i = 0; i < taille-1 ; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);
         System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+"DUEL"+ANSI_RESET);
-        for (int i = 0; i < brigand.getName().length() +26; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);        clearScreen(1);
-        for (int i = 0; i < player.getName().length() + 61 ; ++i) System.out.print("¯");
+        for (int i = 0; i < taille-1; ++i) System.out.print(ANSI_RED_BACKGROUND+ANSI_WHITE+" "+ANSI_RESET);        clearScreen(1);
+        for (int i = 0; i < taille*2+2; ++i) System.out.print("¯"); clearScreen(1);
+        
         /* AFFICHAGE NOM*/
         
-        System.out.println("");
-        System.out.println(player.getName()+ "                           VS                          "+ brigand.getName());
-        
+        System.out.print(player.getName());
+         for (int i = 0; i < (taille - player.getName().length()) ; ++i) {System.out.print(" ");}
+         System.out.print("VS");
+         for (int i = 0; i < (taille - brigand.getName().length()) ; ++i) {System.out.print(" ");}
+         System.out.print(brigand.getName());
+         
         /* AFFICHAGE HP*/
        
-        System.out.print(player.getHP());
-         for (int i = 0; i < player.getName().length()-Integer.toString(player.getHP()).length() ; ++i) System.out.print(" ");
-         if (brigand.getHP()>99){
-             System.out.println("                           HP                            "+ brigand.getHP());}
-         else{
-             System.out.println("                           HP                             "+ brigand.getHP());
-         }
+        clearScreen(1);
+         System.out.print(player.getHP());
+         for (int i = 0; i < (taille -  Integer.toString(player.getHP()).length()) ; ++i) {System.out.print(" ");}
+         System.out.print("HP");
+         for (int i = 0; i < (taille -Integer.toString(brigand.getHP()).length()) ; ++i) {System.out.print(" ");}
+         System.out.print(brigand.getHP());
+
          
         
          /* AFFICHAGE ARMES*/
         
-        for (int i = 0; i < player.getName().length()-player.Gun.getname().length() ; ++i) System.out.print(" ");
-        
-        System.out.print(player.Gun.getname());
-        for (int i = 0; i < Math.min( player.getName().length() + 26 , 31-player.Gun.getname().length()) ; ++i) System.out.print(" ");
-        System.out.print(" GUN");
-        for (int i = 0; i < 31-brigand.Gun.getname().length() ; ++i) System.out.print(" ");
-        System.out.print(brigand.Gun.getname());
-        
+         clearScreen(1);
+         System.out.print(player.Gun.getname());
+         for (int i = 0; i < (taille - player.Gun.getname().length()) -1; ++i) {System.out.print(" ");}
+         System.out.print("ARME");
+         for (int i = 0; i < (taille - brigand.Gun.getname().length()) -1; ++i) {System.out.print(" ");}
+         System.out.print(brigand.Gun.getname());
         
         System.out.println("");
         System.out.println("");

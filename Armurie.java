@@ -6,6 +6,7 @@
 package projet.java.western;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 import static projet.java.western.Personnages.ANSI_RESET;
@@ -61,7 +62,7 @@ public class Armurie extends Location implements Move_Location {
     
 
     
-    private static void printList(ArrayList<Arme> maliste) {
+    private static void printList(Arme[] maliste) {
        int compteur=0;
        System.out.print("N*  "+"Nom                       "+"PMAX"+" PMIN"+ "  ACC." + "    Prix" ); 
        clearScreen(2);
@@ -101,24 +102,40 @@ public class Armurie extends Location implements Move_Location {
     
     public void display_menuAcheter() 
     {
-	ArrayList <Arme> listearme = new ArrayList < Arme> ();
-        listearme=listearme();
-        Collections.sort(listearme);
+        
+        /* EN <ARRAY> CA NE MARCHE PAS  */ 
+        Arme[] listearme2= {new Arme("Pistolet de seconde main", 10, 1, 80, 10),new Arme("Colt anaconda", 60, 30, 85, 400),new Arme("Calibre .44 PN", 70, 25, 70, 450),new Arme("Colt baby dragon", 80, 10, 80, 600),new Arme("Remington 1875 USA Army", 80, 53, 85, 1000),new Arme("Fusil_Henry", 30, 15, 95, 500),new Arme("fusil Sharps", 35, 10, 97, 550),new Arme("Winchester modele 1873", 20, 5, 99, 600),new Arme("Winchester modele 1887", 35, 20, 100, 700),new Arme("Whinchester modele 1895", 45, 30, 100, 800),new Arme("Whinchester modele 1897", 150, 60, 60, 1520),new Arme("Fusil double canon", 130, 40, 55, 700),new Arme("Fusil a canon scié", 170, 50, 33, 900),new Arme("The Lucky Luke", 200, 1, 50, 1500),new Arme("Couteau", 10, 9, 100, 0)};
+        Arrays.sort(listearme2,new Armecomparator());
         clearScreen(2);
-        printList(listearme);
+        printList(listearme2);
         clearScreen(2);
-      
     }
+    
+    
+    public void listearme2(){
+
+        
+        
+        
+        
+        
+        
+    }
+   
+    
+    
     
     public void questionAcheterArme() 
     {
-        System.out.println();
+        System.out.println("");
 	System.out.println("Que voulez vous Acheter?");
 	Scanner q = new Scanner(System.in);
        
 
-         display_menuAcheter();
+        display_menuAcheter();
         
+        System.out.println("");
+        System.out.println("selection ?=");
 	switch (q.nextInt()) 
 	{
    
