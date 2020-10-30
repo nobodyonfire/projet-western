@@ -40,22 +40,20 @@ public class Barman extends Personnages{
     
     public void display_menuboisson() 
     {
-        System.out.println();
+        System.out.println("");
         talkb("Au menu j'ai : ");
         System.out.println();
 	System.out.println("1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
         System.out.println();
 	talkb("Je vous mets quoi ?: ");
-        System.out.print("Selection: ");
     }
     
     public void display_menuboissonbonus(Player player) 
     {   
-        try {  Thread.sleep(2000); } catch (InterruptedException ie) {}
+        try {  Thread.sleep(1000); } catch (InterruptedException ie) {}
         System.out.println();
         talk("Je vous mets autre chose ? ");
 	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
-        System.out.print("Selection: ");
         questionboisson(player);
     }
     
@@ -72,7 +70,7 @@ public class Barman extends Personnages{
     
     
     public void choixboisson(Player player){
-        
+     System.out.print("Selection: ");   
     Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
 	{
@@ -133,6 +131,7 @@ public class Barman extends Personnages{
     
     public void choixboissontuto(Player player){
         talkb("Vous êtes nouveau ? Dans ce cas la première tournée est gratuite pour vous !");
+        System.out.print("Selection: ");
         Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
 	{
@@ -180,7 +179,7 @@ public class Barman extends Personnages{
     
     public void display_menuboissonbonustuto(Player player) 
     {   
-        try {  Thread.sleep(2000); } catch (InterruptedException ie) {}
+        try {  Thread.sleep(1000); } catch (InterruptedException ie) {}
         System.out.println();
         talk("Je vous mets autre chose ? ");
 	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");

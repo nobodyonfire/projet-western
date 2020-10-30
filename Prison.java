@@ -76,6 +76,7 @@ public class Prison extends Location implements Move_Location, Menu{
         System.out.println(ANSI_GREEN+"Sherif : Bon courage petit !"+ANSI_RESET);
         System.out.println("");
         pressenter();
+        Menu(player);
     }
     
     public void Vendre(){

@@ -360,25 +360,27 @@ public class Saloon extends Location implements Move_Location, Menu{
 
 	    case 2:
             System.out.println();
-	    System.out.println ( "You picked option 2" );
+	    System.out.println ( "Il est temps de faire un blackJack !" );
 	    Jouer(player);
 	    break;
 
 	    case 3:
-	    System.out.println ( "You picked option 3" );
-	    Menu(player);
+	    System.out.println();
+	    System.out.println ( "Il est temps de séduire.." );
+	    Seduire(player);
 	    break;
 
             case 4:
-                System.out.println("Piano");
-                display_piano(player);
+            System.out.println();
+	    System.out.println ( "Jouons un peu de piano" );
+            PlayPiano(player);
             case 5:
-                System.out.println("I'm gonna leave this place");
-                changelocation(player);
+            System.out.println("Je pars d'ici");
+            changelocation(player);
 	    default:
             Menu(player);
             System.out.println();
-	    System.err.println ( "Unrecognized option" );
+	    System.err.println ( "Erreur inconnue" );
 	    break;
 
 	}
@@ -387,7 +389,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
-		throw new IllegalArgumentException("max must be greater than min");
+		throw new IllegalArgumentException("MAX > MIN");
 	}
 	Random r = new Random();
 	return r.nextInt((max - min) + 1) + min;

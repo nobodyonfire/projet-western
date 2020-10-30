@@ -162,6 +162,8 @@ public class ProjetJavaWestern {
         pressenter();clearScreen(1);
         Robbert.talkb("La banque est l'endroit où tu pourras stocker ton argent et le retirer");
         pressenter();clearScreen(1);
+        Robbert.talkb("Dans l'église tu pourras sauvegarder ta progression !");
+        pressenter();clearScreen(1);
         Robbert.talkb("Tu pourras aussi me trouver à la prison, où j'aurais des missions pour toi !");
         pressenter();clearScreen(1);
         Robbert.talkb("Et enfin dehors , le far west , il faudra faire très attentions aux rencontres que tu vas faire..");
