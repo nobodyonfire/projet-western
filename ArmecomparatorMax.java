@@ -11,17 +11,17 @@ import java.util.Comparator;
  *
  * @author ASUS
  */
-public class Armecomparator implements Comparator {
+public class ArmecomparatorMax implements Comparator {
     
     public int compare(Object o1,Object o2) {
         Arme arme1=(Arme) o1;
         Arme arme2=(Arme) o2;
         
-        if(arme1.getprix()> arme2.getprix()){
+        if(arme1.getpuissanceMax()> arme2.getpuissanceMax()){
             return -1;
         }
         
-        if(arme1.getprix()< arme2.getprix()){
+        if(arme1.getpuissanceMax()< arme2.getpuissanceMax()){
             return 1;
         }
         return 0;

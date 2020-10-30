@@ -45,7 +45,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         System.out.println("");
         System.out.println(ANSI_BLUE+"Jouer pour augmenter vos HP max !"+ANSI_RESET);
         System.out.println("");
-     display_seduire(player);
+        display_seduire(player);
     }
     
     public void PlayPiano(Player player){
