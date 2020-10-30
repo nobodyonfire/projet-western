@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author ASUS
  */
-public class Eglise extends Location implements Move_Location{
+public class Eglise extends Location implements Move_Location, Menu{
     
     
     
@@ -25,17 +25,16 @@ public class Eglise extends Location implements Move_Location{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     
-    protected String Name;
     
-    public Eglise(String Nom,int Danger,String Name){
+    public Eglise(String Nom,int Danger){
         super(Nom,Danger);
-        this.Name=Name;
     }
 
      
     public void Save(Player player){  
         
         player.playersave();
+        Menu(player);
 
     }
     
@@ -48,7 +47,7 @@ public class Eglise extends Location implements Move_Location{
      public void display_location()
     {
         System.out.println("Selection: ");
-        System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Far West ");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Prison \n5) Extérieur de la ville \n6) Rester");
 	
     }
     
@@ -58,6 +57,7 @@ public class Eglise extends Location implements Move_Location{
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"le7iemeciel");
         
         System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
@@ -68,34 +68,82 @@ public class Eglise extends Location implements Move_Location{
 	{
    
 	    case 1:
-                System.out.println();    
-                System.out.println ("Allons voir si le sherif à de nouvelles choses.." );
-                System.out.println("Vous entrez dans la prison");
-                player.SetLocation(Lockcity);
-                Lockcity.Menu(player);
+                System.out.println(); 
+                System.out.println("Vous entrez dans le Saloon");    
+                player.SetLocation(le7iemeciel);
+                le7iemeciel.Menu(player);
                 break;
   
 	    case 2:
-                System.out.println();
-                System.out.println ("Allons faire un tour à la banque..");
-                System.out.println("Vous entrez dans la banque.");
+                System.out.println(); 
+                System.out.println("Vous entrez dans la Banque.");
                 player.SetLocation(Banque_Populaire);
                 Banque_Populaire.Menu(player);
                 break;
   
 	    case 3:
-                System.out.println ( "Allons acheter une nouvelle arme..");
-                System.out.println("Vous entrez dans l'armurie.");
+                System.out.println(); 
+                System.out.println ("Vous entrez dans l'armurerie.");
+                player.SetLocation(Bangout);
                 Bangout.Menu(player);
                 break;
+                
             case 4:
- 
-                System.out.println();   
-                System.err.println ("Allons à l'aventure !");
-                System.out.println("Vous sortez de la ville faites bien attention.");
-
+                System.out.println(); 
+                System.out.println("Vous entrez dans la prison.");   
+                player.SetLocation(Lockcity);
+                Lockcity.Menu(player);
                 break;
+                
+            case 5:
+                System.out.println(); 
+                System.out.println("");
+                Menu(player);
+                break;
+                
+            case 6:
+                System.out.println("");
+                Menu(player);
+                break;            
+	}
         
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void display_menu(){
+        System.out.println("Selection: ");
+        System.out.println("1) Sauvegarder  \n2) Quitter le jeu \n3) Partir");
+    }
+    
+
+    @Override
+    public void Menu(Player player) {
+        
+        Scanner q = new Scanner(System.in);
+        display_menu();
+        switch (q.nextInt()) 
+	{
+   
+	    case 1:
+                System.out.println();    
+                Save(player);
+                break;
+  
+	    case 2:
+                System.out.println();
+                Menu(player);
+                break;
+  
+	    case 3:
+                System.out.println ( "" );
+                changelocation(player);
+                break;
+                
+	    default:
+                Menu(player);
+                System.out.println();
+                System.err.println ( "Unrecognized option" );
+                break;
               
 	}
         

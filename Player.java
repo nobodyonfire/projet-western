@@ -109,7 +109,7 @@ public class Player extends Personnages{
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
         setName(mots[0]);
-        Eglise SantaMaria = new Eglise("SantaMaria",10,"SantaMaria ");
+        Eglise SantaMaria = new Eglise("SantaMaria",10);
         this.setLocation(SantaMaria);
         //setLocation();
         this.Gun.Setname(mots[3]);

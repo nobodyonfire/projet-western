@@ -1,1 +1,1 @@
-Alexis le7iemeciel Couteau 10 9 100 0 NULL 1 0 0 100
+Player SantaMaria 0 Pistolet de seconde main 10 1 80 10 NULL 1 2000 0 100

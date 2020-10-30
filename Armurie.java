@@ -70,7 +70,7 @@ public class Armurie extends Location implements Move_Location, Menu{
             pressenter();
 	    break;
             case 2:  
-            questionAcheter(player);
+            Menu(player);
 	    break;
             default:
             Vendre(player);
@@ -78,7 +78,7 @@ public class Armurie extends Location implements Move_Location, Menu{
 	    System.err.println ( "Unrecognized option" );
 	    break;
              }
-           questionAcheter(player); 
+           Menu(player); 
     }
     
 
@@ -171,7 +171,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[0].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[0]);   }
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -182,7 +182,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[1]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -194,7 +194,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[2]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -205,7 +205,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[3]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -216,7 +216,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[4]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -227,7 +227,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[5]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -238,7 +238,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[6]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -249,7 +249,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[7]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -260,7 +260,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){ 
                     player.SetGun(listearme2[8]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -271,7 +271,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[9]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -282,7 +282,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[10]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -293,7 +293,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[11]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -304,7 +304,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[12]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -315,7 +315,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[13]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
             
@@ -326,7 +326,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 if (a>-1){
                     player.SetGun(listearme2[14]); }
 
-                questionAcheter(player);
+                Menu(player);
             System.out.println("");    
 	    break;
            
@@ -358,7 +358,7 @@ public class Armurie extends Location implements Move_Location, Menu{
              break;
   
              case 19:
-            questionAcheter(player);
+            Menu(player);
             System.out.println(" ");
 	    break;
             default:
@@ -392,60 +392,7 @@ public class Armurie extends Location implements Move_Location, Menu{
         System.out.print(enterkey);
     
     }
-    
-    
-    public void questionAcheter(Player player) 
-    {
-        System.out.println();
-	System.out.println("Que voulez vous Acheter?");
-	Scanner q = new Scanner(System.in);
-       
-
-        display_menu();
-        
-	switch (q.nextInt()) 
-	{
-   
-  
-	    case 1:
-            System.out.println();    
-            Acheter(player);
-	    break;
-  
-	    case 2:
-            System.out.println();
-	    System.out.println ( "Vendons notre arme..." );
-	    Vendre(player);
-	    break;
-            
-            default:
-            Menu(player);
-            System.out.println();
-	    System.err.println ( "Unrecognized option" );
-	    break;
-              
-	}
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     
     
     public void display_menu() 
@@ -458,7 +405,7 @@ public class Armurie extends Location implements Move_Location, Menu{
      public void display_location()
     {
         System.out.print("Selection: ");
-        System.out.println("1) Townhall  \n2) Bank \n3) Weapon Shop \n4) Outside the town \n5) Stay");
+        System.out.println("1) Saloon  \n2) Banque \n3) Prison \n4) Eglise \n5) Extérieur \n6) Rester");
 	
     }
     
@@ -467,6 +414,10 @@ public class Armurie extends Location implements Move_Location, Menu{
         
         System.out.println("Where do you want to go ?");
         Scanner q = new Scanner(System.in);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
+        Eglise SantaMaria = new Eglise("SantaMaria",10);
+        Prison Lockcity = new Prison("Lockcity",50,"NULL");
         
         display_location();
         
@@ -474,31 +425,41 @@ public class Armurie extends Location implements Move_Location, Menu{
 	{
    
 	    case 1:
-            System.out.println();    
-	    System.out.println ("Let's see if the sheriff has something for us" );
-	    break;
+                System.out.println(); 
+                System.out.println("Vous entrez dans le Saloon.");    
+                player.SetLocation(le7iemeciel);
+                le7iemeciel.Menu(player);
+                break;
   
 	    case 2:
-            System.out.println();
-	    System.out.println ("Need to save my money");
-	    break;
+                System.out.println(); 
+                System.out.println("Vous entrez dans la Banque.");
+                player.SetLocation(Banque_Populaire);
+                Banque_Populaire.Menu(player);
+                break;
   
 	    case 3:
-	    System.out.println ( "J'ai encore des choses a faire..");
-	    break;
+                System.out.println(); 
+                System.out.println("Vous entrez dans la Prison");
+                player.SetLocation(Lockcity);
+                Lockcity.Menu(player);
+                break;
             case 4:
- 
-            System.out.println();
-	    System.err.println ( "Let's capture some bad guy ! " );
-	    break;
+                System.out.println(); 
+                System.out.println("Vous entrez dans l'Eglsise");
+                player.SetLocation(SantaMaria);
+                SantaMaria.Menu(player);               
+                break;
             
             case 5:
- 
-            System.out.println();
-	    System.err.println ( "Let's drink a bit more" );
-            Menu(player);
-	    break;
-              
+                System.out.println("");
+                System.err.println ( "Let's drink a bit more" );
+                Menu(player);
+                break;
+            case 6:
+                System.out.println("");
+                Menu(player);
+                break;         
 	}
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

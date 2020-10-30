@@ -107,13 +107,14 @@ public class Banque extends Location implements Move_Location, Menu{
     public void display_location(){
         
         System.out.println("Selection: ");
-        System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Extérieur de la ville \n5) Rester");
+        System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Eglise \n5) Extérieur de la ville \n6) Rester");
     }
     @Override
     public void changelocation(Player player) {
         
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Eglise SantaMaria = new Eglise("SantaMaria",10);
         Saloon le7iemeciel = new Saloon("le7iemeciel", 10, "NULL");
         
         System.out.println("Où voulez-vous aller ?");
@@ -126,7 +127,7 @@ public class Banque extends Location implements Move_Location, Menu{
    
 	    case 1:
                 System.out.println();    
-                System.out.println("Vous entrez dans le Saloon");
+                System.out.println("Vous entrez dans le Saloon.");
                 player.SetLocation(le7iemeciel);
                 le7iemeciel.Menu(player);
                 break;
@@ -139,22 +140,26 @@ public class Banque extends Location implements Move_Location, Menu{
                 break;
   
 	    case 3:
+                System.out.println(); 
                 System.out.println("Vous entrez dans la prison.");
                 player.SetLocation(Lockcity);
                 Lockcity.Menu(player);
                 break;
             case 4:
+                System.out.println(); 
+                System.out.println("Vous entrez dans l'église Santa Maria.");
+                player.SetLocation(SantaMaria);
+                SantaMaria.Menu(player);
+            case 5:
  
                 System.out.println();   
                 System.err.println ("Allons à l'aventure !");
                 System.out.println("Vous sortez de la ville faites bien attention.");
-
                 break;
             
-            case 5:
+            case 6:
  
                 System.out.println();
-                System.err.println ( "Hum , je vais rester encore un peu ici" );
                 Menu(player);
                 break;
               
@@ -189,10 +194,7 @@ public class Banque extends Location implements Move_Location, Menu{
                 System.out.println("");
                 changelocation(player);
                 break;
-            case 5:
-                System.out.println("I'm gonna leave this place");
-                changelocation(player);
-                break;
+                
 	    default:
                 Menu(player);
                 System.out.println();

@@ -374,7 +374,7 @@ public class ProjetJavaWestern {
     private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"le7iemeciel");
     private static final Prison Lockcity = new Prison("Lockcity",50,"Lockcity ");
     private static final Armurie Bangout = new Armurie("Bangout",10,"Bangout");
-    private static final Eglise SantaMaria = new Eglise("SantaMaria",10,"SantaMaria ");
+    private static final Eglise SantaMaria = new Eglise("SantaMaria",10);
     /*
     Initialisation des personnages
     */

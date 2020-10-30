@@ -22,7 +22,7 @@ public class save {
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
    
 
-    private static final String FILENAME = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\Projet Java Western\\src\\projet\\java\\western\\save.txt";
+    private static final String FILENAME = "C:\\Users\\Eloi Texier\\Documents\\ISEN\\Java1\\Projet RPG FarWest\\Far_West\\src\\main\\java\\projet\\java\\western\\save.txt";
 
     public static void Save(String args) {
 
@@ -52,7 +52,7 @@ public class save {
 		{
 		
 		
-			String adressedufichier = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\Projet Java Western\\src\\projet\\java\\western\\save.txt";
+			String adressedufichier = "C:\\Users\\Eloi Texier\\Documents\\ISEN\\Java1\\Projet RPG FarWest\\Far_West\\src\\main\\java\\projet\\java\\western\\save.txt";
 			
 			FileReader fr = new FileReader(adressedufichier);
 			BufferedReader br = new BufferedReader(fr);

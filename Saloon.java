@@ -161,7 +161,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     public void display_location()
     {
         System.out.println("Selection: ");
-        System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Sortir de la ville \n5) Rester");
+        System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
     
@@ -172,6 +172,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
+        Eglise SantaMaria = new Eglise("SantaMaria",10);
         
         System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
@@ -183,7 +184,6 @@ public class Saloon extends Location implements Move_Location, Menu{
    
 	    case 1:
                 System.out.println();    
-                System.out.println ("Allons voir si le sherif à de nouvelles choses.." );
                 System.out.println("Vous entrez dans la prison");
                 player.SetLocation(Lockcity);
                 Lockcity.Menu(player);
@@ -191,26 +191,31 @@ public class Saloon extends Location implements Move_Location, Menu{
   
 	    case 2:
                 System.out.println();
-                System.out.println ("Allons faire un tour à la banque..");
                 System.out.println("Vous entrez dans la banque.");
                 player.SetLocation(Banque_Populaire);
                 Banque_Populaire.Menu(player);
                 break;
   
 	    case 3:
-                System.out.println ( "Allons acheter une nouvelle arme..");
+                System.out.println();
                 System.out.println("Vous entrez dans l'armurie.");
+                player.SetLocation(Bangout);
                 Bangout.Menu(player);
                 break;
             case 4:
+                System.out.println();
+                System.out.println("Vous entrez dans l'Eglise.");
+                player.SetLocation(SantaMaria);
+                SantaMaria.Menu(player);
+                break;
+            case 5:
  
                 System.out.println();   
                 System.err.println ("Allons à l'aventure !");
                 System.out.println("Vous sortez de la ville faites bien attention.");
-
                 break;
             
-            case 5:
+            case 6:
  
                 System.out.println();
                 System.err.println ( "Hum , je vais rester encore un peu ici" );
