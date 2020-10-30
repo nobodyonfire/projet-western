@@ -104,10 +104,10 @@ public class Player extends Personnages{
     
     public void playersave(){
         String string="";
-        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname()+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP() ;
+        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP()+" "+ 45 ;
         save.Save(string);
     }
-    
+
     public void playerload(){
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", 1, 0, 0, 100,null); 
@@ -118,7 +118,7 @@ public class Player extends Personnages{
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         this.setLocation(SantaMaria);
         //setLocation();
-        this.Gun.Setname(mots[3]);
+        this.Gun.Setname(mots[3].replaceAll("#", " "));
         this.Gun.SetpuissanceMax(Integer.parseInt((mots[4])));
         this.Gun.SetpuissanceMax(Integer.parseInt((mots[5])));
         this.Gun.Setaccuracy(Integer.parseInt((mots[6])));
@@ -132,7 +132,7 @@ public class Player extends Personnages{
         
         final String SEPARATEUR2 = "null";
         String mots2[] = mots[11].split(SEPARATEUR2);
-        SetHP(100);
+        SetHP(Integer.parseInt(mots[12]));
 
         }
     

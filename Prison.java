@@ -5,8 +5,10 @@
  */
 package projet.java.western;
 
+import java.util.Random;
 import java.util.Scanner;
 import static projet.java.western.Personnages.ANSI_RESET;
+import static projet.java.western.ProjetJavaWestern.duel;
 import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
@@ -43,7 +45,7 @@ public class Prison extends Location implements Move_Location, Menu{
     public void Sherif(Player player){  
         
         System.out.println("");
-        System.out.println(ANSI_BLUE+"Salut mon petit , tu veux une quete ?"+ANSI_RESET);
+        System.out.println(ANSI_GREEN+"Sherif : Salut mon petit , tu veux une quete ?"+ANSI_RESET);
         System.out.println("");
         System.out.println("1) oui");
         System.out.println("2) non");
@@ -71,12 +73,52 @@ public class Prison extends Location implements Move_Location, Menu{
         System.out.println("");
         System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");
         System.out.println("");
+        System.out.println(ANSI_GREEN+"Sherif : Bon courage petit !"+ANSI_RESET);
+        System.out.println("");
         pressenter();
     }
     
     public void Vendre(){
         
     }
+    
+    public void testevasion(Player player){
+        int a=getRandomNumberInRange(0,5);
+        if (a==0){
+            
+        System.out.println(ANSI_GREEN+"Sherif : Ho non ! Le prisonnier s'échappe !"+ANSI_RESET);
+        pressenter(); System.out.println("");
+        System.out.println(ANSI_GREEN+"Sherif : Eh " + player.getName() + " aide moi à le capturer  !"+ANSI_RESET);
+        pressenter(); System.out.println("");
+        System.out.println("");
+        Brigand Jacob = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10));
+        duel(player, Jacob);
+        recompense(player);
+        }
+    }
+    
+    public void recompense(Player player){
+        player.add_argent(20, player);
+        int HP = player.getHP();
+        if (HP <100){
+            player.SetHP(100);
+        }
+    }
+    
+    
+    
+    private static int getRandomNumberInRange(int min, int max) {
+	if (min >= max) {
+		throw new IllegalArgumentException("max must be greater than min");
+	}
+	Random r = new Random();
+	return r.nextInt((max - min) + 1) + min;
+    }
+    
+    
+    
+    
+    
     
       public void display_menu() 
     {
@@ -101,7 +143,8 @@ public class Prison extends Location implements Move_Location, Menu{
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         
-        System.out.println("Where do you want to go ?");
+        System.out.println("Où voulez-vous aller ? ?");
+        System.out.println("");
         Scanner q = new Scanner(System.in);
         
         display_location();
@@ -166,6 +209,7 @@ public class Prison extends Location implements Move_Location, Menu{
         
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
+        testevasion(player);
 	System.out.println("Que voulez vous faire ?");
 	Scanner q = new Scanner(System.in);
        
@@ -177,22 +221,23 @@ public class Prison extends Location implements Move_Location, Menu{
    
   
 	    case 1:
-                System.out.println();    
+                System.out.println("");    
                 System.out.println ("Allons parler au sherif" );
                 Sherif(player);
 	    break;
   
 	    case 2:
-                System.out.println();
-                System.out.println ( "Vendons notre arme..." );
+                System.out.println("");
+                System.out.println ( "PROCHAINE MAJ DU JEU !" );
                 Vendre();
 	    break;
             case 3:
-                System.out.println("I'm gonna leave this place");
+                System.out.println("");
+                System.out.println("Je pars d'ici !");
                 changelocation(player);
 	    default:
                 Menu(player);
-                System.out.println();
+                System.out.println("");
                 System.err.println ( "Unrecognized option" );
 	    break;
               

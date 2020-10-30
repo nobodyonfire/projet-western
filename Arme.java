@@ -9,6 +9,7 @@ public class Arme implements Comparable{
     int puissanceMin;
     int accuracy;
     int prix;
+    String Savename;
     
     
     

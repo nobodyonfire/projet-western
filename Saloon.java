@@ -97,15 +97,15 @@ public class Saloon extends Location implements Move_Location, Menu{
             System.out.println("Le score de la banque est " + Bank_Value + ".");
         }
         if (Player_Value > 21 || (Player_Value < Bank_Value && Bank_Value < 22)){
-            System.out.println("Vous avez perdu. Vous perdez " + mise + "$.");
+            System.out.println(ANSI_BLUE+"Vous avez perdu. Vous perdez " + mise + "$."+ANSI_RESET);
             player.add_argent(-mise, player);
         }
         else{
             if (Player_Value==Bank_Value){
-                System.out.println("Egalité, personne ne gagne.");
+                System.out.println(ANSI_BLUE+"Egalité, personne ne gagne."+ANSI_RESET);
             } 
             else{
-                System.out.println("Vous avez gagné. Vous gagnez " + 2*mise + "$.");
+                System.out.println(ANSI_BLUE+"Vous avez gagné. Vous gagnez " + 2*mise + "$."+ANSI_RESET);
                 mise = 2 * mise;
                 player.add_argent(mise, player); 
             }

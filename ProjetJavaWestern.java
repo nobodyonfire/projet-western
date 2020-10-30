@@ -109,14 +109,16 @@ public class ProjetJavaWestern {
         /* ZONE TEST */
         
         
-        Lockcity.Menu(player);
+        
 
         
         /*
+        Lockcity.Menu(player);
+        
+        
         Bangout.questionAcheter(player) ;
         player.playersave();
         player.playerload();
-       
         map.printcarte();
         Bangout.questionAcheter(); */
         
@@ -250,8 +252,10 @@ public class ProjetJavaWestern {
         System.out.println("");
         boolean victoire = false;
         int degat;
-      
-        int taille = Math.max( player.getName().length() +8 , player.Gun.getname().length()+8);
+        
+        int taillea = Math.max( player.getName().length() +8 , player.Gun.getname().length()+8);
+        int tailleb = Math.max( brigand.getName().length() +8 , brigand.Gun.getname().length()+8);
+        int taille = Math.max( taillea,tailleb);
         
         /* AFFICHAGE DUEL */
   
