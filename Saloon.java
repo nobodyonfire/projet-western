@@ -1,5 +1,8 @@
 
 package projet.java.western;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner; 
 import static projet.java.western.Arme.sleep;
@@ -38,9 +41,115 @@ public class Saloon extends Location implements Move_Location, Menu{
     @SuppressWarnings("empty-statement")
     
     
-    public void Jouer(){  
+  public void Jouer(Player player){
+        
+        List<Integer> Deckinit = Arrays.asList(11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10);
+        ArrayList<Integer> Deck = new ArrayList<Integer>(); 
+        Deck.addAll(Deckinit);
+        int Bank_Value = 0;
+        int Player_Value = 0;
+        Scanner q = new Scanner(System.in);
+        int index;
+        boolean Stop = false;
+        String Answer;
+        System.out.println("Vous avez " + player.getArgent() + "$ sur vous.");
+        
+        int mise = paiement(player);
+          
+        Random r = new Random();
+        
+        index = r.nextInt(Deck.size());
+        Player_Value = Deck.get(index);
+        System.out.println("Vous piochez un " + Deck.get(index) + ".");
+        Deck.remove(index);
+        
+        index = r.nextInt(Deck.size());
+        Player_Value = Player_Value + Deck.get(index);
+        System.out.println("Vous piochez un " + Deck.get(index) + ".");
+        Deck.remove(index);
+        
+        index = r.nextInt(Deck.size());
+        Bank_Value = Deck.get(index);
+        Deck.remove(index);
+        System.out.println("Le score de la banque est " + Bank_Value + ".");
+        
+        while (Stop == false && Player_Value < 22){
+            System.out.println("Votre score est de " + Player_Value + ". Voulez-vous continuez ?");
+            System.out.println("Y/N");
+            Answer = q.nextLine();
+            if (Answer.isEmpty()||Answer.contains("y") || Answer.contains("Y")){
+                index = r.nextInt(Deck.size());
+                Player_Value = Player_Value + Deck.get(index);
+                System.out.println("Vous piochez un " + Deck.get(index) + ".");
+                Deck.remove(index);
+            }
+            else{
+                if (Answer.contains("N")||Answer.contains("n")){
+                    Stop = true;
+                }
+            }
+        }
+        while (Bank_Value < 17){
+            index = r.nextInt(Deck.size());
+            Bank_Value = Bank_Value + Deck.get(index);
+            System.out.println("La Banque pioche un " + Deck.get(index) + ".");
+            Deck.remove(index);
+            System.out.println("Le score de la banque est " + Bank_Value + ".");
+        }
+        if (Player_Value > 21 || (Player_Value < Bank_Value && Bank_Value < 22)){
+            System.out.println("Vous avez perdu. Vous perdez " + mise + "$.");
+            player.add_argent(-mise, player);
+        }
+        else{
+            if (Player_Value==Bank_Value){
+                System.out.println("Egalité, personne ne gagne.");
+            } 
+            else{
+                System.out.println("Vous avez gagné. Vous gagnez " + 2*mise + "$.");
+                mise = 2 * mise;
+                player.add_argent(mise, player); 
+            }
+            
+        }
+        System.out.println("Voulez-vous rejouer ? ");
+        System.out.println("Y/N");
+        
+        Answer = q.nextLine();
+        if (Answer.isEmpty()||Answer.contains("y") || Answer.contains("Y")){
+            Jouer(player);
+        }
+        else{
+            if (Answer.contains("N")||Answer.contains("n")){
+                Menu(player);
+            }
+        }
         
     }
+    
+    public int paiement(Player player){
+        int mise = 0;
+        Scanner q = new Scanner(System.in);
+        boolean paiement = false;
+        while (paiement == false){
+            System.out.println("Combien voulez-vous miser ?");
+            mise = q.nextInt();    
+            if (mise > player.getArgent()){
+                System.out.println("Vous ne pouvez pas miser de l'argent que vous n'avez pas.");
+            }
+            else{
+                if (mise > 300){
+                    System.out.println("Désolé vous ne pouvez pas miser autant.");
+                }
+                else{
+                    System.out.println("Votre mise de " + mise + "$ a été prise en compte.");
+                    paiement = true;
+                    
+                }
+            }
+        }
+        return mise;
+    }
+    
     public void Seduire(Player player){
         System.out.println("");
         System.out.println(ANSI_BLUE+"Jouer pour augmenter vos HP max !"+ANSI_RESET);
@@ -252,7 +361,7 @@ public class Saloon extends Location implements Move_Location, Menu{
 	    case 2:
             System.out.println();
 	    System.out.println ( "You picked option 2" );
-	    Menu(player);
+	    Jouer(player);
 	    break;
 
 	    case 3:
