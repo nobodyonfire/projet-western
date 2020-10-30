@@ -109,7 +109,7 @@ public class ProjetJavaWestern {
         /* ZONE TEST */
         
         
-
+        Lockcity.Menu(player);
 
         
         /*
@@ -378,7 +378,7 @@ public class ProjetJavaWestern {
     /*
     Initialisation des personnages
     */
-    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", 1, 1500, 0, 100); 
+    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", 1, 1500, 0, 100,null); 
     private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
     private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau, "Barman" , 20, 1000);
     private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, "Voleur" , 1, 0,1,false, 11);

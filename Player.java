@@ -11,12 +11,14 @@ public class Player extends Personnages{
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLUE = "\u001B[34m";
     private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
+    public Brigand brigand;
     
     
-    public Player(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent, int etat, int HP) {
+    public Player(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent, int etat, int HP,Brigand brigand) {
         super(Name,Location,Gun,Job,Niveau,Argent);
         this.etat = etat;
         this.HP = HP;
+        this.brigand =null;
 
         
     }
@@ -49,6 +51,10 @@ public class Player extends Personnages{
     
    public void setHP(int HP){
        this.HP = HP;
+   }
+   
+   public void setBrigand(Brigand brigand){
+       this.brigand=brigand;
    }
    
    
@@ -104,7 +110,7 @@ public class Player extends Personnages{
     
     public void playerload(){
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", 1, 0, 0, 100); 
+        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", 1, 0, 0, 100,null); 
         String string = save.lire();
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);

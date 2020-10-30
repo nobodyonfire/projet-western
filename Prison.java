@@ -40,16 +40,47 @@ public class Prison extends Location implements Move_Location, Menu{
     
     
      
-    public void Acheter(){  
+    public void Sherif(Player player){  
         
+        System.out.println("");
+        System.out.println(ANSI_BLUE+"Salut mon petit , tu veux une quete ?"+ANSI_RESET);
+        System.out.println("");
+        System.out.println("1) oui");
+        System.out.println("2) non");
+        System.out.println("");
+        System.out.print("selection = ");
+        Scanner q = new Scanner(System.in);   
+        switch (q.nextInt()) 
+	{
+	    case 1:
+                Sherifquete(player);
+                break;
+  
+	    case 2:
+                Menu(player);
+                break;
+  
+        
+        }  
     }
+    
+     public void Sherifquete(Player player){
+        System.out.println("");
+        Brigand brigandquete = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10));
+        player.setBrigand(brigandquete);
+        System.out.println("");
+        System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");
+        System.out.println("");
+        pressenter();
+    }
+    
     public void Vendre(){
         
     }
     
       public void display_menu() 
     {
-	System.out.println("1) Acheter  \n2) Vendre \n3) Partir");
+	System.out.println("1) Parler au sherif \n3) Partir");
 	System.out.print("Selection: ");  
     }
     
@@ -122,6 +153,14 @@ public class Prison extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+     public static void pressenter(){
+        Scanner readinput = new Scanner(System.in);
+        String enterkey = "appuyer sur entrer...";
+        System.out.print(enterkey);
+        enterkey = readinput.nextLine();
+        System.out.print(enterkey);
+    
+    }
     @Override
     public void Menu(Player player) {
         
@@ -139,8 +178,8 @@ public class Prison extends Location implements Move_Location, Menu{
   
 	    case 1:
                 System.out.println();    
-                System.out.println ("Achetons une nouvelle arme !" );
-                Acheter();
+                System.out.println ("Allons parler au sherif" );
+                Sherif(player);
 	    break;
   
 	    case 2:
