@@ -98,7 +98,7 @@ public class Player extends Personnages{
     
     public void playersave(){
         String string="";
-        string = string +getName()+" "+getLocation()+ " "+this.Gun.getname()+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP() ;
+        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname()+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP() ;
         save.Save(string);
     }
     
@@ -109,17 +109,19 @@ public class Player extends Personnages{
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
         setName(mots[0]);
+        Eglise SantaMaria = new Eglise("SantaMaria",10,"SantaMaria ");
+        this.setLocation(SantaMaria);
         //setLocation();
-        this.Gun.Setname(mots[2]);
-        this.Gun.SetpuissanceMax(Integer.parseInt((mots[3])));
+        this.Gun.Setname(mots[3]);
         this.Gun.SetpuissanceMax(Integer.parseInt((mots[4])));
-        this.Gun.Setaccuracy(Integer.parseInt((mots[5])));
-        this.Gun.Setprix(Integer.parseInt((mots[6])));
-        setJob(mots[7]);
+        this.Gun.SetpuissanceMax(Integer.parseInt((mots[5])));
+        this.Gun.Setaccuracy(Integer.parseInt((mots[6])));
+        this.Gun.Setprix(Integer.parseInt((mots[7])));
+        setJob(mots[8]);
 
-        setNiveau(Integer.parseInt((mots[8])));
-        SetArgent(Integer.parseInt((mots[9])));
-        setEtat(Integer.parseInt((mots[10])));
+        setNiveau(Integer.parseInt((mots[9])));
+        SetArgent(Integer.parseInt((mots[10])));
+        setEtat(Integer.parseInt((mots[11])));
 
         
         final String SEPARATEUR2 = "null";

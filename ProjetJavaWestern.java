@@ -53,7 +53,7 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+ "DEBUT INITIALISATION " + ANSI_RESET);
         System.out.println(" ");
         
-        
+        menudepart(player);
       
         String Player_name = Robbert.StoryTelling();     
         player.SetName(Player_name);
@@ -71,13 +71,47 @@ public class ProjetJavaWestern {
         
     }
     
+    public static void menudepart(Player player){
+        
+        System.out.println("Voulez vous ?");
+        System.out.println("");
+        System.out.println("1) Nouvelle partie");
+        System.out.println("2) Load a game");
+        System.out.println("");
+        Scanner q = new Scanner(System.in);
+        System.out.print("Selection = ");    
+        switch (q.nextInt()) 
+	{
+   
+	    case 1:
+            clearScreen(3);
+            break;
+            
+            case 2:
+            player.playerload();
+            SantaMaria.changelocation(player);
+            break;
+            
+            default:
+            System.out.println("");
+	    System.err.println ( "faites un choix !" );
+            System.out.println("");
+            menudepart(player);
+	    break;   
+            
+        } 
+    }
     
+
     public static void didactitiel(){
         
 
         /* ZONE TEST */
         
- Bangout.questionAcheter(player);
+        
+
+
+        
         /*
         Bangout.questionAcheter(player) ;
         player.playersave();
@@ -337,9 +371,10 @@ public class ProjetJavaWestern {
     Initialisation des lieux 
     */
     
-    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-    private static final Prison Lockcity = new Prison("Lockcity",50,"NULL");
-    private static final Armurie Bangout = new Armurie("Bangout",10,"NULL");
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"le7iemeciel");
+    private static final Prison Lockcity = new Prison("Lockcity",50,"Lockcity ");
+    private static final Armurie Bangout = new Armurie("Bangout",10,"Bangout");
+    private static final Eglise SantaMaria = new Eglise("SantaMaria",10,"SantaMaria ");
     /*
     Initialisation des personnages
     */
