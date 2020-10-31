@@ -84,7 +84,7 @@ public class Prison extends Location implements Move_Location, Menu{
     }
     
     public void testevasion(Player player){
-        int a=getRandomNumberInRange(0,5);
+        int a=getRandomNumberInRange(0,4);
         if (a==0){
             
         System.out.println(ANSI_GREEN+"Sherif : Ho non ! Le prisonnier s'échappe !"+ANSI_RESET);
@@ -230,7 +230,7 @@ public class Prison extends Location implements Move_Location, Menu{
 	    case 2:
                 System.out.println("");
                 System.out.println ( "PROCHAINE MAJ DU JEU !" );
-                Vendre();
+                Menu(player);
 	    break;
             case 3:
                 System.out.println("");

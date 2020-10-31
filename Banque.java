@@ -59,47 +59,52 @@ public class Banque extends Location implements Move_Location, Menu{
     
     
     public void Deposer(Player player){
-        System.out.println("Combien voulez-vous déposer ?");
+        System.out.println(ANSI_BLUE+"Combien voulez-vous déposer ?"+ANSI_RESET);
         Scanner q = new Scanner(System.in);
         int montant = q.nextInt();
         if (montant > player.getArgent()){
-            System.out.println("Vous voulez déposer plus d'argent que vous avez. Je dépose donc tout votre argent sur votre compte.");
+            System.out.println("");
+            System.out.println(ANSI_BLUE+"Vous voulez déposer plus d'argent que vous avez. Je dépose donc tout votre argent sur votre compte."+ANSI_RESET);
             Banque_Populaire.SetStocke(Banque_Populaire.GetStocke() + player.getArgent());
             player.SetArgent(0);
         }
         else{
-            System.out.println("Votre dépot de " + montant + " a bien été pris en compte. Merci de nous faire confiance.");
+            System.out.println("");
+            System.out.println(ANSI_BLUE+"Votre dépot de " + montant + " a bien été pris en compte. Merci de nous faire confiance."+ANSI_RESET);
             Banque_Populaire.SetStocke(Banque_Populaire.GetStocke() + montant);
             player.SetArgent(player.getArgent()-montant);
         }
-        System.out.println("Vous avez actuellement" + Banque_Populaire.GetStocke() + "$ stocké chez nous.");
+        System.out.println(ANSI_BLUE+ "Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ stocké chez nous."+ANSI_RESET);
         Menu(player);
         
     }
     
     public void Recuperer(Player player){
-        System.out.println("Combien voulez-vous récupérer ? Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ en banque.");
+        System.out.println(ANSI_BLUE+"Combien voulez-vous récupérer ? Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ en banque."+ANSI_RESET);
         Scanner q = new Scanner(System.in);
         int montant = q.nextInt();
         if (montant > Banque_Populaire.GetStocke()){
-            System.out.println("J'imagine que vous voulez tout retirer.");
+            System.out.println("");
+            System.out.println(ANSI_BLUE+"J'imagine que vous voulez tout retirer."+ANSI_RESET);
             player.SetArgent(Banque_Populaire.GetStocke());
             Banque_Populaire.SetStocke(0);
         }
         else{
             player.SetArgent(montant);
+            System.out.println("");
             Banque_Populaire.SetStocke(Banque_Populaire.GetStocke() - montant);
         }
-        System.out.println("Merci de nous faire confiance. Il vous reste "+ Banque_Populaire.GetStocke() + "$.");
+        System.out.println(ANSI_BLUE+"Merci de nous faire confiance. Il vous reste "+ Banque_Populaire.GetStocke() + "$."+ANSI_RESET);
         Menu(player);
     }
     
     public void Monargent(Player player){
-        System.out.println("Vous avez " + Banque_Populaire.GetStocke() + "$ sur votre compte");
+        System.out.println(ANSI_BLUE+"Vous avez " + Banque_Populaire.GetStocke() + "$ sur votre compte"+ANSI_RESET);
         Menu(player);
     }
     
     public void display_menu(){
+        System.out.println("");
         System.out.println("Selection: ");
         System.out.println("1) Déposer  \n2) Récupérer \n3) Vérifier mon compte \n4) Partir");
     }
@@ -169,7 +174,9 @@ public class Banque extends Location implements Move_Location, Menu{
 
     @Override
     public void Menu(Player player) {
-        
+        System.out.println();
+        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
+        System.out.println();
         Scanner q = new Scanner(System.in);
         display_menu();
         switch (q.nextInt()) 

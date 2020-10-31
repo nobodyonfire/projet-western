@@ -1,6 +1,9 @@
 
 package projet.java.western;
 
+import static projet.java.western.ProjetJavaWestern.clearScreen;
+import static projet.java.western.ProjetJavaWestern.sleep;
+
 
 
 
@@ -109,6 +112,7 @@ public class Player extends Personnages{
     }
 
     public void playerload(){
+        
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", 1, 0, 0, 100,null); 
         String string = save.lire();
@@ -133,7 +137,11 @@ public class Player extends Personnages{
         final String SEPARATEUR2 = "null";
         String mots2[] = mots[11].split(SEPARATEUR2);
         SetHP(Integer.parseInt(mots[12]));
-
+        
+        clearScreen(50);
+        map.printbienvenu(player,mots[0],0);
+        sleep(3000);
+        clearScreen(30);
         }
     
 

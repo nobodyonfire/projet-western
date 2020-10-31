@@ -31,7 +31,8 @@ public class Reminder {
 
     class RemindTask extends TimerTask {
         public void run() {
-            System.out.println("///////////////////////////"); 
+            System.out.println(""); 
+            System.out.println(""); 
             timer.cancel(); //Terminate the timer thread
         }
     }

@@ -80,7 +80,17 @@ public class Arme implements Comparable{
     
     
     
-    
+    public static void minijeurandom(){
+        int a =getRandomNumberInRange(1,2);
+        
+        if (a==1){
+            minijeu1();
+        }
+        if (a==2){
+            minijeu2();
+        }
+        
+    }
     
     
     
@@ -106,8 +116,8 @@ public class Arme implements Comparable{
             System.out.print(a);
             System.out.println(" ");
             
-            Reminder test= new Reminder(2);
-            sleep(5000);
+            Reminder test= new Reminder(3);
+            sleep(500);
             int valeur =test.getvaleur();
 
             if (a==valeur){succes=succes+1;}
@@ -139,8 +149,8 @@ public class Arme implements Comparable{
        System.out.print(a);
        System.out.println(" ");
 
-       Reminder test= new Reminder(8);
-       sleep(5000);
+       Reminder test= new Reminder(10);
+       sleep(500);
        int valeur =test.getvaleur();
        if (a==valeur){
            System.out.println("Vous avez fait un réussi !");

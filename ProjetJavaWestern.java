@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Random;
+import static projet.java.western.Armurie.clearScreen;
 
 
 
@@ -51,6 +52,8 @@ public class ProjetJavaWestern {
         
         System.out.println(" ");
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+ "DEBUT INITIALISATION " + ANSI_RESET);
+        System.out.println(" ");
+        System.out.println(ANSI_RED+"METTRE LA CONSOLE EN PLEIN ECRAN !"+ANSI_RESET);
         System.out.println(" ");
         
         menudepart(player);
@@ -107,9 +110,6 @@ public class ProjetJavaWestern {
         
 
         /* ZONE TEST */
-        
-        
-        
 
         
         /*
@@ -125,6 +125,14 @@ public class ProjetJavaWestern {
 
         
          /* PREMIERE  PARTIE */
+        clearScreen(50);
+        map.printbienvenu(player," ",1);
+        sleep(3000);
+        clearScreen(50);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        System.out.println(ANSI_BLUE +"                                                                                  DIDACTITIEL                                                                              " +  ANSI_RESET);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        clearScreen(3);
         System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt." +  ANSI_RESET);
         System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes." +  ANSI_RESET);
         System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
@@ -181,6 +189,7 @@ public class ProjetJavaWestern {
         Robbert.talkb("Eh " + player.getName() + " fait tes preuves et attrape le.");
         Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tiens un flingue je l'ai trouvé par terre.");
         player.SetGun(Pistolet_de_seconde_main);
+        Robbert.talkb(ANSI_RED+"Lors des combats contre les brigands , des minis jeux apparaitront et influrencons le resultat du duel !"+ANSI_RESET);
         pressenter();clearScreen(1);
         
         duel(player, Jacob);
@@ -191,6 +200,19 @@ public class ProjetJavaWestern {
         player.add_argent(500, player);
         Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
         Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
+        pressenter();
+        clearScreen(50);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        System.out.println(ANSI_BLUE +"                                                                                 FIN DU DIDACTITIEL                                                                              " +  ANSI_RESET);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        clearScreen(3);
+        sleep(3000);
+        clearScreen(50);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        System.out.println(ANSI_BLUE +"                                                                                 VOUS RENTRER DANS LE MONDE LIBRE                                                                    " +  ANSI_RESET);
+        System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
+        clearScreen(3);
+        sleep(3000);
         Lockcity.Menu(player);
               
         
@@ -235,7 +257,6 @@ public class ProjetJavaWestern {
     }
     
     public static void clearScreen(int j) {  
-
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
@@ -252,6 +273,7 @@ public class ProjetJavaWestern {
     public static boolean duel(Player player, Brigand brigand){
         
         System.out.println("");
+        Arme.minijeurandom();
         boolean victoire = false;
         int degat;
         

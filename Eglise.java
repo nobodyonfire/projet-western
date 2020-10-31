@@ -118,7 +118,9 @@ public class Eglise extends Location implements Move_Location, Menu{
 
     @Override
     public void Menu(Player player) {
-        
+        System.out.println();
+        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'église !"+ ANSI_RESET);
+        System.out.println();
         Scanner q = new Scanner(System.in);
         display_menu();
         switch (q.nextInt()) 

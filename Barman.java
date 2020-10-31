@@ -181,9 +181,6 @@ public class Barman extends Personnages{
     {   
         try {  Thread.sleep(1000); } catch (InterruptedException ie) {}
         System.out.println();
-        talk("Je vous mets autre chose ? ");
-	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
-        System.out.print("Selection: ");
         questionboissontuto(player);
     }
     

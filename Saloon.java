@@ -52,35 +52,47 @@ public class Saloon extends Location implements Move_Location, Menu{
         int index;
         boolean Stop = false;
         String Answer;
-        System.out.println("Vous avez " + player.getArgent() + "$ sur vous.");
+        
+        clearScreen(1);
+        System.out.println(ANSI_BLUE+"Vous avez " + player.getArgent() + "$ sur vous."+ANSI_RESET);
+        clearScreen(1);
         
         int mise = paiement(player);
-          
+        
+        System.out.println("_______________________________________________________");
+        System.out.println(ANSI_GREEN+"          DEBUT DE LA PARTIE          "+ANSI_RESET);
+        System.out.println("_______________________________________________________");
+
+        
+        
         Random r = new Random();
         
         index = r.nextInt(Deck.size());
         Player_Value = Deck.get(index);
-        System.out.println("Vous piochez un " + Deck.get(index) + ".");
+        clearScreen(1);
+        System.out.println(ANSI_BLUE+"Vous piochez un " + Deck.get(index) + "."+ANSI_RESET);
         Deck.remove(index);
         
         index = r.nextInt(Deck.size());
         Player_Value = Player_Value + Deck.get(index);
-        System.out.println("Vous piochez un " + Deck.get(index) + ".");
+        System.out.println(ANSI_BLUE+"Vous piochez un " + Deck.get(index) + "."+ANSI_RESET);
         Deck.remove(index);
         
         index = r.nextInt(Deck.size());
         Bank_Value = Deck.get(index);
         Deck.remove(index);
-        System.out.println("Le score de la banque est " + Bank_Value + ".");
+        clearScreen(1);
+        System.out.println(ANSI_RED+"Le score de la banque est " + Bank_Value + "."+ANSI_RESET);
         
         while (Stop == false && Player_Value < 22){
-            System.out.println("Votre score est de " + Player_Value + ". Voulez-vous continuez ?");
-            System.out.println("Y/N");
+            System.out.println(ANSI_BLUE+"Votre score est de " + Player_Value + ". Voulez-vous continuez ?"+ANSI_RESET);
+            System.out.println(ANSI_BLUE+"Y/N"+ANSI_RESET);
             Answer = q.nextLine();
             if (Answer.isEmpty()||Answer.contains("y") || Answer.contains("Y")){
                 index = r.nextInt(Deck.size());
                 Player_Value = Player_Value + Deck.get(index);
-                System.out.println("Vous piochez un " + Deck.get(index) + ".");
+                clearScreen(1);
+                System.out.println(ANSI_BLUE+"Vous piochez un " + Deck.get(index) + "."+ANSI_RESET);
                 Deck.remove(index);
             }
             else{
@@ -92,25 +104,31 @@ public class Saloon extends Location implements Move_Location, Menu{
         while (Bank_Value < 17){
             index = r.nextInt(Deck.size());
             Bank_Value = Bank_Value + Deck.get(index);
-            System.out.println("La Banque pioche un " + Deck.get(index) + ".");
+            clearScreen(1);
+            System.out.println(ANSI_RED+"La Banque pioche un " + Deck.get(index) + "."+ANSI_RESET);
             Deck.remove(index);
-            System.out.println("Le score de la banque est " + Bank_Value + ".");
+            System.out.println(ANSI_RED+"Le score de la banque est " + Bank_Value + "."+ANSI_RESET);
+            sleep(1500);
         }
         if (Player_Value > 21 || (Player_Value < Bank_Value && Bank_Value < 22)){
-            System.out.println(ANSI_BLUE+"Vous avez perdu. Vous perdez " + mise + "$."+ANSI_RESET);
+            clearScreen(1);
+            System.out.println(ANSI_RED+"Vous avez perdu. Vous perdez " + mise + "$."+ANSI_RESET);
             player.add_argent(-mise, player);
         }
         else{
             if (Player_Value==Bank_Value){
+                clearScreen(1);
                 System.out.println(ANSI_BLUE+"Egalité, personne ne gagne."+ANSI_RESET);
             } 
             else{
+                clearScreen(1);
                 System.out.println(ANSI_BLUE+"Vous avez gagné. Vous gagnez " + 2*mise + "$."+ANSI_RESET);
                 mise = 2 * mise;
                 player.add_argent(mise, player); 
             }
             
         }
+        clearScreen(1);
         System.out.println("Voulez-vous rejouer ? ");
         System.out.println("Y/N");
         
@@ -171,8 +189,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     
     public void recompensepiano(Player player){
-        int a =getRandomNumberInRange(1,5);
-        int b =getRandomNumberInRange(1,3);
+        int a =getRandomNumberInRange(1,3);
+        int b =getRandomNumberInRange(1,2);
         
         if (b==1){
             if (player.getHP()+1<101){
@@ -212,7 +230,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     
     public void recompenseseduire(Player player){
-        int a =getRandomNumberInRange(1,5);
+        int a =getRandomNumberInRange(1,3);
  
         if (a==1){
             if (player.getHP()+1<101){
@@ -226,10 +244,10 @@ public class Saloon extends Location implements Move_Location, Menu{
         }
     }      
      public void display_seduire(Player player){
-          int a =getRandomNumberInRange(0,35);
+          int a =getRandomNumberInRange(1,36);
           map.printseduire(a);
           int A =50;int B =50;boolean Stop = false;int valeur=50;
-          System.out.println("Rentrer le nombre que vous voyez ( A puis B ), rentrer "+ "55" +" pour quiter");
+          System.out.println("Rentrer le nombre que vous voyez ( A puis B ), rentrer "+ "0 pour A et B" +" pour quiter");
        
        while((a!=valeur) && (Stop == false)){
             System.out.print("A= ");
@@ -238,8 +256,8 @@ public class Saloon extends Location implements Move_Location, Menu{
             System.out.print("B= ");
             Scanner q1 = new Scanner(System.in);
             int tmp2 = q1.nextInt();
-            valeur = tmp*6+tmp2;
-            if (valeur == 55 ){
+            valeur = tmp*6+tmp2+1;
+            if (valeur == 1 ){
                 Stop = true; 
             }
        }
@@ -260,7 +278,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public void display_menu() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) leave");
+	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Seduire \n4) PlayPiano \n5) leave");
 	System.out.print("Selection: ");  
     }
     
@@ -342,6 +360,7 @@ public class Saloon extends Location implements Move_Location, Menu{
 
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
+        System.out.println();
 	System.out.println("Que voulez vous faire ?");
 	Scanner q = new Scanner(System.in);
 
@@ -445,7 +464,7 @@ public class Saloon extends Location implements Move_Location, Menu{
      
      public void display_menututo2() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
+	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
 	System.out.print("Selection: ");           
     }
      

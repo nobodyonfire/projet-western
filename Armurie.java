@@ -397,14 +397,14 @@ public class Armurie extends Location implements Move_Location, Menu{
     
     public void display_menu() 
     {
-	System.out.println("1) Acheter  \n2) Vendre \n3) leave");
+	System.out.println("1) Acheter  \n2) Vendre \n3) Quitter");
 	System.out.print("Selection: ");  
     }
 
     
      public void display_location()
     {
-        System.out.print("Selection: ");
+        System.out.println("Selection: ");
         System.out.println("1) Saloon  \n2) Banque \n3) Prison \n4) Eglise \n5) Extérieur \n6) Rester");
 	
     }
@@ -412,7 +412,7 @@ public class Armurie extends Location implements Move_Location, Menu{
     @Override
     public void changelocation(Player player) {
         
-        System.out.println("Where do you want to go ?");
+        System.out.println("Ou voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
@@ -453,7 +453,7 @@ public class Armurie extends Location implements Move_Location, Menu{
             
             case 5:
                 System.out.println("");
-                System.err.println ( "Let's drink a bit more" );
+                System.err.println ( "Allons dehors !" );
                 Menu(player);
                 break;
             case 6:
@@ -462,7 +462,7 @@ public class Armurie extends Location implements Move_Location, Menu{
                 break;         
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
