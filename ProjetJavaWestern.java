@@ -87,7 +87,31 @@ public class ProjetJavaWestern {
 	{
    
 	    case 1:
-            clearScreen(3);
+                clearScreen(2);
+                System.out.println("Voulez vous ?");
+                System.out.println("");
+                System.out.println("1) Faire le didactiel");
+                System.out.println("2) Skip");
+                System.out.println("");
+                Scanner q1 = new Scanner(System.in);
+                System.out.print("Selection = ");    
+                switch (q1.nextInt()) 
+                {
+                    case 1:
+                    clearScreen(3);
+                    break;
+                    case 2:
+                    SantaMaria.changelocation(player);
+                    break;
+
+                    default:
+                    System.out.println("");
+                    System.err.println ( "faites un choix !" );
+                    System.out.println("");
+                    menudepart(player);
+                    break;   
+
+        } 
             break;
             
             case 2:
