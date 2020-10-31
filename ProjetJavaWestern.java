@@ -135,7 +135,7 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
 
-        
+        FarWest.Explorer(player);
         /*
         Lockcity.Menu(player);
         
@@ -391,12 +391,11 @@ public class ProjetJavaWestern {
             victoire = true;
             brigand.setEstEnPrison(victoire);
             player.niveau.add_xp(player, brigand.Drop_xp_curve(brigand));
-            
         }
-        
         System.out.println("");   
         return victoire;
     }
+    
     
     
      /* 
@@ -428,15 +427,13 @@ public class ProjetJavaWestern {
     private static final Prison Lockcity = new Prison("Lockcity",50,"Lockcity ");
     private static final Armurie Bangout = new Armurie("Bangout",10,"Bangout");
     private static final Eglise SantaMaria = new Eglise("SantaMaria",10);
-    
+    private static final FarWest FarWest = new FarWest("Far West",0);
     /*
     Initialisation des personnages
     */
-    
     private static final Niveau niveau = new Niveau(0 , 0, 500);
     private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", niveau, 1500, 0, 100,null); 
     private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897, "NULL",0,100,"pate bolo",10);   
     private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau, "Barman" , 1000);
     private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, "Voleur" , 1, false, 11, 0);
-
 }
