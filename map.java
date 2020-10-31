@@ -5,6 +5,8 @@
  */
 package projet.java.western;
 
+
+import java.util.Random;
 import static projet.java.western.Personnages.ANSI_GREEN;
 
 /**
@@ -16,6 +18,8 @@ public class map {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
     
     public static void printcarte(){
         System.out.println(" ");
@@ -142,7 +146,74 @@ public class map {
         
         System.out.println("");   
         System.out.println("");   
-        System.out.println("");   
+        System.out.println("");  
+
         
+    }
+    
+    public static int printchemin(int a,int random){
+        
+        String[] liste= {" "," "," "};
+        
+        
+        int[] listehisto = {0,0,0};
+        
+        liste[random]="X";
+        
+        for (int i = 0; i < a+8; ++i) System.out.print(" ");
+        System.out.println("| |");
+        for (int i = 0; i < a+8; ++i) System.out.print(" ");
+        System.out.println("|"+ANSI_GREEN+"X"+ANSI_RESET+"|");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("       /   \\");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("      /     \\");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("     / /| |\\ \\");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("    / / | | \\ \\");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("   |"+ANSI_RED+liste[0]+ANSI_RESET+"|  |"+ANSI_RED+liste[1]+ANSI_RESET+"|  |"+ANSI_RED+liste[2]+ANSI_RESET+"| ");
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("   | |  | |  | | "); 
+        return random;
+    }
+    
+    public static void printpartchemin(int a){
+        
+        for (int i = 0; i < a+8; ++i) System.out.print(" ");
+        System.out.println("| |");
+        
+        for (int i = 0; i < a+8; ++i) System.out.print(" ");
+        System.out.println("| |");
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("       /   \\");
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("      /     \\");
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("     / /| |\\ \\");
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("    / / | | \\ \\");
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("   | |  | |  | | "); 
+        
+        for (int i = 0; i < a; ++i) System.out.print(" ");
+        System.out.println("   | |  | |  | | "); 
+    }
+    
+    
+    
+    
+     private static int getRandomNumberInRange(int min, int max) {
+	if (min >= max) {
+		throw new IllegalArgumentException("MAX > MIN");
+	}
+	Random r = new Random();
+	return r.nextInt((max - min) + 1) + min;
     }
 }
