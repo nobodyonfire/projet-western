@@ -9,21 +9,21 @@ import java.util.Random;
 
 public class Brigand extends Personnages {
     
-    protected int NombreCapture;
+    public int niveau;
     protected Boolean EstEnPrison;
     public int HP;
     
-    public Brigand(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent,int NombreCapture,Boolean EstEnPrison, int HP) {
-        super(Name,Location,Gun,Job,Niveau,Argent);
-        this.NombreCapture=NombreCapture;
+    public Brigand(String Name, Location Location, Arme Gun , String Job, int Argent, Boolean EstEnPrison, int HP, int niveau) {
+        super(Name,Location,Gun,Job,Argent);
+        this.niveau = niveau;
         this.EstEnPrison=EstEnPrison;
         this.HP = HP;
 
     }
     
-    public int getNombreCapture(){
-        return this.NombreCapture;
-    }
+   public int getNiveau(){
+        return this.niveau;
+   }
     
     public Boolean getEstEnPrison(){
         return this.EstEnPrison;
@@ -33,8 +33,8 @@ public class Brigand extends Personnages {
     
     
     
-    public void setNombreCapture(int NombreCapture){
-        this.NombreCapture = NombreCapture;
+   public void setNiveau(int niveau){
+        this.niveau = niveau;
     }
     
     public void setEstEnPrison(Boolean EstEnPrison){
@@ -46,9 +46,9 @@ public class Brigand extends Personnages {
     }
     
      
-     public static Brigand[] BrigandFarWest(int i,Location location,Arme arme,Brigand brigand){
-          Brigand[] listebrigand2= {new Brigand("Jacob dit le tueur", location, arme, "Voleur" , 1, 0,1,false, 11),
-                                 new Brigand("Jose dit l'ecorcheur", location, arme, "Voleur" , 1, 0,1,false, 13)   
+     public Brigand[] BrigandFarWest(int i,Location location,Arme arme,Brigand brigand){
+         Brigand[] listebrigand2= {new Brigand("Jacob dit le tueur", location, arme, "Voleur" , 1,false, 11, niveau),
+                                 new Brigand("Jose dit l'ecorcheur", location, arme, "Voleur" , 1,false, 13, niveau)   
           };
            Brigand[] listebrigand={};
            
@@ -85,7 +85,7 @@ public class Brigand extends Personnages {
         "Morris dit le the Loner"};
         
         
-        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, "Voleur" , 1, 0,1,false, 11);
+        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, "Voleur" , 1, false, 11, 5);
         return brigand;
     }
     
@@ -106,6 +106,10 @@ public class Brigand extends Personnages {
         super.introduceYourself();
         talk(" J'ai déjà " + this.NombreCapture+ " captures à mon actif "); 
     }
+    
+     public double Drop_xp_curve(Brigand brigand){
+         return (500+Math.pow(15*brigand.niveau, 2));
+     }
     
     
     

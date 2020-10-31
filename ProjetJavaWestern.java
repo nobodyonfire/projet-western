@@ -218,9 +218,8 @@ public class ProjetJavaWestern {
         
         duel(player, Jacob);
         Robbert.talkb("Chapeau l'artiste! Tu as attrapé ta première prime à Widowchapel.");
-        Robbert.talkb("Voici ta récompense, et approche je vais soigner tes blessures.");
+        Robbert.talkb("Voici ta récompense.");
         pressenter();
-        player.soin(100, player);
         player.add_argent(500, player);
         Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
         Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
@@ -391,7 +390,7 @@ public class ProjetJavaWestern {
             pressenter();
             victoire = true;
             brigand.setEstEnPrison(victoire);
-            
+            player.niveau.add_xp(player, brigand.Drop_xp_curve(brigand));
         }
         System.out.println("");   
         return victoire;
@@ -432,9 +431,9 @@ public class ProjetJavaWestern {
     /*
     Initialisation des personnages
     */
-    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", 1, 1500, 0, 100,null); 
-    private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897, "NULL", 0,0,100,"pate bolo",10);   
-    private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau, "Barman" , 20, 1000);
-    private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, "Voleur" , 1, 0,1,false, 11);
-
+    private static final Niveau niveau = new Niveau(0 , 0, 500);
+    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", niveau, 1500, 0, 100,null); 
+    private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897, "NULL",0,100,"pate bolo",10);   
+    private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau, "Barman" , 1000);
+    private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, "Voleur" , 1, false, 11, 0);
 }

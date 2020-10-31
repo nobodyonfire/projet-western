@@ -11,14 +11,16 @@ public class Player extends Personnages{
     
     int etat;
     int HP;
+    public Niveau niveau;
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLUE = "\u001B[34m";
     private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
     public Brigand brigand;
     
     
-    public Player(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent, int etat, int HP,Brigand brigand) {
-        super(Name,Location,Gun,Job,Niveau,Argent);
+  public Player(String Name, Location Location, Arme Gun , String Job , Niveau niveau, int Argent, int etat, int HP,Brigand brigand) {
+        super(Name,Location,Gun,Job,Argent);
+        this.niveau = niveau;
         this.etat = etat;
         this.HP = HP;
         this.brigand =null;
@@ -117,7 +119,8 @@ public class Player extends Personnages{
     public void playerload(){
         
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", 1, 0, 0, 100,null); 
+        Niveau rest = new Niveau(0,0,500);
+        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", rest, 0, 0, 100,null); 
         String string = save.lire();
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
@@ -152,9 +155,8 @@ public class Player extends Personnages{
  
    
    public void soin(int amount, Player player){
-       if (player.HP + amount >= 100){
-           player.SetHP(100);
-       }
+        if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
+           player.SetHP(100+15*player.niveau.GetLevel());}
        else{
            player.SetHP(player.HP + amount);
        }      
