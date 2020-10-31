@@ -112,12 +112,12 @@ public class Player extends Personnages{
     
     public void playersave(){
         String string="";
-        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+getJob()+" "+getNiveau()+" "+getArgent()+" "+getetat()+" "+getHP()+" "+ 45 ;
+        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+ 45 ;
         save.Save(string);
     }
 
     public void playerload(){
-        
+     
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Niveau rest = new Niveau(0,0,500);
         Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", rest, 0, 0, 100,null); 
@@ -125,6 +125,7 @@ public class Player extends Personnages{
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
         setName(mots[0]);
+           
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         this.setLocation(SantaMaria);
         //setLocation();
@@ -135,14 +136,20 @@ public class Player extends Personnages{
         this.Gun.Setprix(Integer.parseInt((mots[7])));
         setJob(mots[8]);
 
-        setNiveau(Integer.parseInt((mots[9])));
-        SetArgent(Integer.parseInt((mots[10])));
-        setEtat(Integer.parseInt((mots[11])));
+        
+        this.niveau.SetLevel(Integer.parseInt(mots[9]));
+
+        this.niveau.SetXp_actuel(Double.parseDouble((mots[10])));
+        System.out.println("SSS");
+        this.niveau.SetXp_necessaire(Double.parseDouble((mots[11])));
+        
+        SetArgent(Integer.parseInt((mots[12])));
+        setEtat(Integer.parseInt((mots[13])));
 
         
         final String SEPARATEUR2 = "null";
-        String mots2[] = mots[11].split(SEPARATEUR2);
-        SetHP(Integer.parseInt(mots[12]));
+        String mots2[] = mots[13].split(SEPARATEUR2);
+        SetHP(Integer.parseInt(mots[14]));
         
         clearScreen(50);
         map.printbienvenu(player,mots[0],0);

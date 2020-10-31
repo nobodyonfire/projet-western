@@ -63,7 +63,7 @@ public class ProjetJavaWestern {
         
         
         
-        sleep(1500);
+        sleep(1000);
         
         System.out.println(" ");
         System.out.println(ANSI_RED_BACKGROUND +  ANSI_WHITE+  "FIN INITIALISATION " + ANSI_RESET);
@@ -82,6 +82,7 @@ public class ProjetJavaWestern {
         System.out.println("2) Load a game");
         System.out.println("");
         Scanner q = new Scanner(System.in);   
+        System.out.print("Selection = "); 
         switch (q.nextInt()) 
 	{
    
@@ -100,6 +101,11 @@ public class ProjetJavaWestern {
                     clearScreen(3);
                     break;
                     case 2:
+                    player.SetArgent(500);
+                    player.SetNiveau(1);
+                    String Player_name = Robbert.StoryTelling();     
+                    player.SetName(Player_name);
+                    player.playersave();
                     SantaMaria.changelocation(player);
                     break;
 
@@ -150,7 +156,7 @@ public class ProjetJavaWestern {
          /* PREMIERE  PARTIE */
         clearScreen(50);
         map.printbienvenu(player," ",1);
-        sleep(3000);
+        sleep(2300);
         clearScreen(50);
         System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
         System.out.println(ANSI_BLUE +"                                                                                  DIDACTITIEL                                                                              " +  ANSI_RESET);
@@ -232,7 +238,7 @@ public class ProjetJavaWestern {
         sleep(3000);
         clearScreen(50);
         System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
-        System.out.println(ANSI_BLUE +"                                                                                 VOUS RENTRER DANS LE MONDE LIBRE                                                                    " +  ANSI_RESET);
+        System.out.println(ANSI_BLUE +"                                                                                 VOUS RENTREZ DANS LE MONDE LIBRE                                                                    " +  ANSI_RESET);
         System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
         clearScreen(3);
         sleep(3000);

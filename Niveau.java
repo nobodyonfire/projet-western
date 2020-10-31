@@ -14,6 +14,9 @@ public class Niveau {
     int level;
     double xp_actuel;
     double xp_necessaire;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_BLUE = "\u001B[34m";
     
     public Niveau(int level, int xp_actuel, int xp_necessaire){
         this.level = level;
@@ -41,7 +44,8 @@ public class Niveau {
     }
     
     public void add_xp(Player player, double xp){
-        System.out.println("Vous avez gagné " + xp + " points d'expérience.");
+        System.out.println("");
+        System.out.println(ANSI_PURPLE+"Vous avez gagné " + xp + " points d'expérience."+ANSI_RESET);
         SetXp_actuel(xp + GetXp_actuel());
         levelup(player);
     }
@@ -49,9 +53,10 @@ public class Niveau {
     private void levelup(Player player){
         if (player.niveau.xp_actuel >= player.niveau.xp_necessaire){
             if (player.niveau.GetLevel() != 10){
-                SetLevel(GetLevel()+1);
-                System.out.println("Vous gagnez un niveau! Vous êtes mainteant niveau " + GetLevel() + ".");
-                System.out.println("Vous obtenez 15 points de vie suppélementaire.");
+                SetLevel(GetLevel()+1);               
+                System.out.println(ANSI_PURPLE+"Vous gagnez un niveau! Vous êtes mainteant niveau " + GetLevel() + "."+ANSI_RESET);
+                System.out.println("");
+                System.out.println(ANSI_BLUE+"Vous obtenez 15 points de vie suppélementaire."+ANSI_RESET);
                 SetXp_actuel(GetXp_actuel() - GetXp_necessaire());
                 CurveXp_necessaire(player);
                 player.soin(1000, player);

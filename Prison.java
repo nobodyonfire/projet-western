@@ -128,7 +128,7 @@ public class Prison extends Location implements Move_Location, Menu{
      public void display_location()
     {
         System.out.println("Selection: ");
-        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Eglise \n5) Sortir de la ville \n5) Rester");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
     
