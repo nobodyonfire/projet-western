@@ -68,7 +68,7 @@ public class Prison extends Location implements Move_Location, Menu{
     
      public void Sherifquete(Player player){
         System.out.println("");
-        Brigand brigandquete = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10));
+        Brigand brigandquete = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10), player);
         player.setBrigand(brigandquete);
         System.out.println("");
         System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");
@@ -87,12 +87,12 @@ public class Prison extends Location implements Move_Location, Menu{
         int a=getRandomNumberInRange(0,4);
         if (a==0){
             
-        System.out.println(ANSI_GREEN+"Sherif : Ho non ! Le prisonnier s'échappe !"+ANSI_RESET);
+        System.out.println(ANSI_GREEN+"Robert: Un prisonnier s'échappe !"+ANSI_RESET);
         pressenter(); System.out.println("");
         System.out.println(ANSI_GREEN+"Sherif : Eh " + player.getName() + " aide moi à le capturer  !"+ANSI_RESET);
         pressenter(); System.out.println("");
         System.out.println("");
-        Brigand Jacob = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10));
+        Brigand Jacob = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10), player);
         duel(player, Jacob);
         recompense(player);
         }
@@ -100,10 +100,6 @@ public class Prison extends Location implements Move_Location, Menu{
     
     public void recompense(Player player){
         player.add_argent(20, player);
-        int HP = player.getHP();
-        if (HP <100){
-            player.SetHP(100);
-        }
     }
     
     
@@ -143,6 +139,7 @@ public class Prison extends Location implements Move_Location, Menu{
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
+        FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ? ?");
         System.out.println("");
@@ -182,7 +179,9 @@ public class Prison extends Location implements Move_Location, Menu{
             case 5:
  
                 System.out.println();
-                System.err.println ( "Let's capture some bad guy ! " );
+                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                player.SetLocation(Farwest);
+                Farwest.Menu(player);
                 break;
             
             case 6:

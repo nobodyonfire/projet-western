@@ -247,7 +247,7 @@ public class FarWest extends Location implements Move_Location, Menu{
              
              if (brigandrd!=0){
                  
-                Brigand brigand=Brigand.createBrigand(1,FarWest,new Arme("Pistolet de seconde main", 10, 1, 80, 10));
+                Brigand brigand=Brigand.createBrigand(1,FarWest,new Arme("Pistolet de seconde main", 10, 1, 80, 10), player);
                 duel(player,brigand);
                 System.out.println("");
                 System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);

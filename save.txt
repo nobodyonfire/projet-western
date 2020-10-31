@@ -1,1 +1,1 @@
-Acharne SantaMaria 0 Remington#1875#USA#Army 53 9 85 1000 NULL 102 1020 0 100 45
+Salut SantaMaria 0 Pistolet#de#seconde#main 10 1 80 10 NULL 0 2000 0 115 45

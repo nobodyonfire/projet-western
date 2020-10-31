@@ -418,6 +418,7 @@ public class Armurie extends Location implements Move_Location, Menu{
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
+        FarWest Farwest = new FarWest("Farwest", 0);
         
         display_location();
         
@@ -453,8 +454,9 @@ public class Armurie extends Location implements Move_Location, Menu{
             
             case 5:
                 System.out.println("");
-                System.err.println ( "Allons dehors !" );
-                Menu(player);
+                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                player.SetLocation(Farwest);
+                Farwest.Menu(player);
                 break;
             case 6:
                 System.out.println("");

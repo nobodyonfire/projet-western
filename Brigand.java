@@ -17,7 +17,7 @@ public class Brigand extends Personnages {
         super(Name,Location,Gun,Job,Argent);
         this.niveau = niveau;
         this.EstEnPrison=EstEnPrison;
-        this.HP = HP;
+        this.HP = HP+niveau*25;
 
     }
     
@@ -60,7 +60,7 @@ public class Brigand extends Personnages {
           return listebrigand;
      }
      
-    public static Brigand createBrigand(int i ,Location location,Arme arme){
+    public static Brigand createBrigand(int i ,Location location,Arme arme, Player player){
         
         String[] nom={
         "Levi dit le Dust Devil",
@@ -85,7 +85,7 @@ public class Brigand extends Personnages {
         "Morris dit le the Loner"};
         
         
-        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, "Voleur" , 1, false, 11, 5);
+        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, "Voleur" , 1, false, 35, getRandomNumberInRange(player.niveau.level-1, player.niveau.level+1));
         return brigand;
     }
     
@@ -97,18 +97,9 @@ public class Brigand extends Personnages {
 	return r.nextInt((max - min) + 1) + min;
     }
      
-     
-     
-  
-    
-    @Override 
-    public void introduceYourself(){
-        super.introduceYourself();
-        talk(" J'ai déjà " + this.NombreCapture+ " captures à mon actif "); 
-    }
     
      public double Drop_xp_curve(Brigand brigand){
-         return (500+Math.pow(15*brigand.niveau, 2));
+         return (500 + Math.pow(15*brigand.niveau, 2));
      }
     
     

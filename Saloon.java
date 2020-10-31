@@ -300,6 +300,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
+        FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
@@ -338,8 +339,9 @@ public class Saloon extends Location implements Move_Location, Menu{
             case 5:
  
                 System.out.println();   
-                System.err.println ("Allons à l'aventure !");
-                System.out.println("Vous sortez de la ville faites bien attention.");
+                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                player.SetLocation(Farwest);
+                Farwest.Menu(player);
                 break;
             
             case 6:

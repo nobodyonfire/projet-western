@@ -81,8 +81,7 @@ public class ProjetJavaWestern {
         System.out.println("1) Nouvelle partie");
         System.out.println("2) Load a game");
         System.out.println("");
-        Scanner q = new Scanner(System.in);
-        System.out.print("Selection = ");    
+        Scanner q = new Scanner(System.in);   
         switch (q.nextInt()) 
 	{
    
@@ -135,7 +134,7 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
 
-        FarWest.Explorer(player);
+        /*FarWest.Explorer(player);
         /*
         Lockcity.Menu(player);
         
@@ -223,6 +222,7 @@ public class ProjetJavaWestern {
         player.add_argent(500, player);
         Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
         Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
+        player.playersave();
         pressenter();
         clearScreen(50);
         System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
@@ -382,6 +382,7 @@ public class ProjetJavaWestern {
         }
         if (player.HP <= 0){
             System.out.println(ANSI_RED_BACKGROUND+ANSI_WHITE+"Vous êtes mort!"+ANSI_RESET);
+            player.playerload();
         }
         else {
             System.out.println("Vous avez eu " + brigand.getName() + ".");

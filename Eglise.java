@@ -38,7 +38,9 @@ public class Eglise extends Location implements Move_Location, Menu{
 
     }
     
-    
+    private void Quitter(){
+        System.out.println("Vous quittez la partie.");
+    }
     
     
     
@@ -58,6 +60,7 @@ public class Eglise extends Location implements Move_Location, Menu{
         Armurie Bangout = new Armurie("Bangout",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"le7iemeciel");
+        FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
         Scanner q = new Scanner(System.in);
@@ -97,8 +100,9 @@ public class Eglise extends Location implements Move_Location, Menu{
                 
             case 5:
                 System.out.println(); 
-                System.out.println("");
-                Menu(player);
+                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                player.SetLocation(Farwest);
+                Farwest.Menu(player);
                 break;
                 
             case 6:
@@ -133,7 +137,7 @@ public class Eglise extends Location implements Move_Location, Menu{
   
 	    case 2:
                 System.out.println();
-                Menu(player);
+                Quitter();
                 break;
   
 	    case 3:
