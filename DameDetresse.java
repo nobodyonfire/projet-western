@@ -11,8 +11,8 @@ public class DameDetresse extends Personnages{
     protected String Etat;
     protected String Vetement;
     
-    public DameDetresse(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent, String Etat,String Vetement) {
-        super(Name,Location,Gun,Job,Niveau,Argent);
+    public DameDetresse(String Name, Location Location, Arme Gun , String Job, int Argent, String Etat,String Vetement) {
+        super(Name,Location,Gun,Job,Argent);
         this.Etat=Etat;
         this.Vetement=Vetement;
 

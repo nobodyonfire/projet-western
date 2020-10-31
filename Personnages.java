@@ -19,7 +19,7 @@ public class Personnages {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     
-    public Personnages(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent) {
+    public Personnages(String Name, Location Location, Arme Gun , String Job , int Argent) {
         if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
         this.Location=Location;
         this.Gun=Gun;

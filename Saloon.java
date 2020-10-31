@@ -34,7 +34,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public void boire(Player player){
         
-        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,0,1000);       
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,1000);       
         Barman.questionboisson(player);
         
     }
@@ -433,7 +433,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     }    
     
     public void boiretuto(Player player){
-        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,0,1000);       
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman",1000);       
         Barman.questionboissontuto(player);
     }
     

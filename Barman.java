@@ -14,8 +14,8 @@ public class Barman extends Personnages{
     
     
     
-    public Barman(String Name, Location Location, Arme Gun , String Job , int Niveau, int Argent) {
-        super(Name,Location,Gun,Job,Niveau,Argent);
+    public Barman(String Name, Location Location, Arme Gun , String Job, int Argent) {
+        super(Name,Location,Gun,Job,Argent);
         
     }
     
@@ -77,15 +77,11 @@ public class Barman extends Personnages{
    
 	    case 1:
                 System.out.println();   
-                player.add_argent(-3, player);
-                if (player.getArgent()-8>-1){
+                
+                if (player.getArgent()-3>-1){
                     talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
-                    if (player.getHP()+10<101){
-                        player.SetHP(player.getHP()+10);
-                    }
-                    else {
-                        player.SetHP(100);
-                    }
+                    player.add_argent(-3, player);
+                    player.soin(3, player);
                     
                 }
 
@@ -95,15 +91,11 @@ public class Barman extends Personnages{
   
 	    case 2:
                 System.out.println();
-                player.add_argent(-10, player);
-                 if (player.getArgent()-8>-1){
+                
+                 if (player.getArgent()-10>-1){                
                     talkb( "Très bon choix ! je vous mets la dose " );
-                    if (player.getHP()+50<101){
-                        player.SetHP(player.getHP()+50);
-                    }
-                    else {
-                        player.SetHP(100);
-                    }
+                    player.add_argent(-10, player);
+                    player.soin(10, player);
                 }
 
 
@@ -117,10 +109,10 @@ public class Barman extends Personnages{
                 break;
             
             case 4:
-                player.add_argent(-8, player);
                 if (player.getArgent()-8>-1){
                     talkb( "Excellent , une pinte pour monsieur !" );
-                     player.SetHP(player.getHP()+5);
+                    player.add_argent(-8, player);
+                    player.soin(8, player);
                 }
                 display_menuboissonbonus(player);
                 break;
@@ -152,33 +144,16 @@ public class Barman extends Personnages{
    
 	    case 1:
                 System.out.println();   
-                player.add_argent(-3, player);
-                if (player.getArgent()-8>-1){
-                    talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
-                    if (player.getHP()+10<101){
-                        player.SetHP(player.getHP()+10);
-                    }
-                    else {
-                        player.SetHP(100);
-                    }
-                    
-                }
-
+                talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
+                player.soin(5, player);
                 display_menuboissonbonustuto(player);          
                 break;
   
 	    case 2:
                System.out.println();
-                player.add_argent(-10, player);
-                 if (player.getArgent()-8>-1){
-                    talkb( "Très bon choix ! je vous mets la dose " );
-                    if (player.getHP()+50<101){
-                        player.SetHP(player.getHP()+50);
-                    }
-                    else {
-                        player.SetHP(100);
-                    }
-                }
+                talkb( "Très bon choix ! je vous mets la dose " );
+                player.soin(10, player);
+                
                 display_menuboissonbonustuto(player);
                 break;
   
@@ -190,11 +165,9 @@ public class Barman extends Personnages{
             
             case 4:
                 System.out.println();
-                player.add_argent(-8, player);
-                if (player.getArgent()-8>-1){
-                    talkb( "Excellent , une pinte pour monsieur !" );
-                     player.SetHP(player.getHP()+5);
-                }
+
+                talkb( "Excellent , une pinte pour monsieur !" );
+                player.soin(5, player);
                 display_menuboissonbonustuto(player);
                 break;
             
