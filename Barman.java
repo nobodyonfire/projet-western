@@ -70,9 +70,8 @@ public class Barman extends Personnages{
     
     
     public void choixboisson(Player player){
-     System.out.print("Sélection: ");   
-    Scanner q = new Scanner(System.in);
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
 	    case 1:
@@ -137,9 +136,8 @@ public class Barman extends Personnages{
     
     public void choixboissontuto(Player player){
         talkb("Vous êtes nouveau ? Dans ce cas, la première tournée est gratuite pour vous !");
-        System.out.print("Sélection: ");
-        Scanner q = new Scanner(System.in);
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
 	    case 1:

@@ -303,11 +303,11 @@ public class Saloon extends Location implements Move_Location, Menu{
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
-        Scanner q = new Scanner(System.in);
+
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -364,12 +364,11 @@ public class Saloon extends Location implements Move_Location, Menu{
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
         System.out.println();
 	System.out.println("Que voulez-vous faire ?");
-	Scanner q = new Scanner(System.in);
 
 
         display_menu();
-
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
 
 
@@ -445,11 +444,11 @@ public class Saloon extends Location implements Move_Location, Menu{
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
         System.out.println("");
 	System.out.println("Que voulez-vous faire ?");
-	Scanner q = new Scanner(System.in);
+
        
         display_menututo2();
-        
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
 	    case 5:
@@ -475,11 +474,11 @@ public class Saloon extends Location implements Move_Location, Menu{
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
 	System.out.println("Que voulez-vous faire ?");
-	Scanner q = new Scanner(System.in);
+
        
         display_menututo();
-        
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
 	    case 1:

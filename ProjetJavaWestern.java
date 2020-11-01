@@ -81,9 +81,8 @@ public class ProjetJavaWestern {
         System.out.println("1) Nouvelle partie");
         System.out.println("2) Load a game");
         System.out.println("");
-        Scanner q = new Scanner(System.in);   
-        System.out.print("Sélection = "); 
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -93,9 +92,8 @@ public class ProjetJavaWestern {
                 System.out.println("1) Faire le didactiel (conseillé)");
                 System.out.println("2) Skip");
                 System.out.println("");
-                Scanner q1 = new Scanner(System.in);
-                System.out.print("Sélection = ");    
-                switch (q1.nextInt()) 
+                int q1 = Test.test();   
+                switch (q1) 
                 {
                     case 1:
                     clearScreen(3);
@@ -140,7 +138,6 @@ public class ProjetJavaWestern {
 
         /* ZONE TEST */
 
-        
         /*
         Lockcity.Menu(player);
         FarWest.Explorer(player);

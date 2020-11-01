@@ -55,13 +55,12 @@ public class Armurie extends Location implements Move_Location, Menu{
         System.out.println("");
         System.out.println(ANSI_BLUE+"Vous possédez actuellement un "+ player.Gun.getname()+ " qui vaut " + player.Gun.getprix()+" $"+ ANSI_RESET);
         System.out.println("Voulez-vous le vendre ?");
-        Scanner q = new Scanner(System.in);
         System.out.println("");
         System.out.println("1) Oui");
         System.out.println("2) Non");
         System.out.println("");
-        System.out.print("sélection ?=");
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{  
 	    case 1: 
             player.add_argent(player.Gun.getprix(),player);
@@ -152,16 +151,15 @@ public class Armurie extends Location implements Move_Location, Menu{
         System.out.println(ANSI_BLUE+"Vous avez actuellement " + player.getArgent()+ " $"+ANSI_RESET);
         System.out.println("");
 	System.out.println("Que voulez vous Acheter?");
-	Scanner q = new Scanner(System.in);
-       
-       
-        
+ 
         Arme[]  listearme2=display_menuAcheter(i);
          int tri=1;
         System.out.println("");
-        System.out.println("selection ?=");
+        
         int a=0;
-	switch (q.nextInt()) 
+        
+        int q = Test.test();
+	switch (q) 
 	{
    
   
@@ -413,7 +411,6 @@ public class Armurie extends Location implements Move_Location, Menu{
     public void changelocation(Player player) {
         
         System.out.println("Ou voulez-vous aller ?");
-        Scanner q = new Scanner(System.in);
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
@@ -421,8 +418,8 @@ public class Armurie extends Location implements Move_Location, Menu{
         FarWest Farwest = new FarWest("Farwest", 0);
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -473,12 +470,10 @@ public class Armurie extends Location implements Move_Location, Menu{
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'armurie !"+ ANSI_RESET);
 	System.out.println("Que voulez vous faire ?");
-	Scanner q = new Scanner(System.in);
-       
-	
+
         display_menu();
-        
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
   

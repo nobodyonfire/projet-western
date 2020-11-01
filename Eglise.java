@@ -63,11 +63,11 @@ public class Eglise extends Location implements Move_Location, Menu{
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
-        Scanner q = new Scanner(System.in);
+
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -125,10 +125,10 @@ public class Eglise extends Location implements Move_Location, Menu{
         System.out.println();
         System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'église !"+ ANSI_RESET);
         System.out.println();
-        Scanner q = new Scanner(System.in);
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         display_menu();
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:

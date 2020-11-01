@@ -82,9 +82,8 @@ public class FarWest extends Location implements Move_Location, Menu{
         System.out.println("1) Gauche \n2) Milieu \n3) Droite \n4) Revenir en arrière \n5) Quitter");
         System.out.println("");
         System.out.println("Où voulez-vous aller ?");
-        System.out.print("Sélection :");
-         Scanner q = new Scanner(System.in);  
-        switch (q.nextInt()) 
+        int q = Test.test();  
+        switch (q) 
 	{
 	    case 1:
                 niveau=niveau+1; 
@@ -278,11 +277,11 @@ public class FarWest extends Location implements Move_Location, Menu{
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         
         System.out.println("Où voulez-vous aller ?");
-        Scanner q = new Scanner(System.in);
+
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -332,9 +331,10 @@ public class FarWest extends Location implements Move_Location, Menu{
         System.out.println();
         System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes au FarWest !"+ ANSI_RESET);
         System.out.println();
-        Scanner q = new Scanner(System.in);
+
         display_menu();
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:

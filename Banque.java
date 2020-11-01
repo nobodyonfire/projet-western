@@ -163,11 +163,10 @@ public class Banque extends Location implements Move_Location, Menu{
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
-        Scanner q = new Scanner(System.in);
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -219,9 +218,10 @@ public class Banque extends Location implements Move_Location, Menu{
         System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
         System.out.println();
         Braquage(player);
-        Scanner q = new Scanner(System.in);
+
         display_menu();
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:

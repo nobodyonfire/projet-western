@@ -1,3 +1,6 @@
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -50,9 +53,8 @@ public class Prison extends Location implements Move_Location, Menu{
         System.out.println("1) oui");
         System.out.println("2) non");
         System.out.println("");
-        System.out.print("sélection = ");
-        Scanner q = new Scanner(System.in);   
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
 	    case 1:
                 Sherifquete(player);
@@ -156,11 +158,11 @@ public class Prison extends Location implements Move_Location, Menu{
         
         System.out.println("Où voulez-vous aller ? ?");
         System.out.println("");
-        Scanner q = new Scanner(System.in);
+
         
         display_location();
-        
-        switch (q.nextInt()) 
+        int q = Test.test();
+        switch (q) 
 	{
    
 	    case 1:
@@ -224,12 +226,13 @@ public class Prison extends Location implements Move_Location, Menu{
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
         testevasion(player);
 	System.out.println("Que voulez-vous faire ?");
-	Scanner q = new Scanner(System.in);
+
        
 	
         display_menu();
         
-	switch (q.nextInt()) 
+        int q = Test.test();
+	switch (q) 
 	{
    
   
