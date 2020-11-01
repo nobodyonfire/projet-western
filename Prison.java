@@ -45,12 +45,12 @@ public class Prison extends Location implements Move_Location, Menu{
     public void Sherif(Player player){  
         
         System.out.println("");
-        System.out.println(ANSI_GREEN+"Sherif : Salut mon petit , tu veux une quete ?"+ANSI_RESET);
+        System.out.println(ANSI_GREEN+"Sherif : Salut mon petit , tu veux une quête ?"+ANSI_RESET);
         System.out.println("");
         System.out.println("1) oui");
         System.out.println("2) non");
         System.out.println("");
-        System.out.print("selection = ");
+        System.out.print("sélection = ");
         Scanner q = new Scanner(System.in);   
         switch (q.nextInt()) 
 	{
@@ -119,7 +119,7 @@ public class Prison extends Location implements Move_Location, Menu{
     
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
-		throw new IllegalArgumentException("max must be greater than min");
+		throw new IllegalArgumentException("MAX > MIN");
 	}
 	Random r = new Random();
 	return r.nextInt((max - min) + 1) + min;
@@ -140,8 +140,8 @@ public class Prison extends Location implements Move_Location, Menu{
     
      public void display_location()
     {
-        System.out.println("Selection: ");
-        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
+        System.out.println("Sélection: ");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
     
@@ -192,7 +192,7 @@ public class Prison extends Location implements Move_Location, Menu{
             case 5:
  
                 System.out.println();
-                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                System.out.println("Vous entrez dans le Far west. Faites attention! Le danger rôde.");
                 player.SetLocation(Farwest);
                 Farwest.Menu(player);
                 break;
@@ -200,13 +200,13 @@ public class Prison extends Location implements Move_Location, Menu{
             case 6:
  
                 System.out.println();
-                System.err.println ( "Je vais rester. Peut être qu'un prisonnier va s'échapper." );
+                System.err.println ( "Je vais rester. Peut-être qu'un prisonnier va s'échapper." );
                 Menu(player);
                 break;
               
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
 
      public static void pressenter(){
@@ -223,7 +223,7 @@ public class Prison extends Location implements Move_Location, Menu{
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
         testevasion(player);
-	System.out.println("Que voulez vous faire ?");
+	System.out.println("Que voulez-vous faire ?");
 	Scanner q = new Scanner(System.in);
        
 	
@@ -241,7 +241,7 @@ public class Prison extends Location implements Move_Location, Menu{
   
 	    case 2:
                 System.out.println("");
-                System.out.println ( "PROCHAINE MAJ DU JEU !" );
+                System.out.println ( "Réclamons notre prime !" );
                 recalmerprime(player);
 	    break;
             case 3:
@@ -251,7 +251,7 @@ public class Prison extends Location implements Move_Location, Menu{
 	    default:
                 Menu(player);
                 System.out.println("");
-                System.err.println ( "Unrecognized option" );
+                System.err.println ( "Erreur" );
 	    break;
               
 	}

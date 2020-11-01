@@ -76,25 +76,25 @@ public class ProjetJavaWestern {
     
     public static void menudepart(Player player){
         
-        System.out.println("Voulez vous ?");
+        System.out.println("Voulez-vous ?");
         System.out.println("");
         System.out.println("1) Nouvelle partie");
         System.out.println("2) Load a game");
         System.out.println("");
         Scanner q = new Scanner(System.in);   
-        System.out.print("Selection = "); 
+        System.out.print("Sélection = "); 
         switch (q.nextInt()) 
 	{
    
 	    case 1:
                 clearScreen(2);
-                System.out.println("Voulez vous ?");
+                System.out.println("Voulez-vous ?");
                 System.out.println("");
-                System.out.println("1) Faire le didactiel");
+                System.out.println("1) Faire le didactiel (conseillé)");
                 System.out.println("2) Skip");
                 System.out.println("");
                 Scanner q1 = new Scanner(System.in);
-                System.out.print("Selection = ");    
+                System.out.print("Sélection = ");    
                 switch (q1.nextInt()) 
                 {
                     case 1:
@@ -162,20 +162,20 @@ public class ProjetJavaWestern {
         System.out.println(ANSI_BLUE +"                                                                                  DIDACTITIEL                                                                              " +  ANSI_RESET);
         System.out.println("_______________________________________________________________________________________________________________________________________________________________________");
         clearScreen(3);
-        System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputé pour le nombre de chasseur de prime qui y meurt." +  ANSI_RESET);
-        System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrat tout en protégeant la ville des attaques , en s’équipant d’arme de plus en plus puissantes." +  ANSI_RESET);
-        System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevés. »" +  ANSI_RESET);
+        System.out.println(ANSI_BLUE +"« Dans la ville de Widowchapel, réputée pour le nombre de chasseurs de prime qui y meurt." +  ANSI_RESET);
+        System.out.println(ANSI_BLUE + " Vous apparaissez, afin de faire régner l’ordre ,de capturer les malfrats, tout en protégeant la ville des attaques , en s’équipant d’armes de plus en plus puissantes." +  ANSI_RESET);
+        System.out.println(ANSI_BLUE + "Les risques et les récompenses sont toutes deux élevées. »" +  ANSI_RESET);
         pressenter();clearScreen(1);
       
         clearScreen(1);
         System.out.println(ANSI_BLUE + "Vous vous trouvez dans le saloon de la ville de Widowchapel" +  ANSI_RESET);
         pressenter();clearScreen(1);
-        System.out.println(ANSI_BLUE + "Pour commencer, aller voire le barman pour chercher une boisson" +  ANSI_RESET);
+        System.out.println(ANSI_BLUE + "Pour commencer, aller voir le barman pour chercher une boisson" +  ANSI_RESET);
         pressenter();clearScreen(1);
         le7iemeciel.questiontuto(player);
         clearScreen(1);
         Luis.talkb("Alors, ça fait du bien de se désaltérer un petit peu ?");
-        Luis.talkb("Le shériff m'a dit qu'il voulait te voir alors dépèche toi!");
+        Luis.talkb("Le sherif m'a dit qu'il voulait te voir alors dépèche-toi!");
         pressenter();
         
         
@@ -183,7 +183,7 @@ public class ProjetJavaWestern {
         le7iemeciel.questiontuto2();
         clearScreen(1);
         Robbert.talkb("Comme tu es nouveau je vais te présenter un peu la ville ...");
-        Robbert.talkb("Quand tu te situe dans un lieu tu peux le quitter pour en rejoindre d'autres");
+        Robbert.talkb("Quand tu te situes dans un lieu tu peux le quitter pour en rejoindre d'autres");
         Robbert.talkb("Il y a l'amurie, le saloon, l'allée centrale, la prison , la banque et l'extérieur de la ville..");
         
         pressenter();
@@ -192,21 +192,22 @@ public class ProjetJavaWestern {
         clearScreen(2);
         System.out.println("CARTE: ");
         map.printcarte();
+        
         clearScreen(2);
         Robbert.talkb("Dans l'armurie tu peux acheter de nouvelles armes et vendre la tienne");
         pressenter();clearScreen(1);
-        Robbert.talkb("Dans le saloon tu peux jouer, récuperer et boire..etc");
+        Robbert.talkb("Dans le saloon tu peux jouer, récuperer des points de vie , jouer , boire..etc");
         pressenter();clearScreen(1);
         Robbert.talkb("La banque est l'endroit où tu pourras stocker ton argent et le retirer");
         pressenter();clearScreen(1);
         Robbert.talkb("Dans l'église tu pourras sauvegarder ta progression !");
         pressenter();clearScreen(1);
-        Robbert.talkb("Tu pourras aussi me trouver à la prison, où j'aurais des missions pour toi !");
+        Robbert.talkb("Tu pourras aussi me trouver à la prison, où j'aurai des missions pour toi !");
         pressenter();clearScreen(1);
-        Robbert.talkb("Et enfin dehors , le far west , il faudra faire très attentions aux rencontres que tu vas faire..");
+        Robbert.talkb("Et enfin dehors , le Far West , il faudra faire très attention aux rencontres que tu feras..");
         pressenter();clearScreen(2); 
         /* CHANGER DE LOCATION LE JOUEUR*/
-        Robbert.talkb("Tant que tu es là, j'aurais besoin de ton aide en prison ..");
+        Robbert.talkb("Tant que tu es là, j'ai besoin de ton aide en prison ..");
         pressenter();clearScreen(1);
         
         
@@ -215,10 +216,10 @@ public class ProjetJavaWestern {
         clearScreen(1);
         Robbert.talkb("Ho non ! Le prisonnier s'échappe !");
         pressenter();clearScreen(1);
-        Robbert.talkb("Eh " + player.getName() + " fait tes preuves et attrape le.");
+        Robbert.talkb("Eh " + player.getName() + " fais tes preuves et attrape-le.");
         Robbert.talkb("Tu auras le droit à la moitié de sa prime. Tiens un flingue je l'ai trouvé par terre.");
         player.SetGun(Pistolet_de_seconde_main);
-        Robbert.talkb(ANSI_RED+"Lors des combats contre les brigands , des minis jeux apparaitront et influrencons le resultat du duel !"+ANSI_RESET);
+        Robbert.talkb(ANSI_RED+"Lors des combats contre les brigands , des minis jeux apparaitront et influencerons le résultat du duel !"+ANSI_RESET);
         pressenter();clearScreen(1);
         
         duel(player, Jacob);
@@ -227,7 +228,7 @@ public class ProjetJavaWestern {
         pressenter();
         player.add_argent(500, player);
         Robbert.talkb("Tu comprends comment ça marche maintenant. Tu me rapportes un bandit et je te donne de l'argent en retour.");
-        Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attends. Reviens me voir plus tard.");
+        Robbert.talkb("Facile non ? Bon je vais te laisser j'ai de la paperasse qui m'attend. Reviens me voir plus tard.");
         player.playersave(Banque_Populaire);
         pressenter();
         clearScreen(50);
@@ -366,7 +367,7 @@ public class ProjetJavaWestern {
             } 
             else               
             {
-                System.out.println(ANSI_GREEN+"Vous l'avez rateé de peu..."+ANSI_RESET);  
+                System.out.println(ANSI_GREEN+"Vous l'avez raté de peu..."+ANSI_RESET);  
             }
             
             if (brigand.HP < 0 ){
@@ -375,7 +376,7 @@ public class ProjetJavaWestern {
             if (brigand.Gun.toucher(brigand.Gun) == true){
                 degat = brigand.Gun.puissance(brigand.Gun);
                 player.HP = player.HP - degat;
-                System.out.println(ANSI_RED+"Il ne vous a pas loupé, vous avait perdu " + degat + " HP! Il vous en reste " + player.HP+" HP"+ANSI_RESET);
+                System.out.println(ANSI_RED+"Il ne vous a pas loupé, vous avez perdu " + degat + " HP! Il vous reste " + player.HP+" HP"+ANSI_RESET);
             }
             else
             {
@@ -387,7 +388,9 @@ public class ProjetJavaWestern {
             
         }
         if (player.HP <= 0){
+            System.out.println("");
             System.out.println(ANSI_RED_BACKGROUND+ANSI_WHITE+"Vous êtes mort!"+ANSI_RESET);
+            System.out.println(ANSI_BLUE+"Chargement de la dernière sauvegarde.."+ANSI_RESET);
             player.playerload();
         }
         else {

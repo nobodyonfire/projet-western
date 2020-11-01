@@ -71,17 +71,17 @@ public class Banque extends Location implements Move_Location, Menu{
         int montant = q.nextInt();
         if (montant > player.getArgent()){
             System.out.println("");
-            System.out.println(ANSI_BLUE+"Vous voulez déposer plus d'argent que vous avez. Je dépose donc tout votre argent sur votre compte."+ANSI_RESET);
+            System.out.println(ANSI_BLUE+"Vous n'avez pas assez d'argent pour déposer cette somme. Je dépose donc tout votre argent sur votre compte."+ANSI_RESET);
             Banque_Populaire.SetStocke(Banque_Populaire.GetStocke() + player.getArgent());
             player.SetArgent(0);
         }
         else{
             System.out.println("");
-            System.out.println(ANSI_BLUE+"Votre dépot de " + montant + " a bien été pris en compte. Merci de nous faire confiance."+ANSI_RESET);
+            System.out.println(ANSI_BLUE+"Votre dépôt de " + montant + " a bien été pris en compte. Merci de nous faire confiance."+ANSI_RESET);
             Banque_Populaire.SetStocke(Banque_Populaire.GetStocke() + montant);
             player.SetArgent(player.getArgent()-montant);
         }
-        System.out.println(ANSI_BLUE+ "Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ stocké chez nous."+ANSI_RESET);
+        System.out.println(ANSI_BLUE+ "Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ stockés chez nous."+ANSI_RESET);
         Menu(player);
         
     }
@@ -118,22 +118,22 @@ public class Banque extends Location implements Move_Location, Menu{
             Brigand Braqueur;
             Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, "NULL", 0, false, 11, 0);
             Braqueur = brigand.createBrigand(1, Banque_Populaire, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
-            Braqueur.talkstr("Ceci est un Hold Up! Les mains en l'air et que personne ne bouge!");
+            Braqueur.talkstr(ANSI_RED+"Ceci est un Hold Up! Les mains en l'air et que personne ne bouge!"+ANSI_RESET);
             System.out.println("");
-            System.out.println("Nelson : C'est un braqueur, aide moi à l'éliminer!");
+            System.out.println(ANSI_BLUE+"Nelson : C'est un braqueur, aide moi à l'éliminer!"+ANSI_RESET);
             duel(player, Braqueur);
             recompense(player);
         }
     }
     
     private void recompense(Player player){
-        System.out.println("Nelson : Merci de votre aide. Tenez un peu d'argent, après tout vous le mériter bien.");
+        System.out.println("Nelson : Merci de votre aide. Tenez un peu d'argent, après tout, vous le méritez bien.");
         player.add_argent(getRandomNumberInRange(500,800), player);
 }
     
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
-		throw new IllegalArgumentException("max must be greater than min");
+		throw new IllegalArgumentException("MAX > MIN");
 	}
 	Random r = new Random();
 	return r.nextInt((max - min) + 1) + min;
@@ -144,13 +144,13 @@ public class Banque extends Location implements Move_Location, Menu{
     
     public void display_menu(){
         System.out.println("");
-        System.out.println("Selection: ");
+        System.out.println("Sélection: ");
         System.out.println("1) Déposer  \n2) Récupérer \n3) Vérifier mon compte \n4) Partir");
     }
     
     public void display_location(){
         
-        System.out.println("Selection: ");
+        System.out.println("Sélection: ");
         System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Eglise \n5) Extérieur de la ville \n6) Rester");
     }
     @Override
@@ -210,7 +210,7 @@ public class Banque extends Location implements Move_Location, Menu{
                 break;
               
 	}
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
 
     @Override
@@ -247,12 +247,12 @@ public class Banque extends Location implements Move_Location, Menu{
 	    default:
                 Menu(player);
                 System.out.println();
-                System.err.println ( "Unrecognized option" );
+                System.err.println ( "Erreur" );
                 break;
               
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur."); 
     }
     
     

@@ -1,1 +1,1 @@
-Salut SantaMaria 0 Pistolet#de#seconde#main 10 1 80 10 NULL 0 2000 0 115 45
+Alain SantaMaria 0 Couteau 9 9 100 0 NULL 0 0.0 500.0 480 0 100 false 0 45

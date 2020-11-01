@@ -18,7 +18,7 @@ public class Armurier extends Personnages{
     @Override 
     public void introduceYourself(){
         super.introduceYourself();
-        talk(" Passez à l'armurie , je vous ferais de meilleurs armes !"); 
+        talk(" Passez à l'armurie , je vous ferais de meilleures armes !"); 
     }
     
     

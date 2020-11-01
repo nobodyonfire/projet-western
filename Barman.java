@@ -29,7 +29,7 @@ public class Barman extends Personnages{
     
     public void sepresenter(){
       
-        talkb( "Hey salut moi c'est " + Name + " .Je suis le barman de ce bar je te sers quelque chose ? ptite biere ?" ); 
+        talkb( "Hey salut moi c'est " + Name + " .Je suis le barman de ce bar, je te sers quelque chose ? une ptite bière ?" ); 
 
     }
     
@@ -70,7 +70,7 @@ public class Barman extends Personnages{
     
     
     public void choixboisson(Player player){
-     System.out.print("Selection: ");   
+     System.out.print("Sélection: ");   
     Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
 	{
@@ -104,7 +104,7 @@ public class Barman extends Personnages{
   
 	    case 3:
                 talkb( "Vous plaisentez ?" );
-                talkb( "Que voulez vous sérieusement ?");
+                talkb( "Que voulez-vous sérieusement ?");
                 questionboisson(player);
                 break;
             
@@ -136,8 +136,8 @@ public class Barman extends Personnages{
     
     
     public void choixboissontuto(Player player){
-        talkb("Vous êtes nouveau ? Dans ce cas la première tournée est gratuite pour vous !");
-        System.out.print("Selection: ");
+        talkb("Vous êtes nouveau ? Dans ce cas, la première tournée est gratuite pour vous !");
+        System.out.print("Sélection: ");
         Scanner q = new Scanner(System.in);
 	switch (q.nextInt()) 
 	{
@@ -159,7 +159,7 @@ public class Barman extends Personnages{
   
 	    case 3:
                 talkb( "Vous plaisentez ?" );
-                talkb( "Que voulez vous sérieusement ?");
+                talkb( "Que voulez-vous sérieusement ?");
                 questionboissontuto(player);
                 break;
             

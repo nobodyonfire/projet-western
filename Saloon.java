@@ -85,7 +85,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         System.out.println(ANSI_RED+"Le score de la banque est " + Bank_Value + "."+ANSI_RESET);
         
         while (Stop == false && Player_Value < 22){
-            System.out.println(ANSI_BLUE+"Votre score est de " + Player_Value + ". Voulez-vous continuez ?"+ANSI_RESET);
+            System.out.println(ANSI_BLUE+"Votre score est de " + Player_Value + ". Voulez-vous continuer ?"+ANSI_RESET);
             System.out.println(ANSI_BLUE+"Y/N"+ANSI_RESET);
             Answer = q.nextLine();
             if (Answer.isEmpty()||Answer.contains("y") || Answer.contains("Y")){
@@ -200,7 +200,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         }
         if (a==1){
             player.SetArgent(player.getArgent()+1);
-            System.out.println(ANSI_BLUE +"Vous avez été gagné 1$ ! " + ANSI_RESET);   
+            System.out.println(ANSI_BLUE +"Vous avez gagné 1$ ! " + ANSI_RESET);   
         }  
     }      
     public void display_piano(Player player){
@@ -208,7 +208,7 @@ public class Saloon extends Location implements Move_Location, Menu{
        int b =getRandomNumberInRange(0,20);
        map.printpiano(b,  Integer.toString(a));
        int valeur =50;boolean Stop = false;
-       System.out.println("Rentrer le nombre que vous voyez, rentrer "+ "0" +" pour quiter");
+       System.out.println("Rentrez le nombre que vous voyez, rentrez "+ "0" +" pour quiter");
        
        while((a!=valeur) && (Stop == false)){
             System.out.println("");
@@ -247,7 +247,7 @@ public class Saloon extends Location implements Move_Location, Menu{
           int a =getRandomNumberInRange(1,36);
           map.printseduire(a);
           int A =50;int B =50;boolean Stop = false;int valeur=50;
-          System.out.println("Rentrer le nombre que vous voyez ( A puis B ), rentrer "+ "0 pour A et B" +" pour quiter");
+          System.out.println("Rentrez le nombre que vous voyez ( A puis B ), rentrez "+ "0 pour A et B" +" pour quiter");
        
        while((a!=valeur) && (Stop == false)){
             System.out.print("A= ");
@@ -279,7 +279,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     public void display_menu() 
     {
 	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Seduire \n4) PlayPiano \n5) leave");
-	System.out.print("Selection: ");  
+	System.out.print("Sélection: ");  
     }
     
     
@@ -287,8 +287,8 @@ public class Saloon extends Location implements Move_Location, Menu{
  
     public void display_location()
     {
-        System.out.println("Selection: ");
-        System.out.println("1) Prison  \n2) Banque \n3) Armurie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
+        System.out.println("Sélection: ");
+        System.out.println("1) Prison  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
     
@@ -339,7 +339,7 @@ public class Saloon extends Location implements Move_Location, Menu{
             case 5:
  
                 System.out.println();   
-                System.out.println("Vous entrer dans le Far west. Faites attention! Le danger rôde.");
+                System.out.println("Vous entrez dans le Far west. Faites attention! Le danger rôde.");
                 player.SetLocation(Farwest);
                 Farwest.Menu(player);
                 break;
@@ -353,7 +353,7 @@ public class Saloon extends Location implements Move_Location, Menu{
               
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
     
     
@@ -363,7 +363,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
         System.out.println();
-	System.out.println("Que voulez vous faire ?");
+	System.out.println("Que voulez-vous faire ?");
 	Scanner q = new Scanner(System.in);
 
 
@@ -401,11 +401,11 @@ public class Saloon extends Location implements Move_Location, Menu{
 	    default:
             Menu(player);
             System.out.println();
-	    System.err.println ( "Erreur inconnue" );
+	    System.err.println ( "Erreur" );
 	    break;
 
 	}
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
     
     private static int getRandomNumberInRange(int min, int max) {
@@ -430,8 +430,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public void display_menututo() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Seduire \n4) Piano \n5) Quitter");
-	System.out.print("Selection: ");    
+	System.out.println("1) Barman  \n2) Jouer \n3) Séduire \n4) Piano \n5) Quitter");
+	System.out.print("Sélection: ");    
     }    
     
     public void boiretuto(Player player){
@@ -444,7 +444,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         System.out.println("");
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
         System.out.println("");
-	System.out.println("Que voulez vous faire ?");
+	System.out.println("Que voulez-vous faire ?");
 	Scanner q = new Scanner(System.in);
        
         display_menututo2();
@@ -466,15 +466,15 @@ public class Saloon extends Location implements Move_Location, Menu{
      
      public void display_menututo2() 
     {
-	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Seduire \n4) PlayPiano \n5) Sherif  \n6) leave");
-	System.out.print("Selection: ");           
+	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Séduire \n4) PlayPiano \n5) Sherif  \n6) leave");
+	System.out.print("Sélection: ");           
     }
      
     public void questiontuto(Player player)
     {   
         System.out.println();
 	System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans le saloon !"+ ANSI_RESET);
-	System.out.println("Que voulez vous faire ?");
+	System.out.println("Que voulez-vous faire ?");
 	Scanner q = new Scanner(System.in);
        
         display_menututo();

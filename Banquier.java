@@ -33,7 +33,7 @@ public class Banquier extends Personnages{
     @Override 
     public void introduceYourself(){
         super.introduceYourself();
-        talk(" Passez à la banque pour proteger votre argent !"); 
+        talk(" Passez à la banque pour protéger votre argent !"); 
     }
     
     

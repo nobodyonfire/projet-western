@@ -47,10 +47,10 @@ public class FarWest extends Location implements Move_Location, Menu{
         int random=1;
         
         System.out.println("");
-        System.out.println(ANSI_BLUE+"Vous allez Entrer dans le far West "+ANSI_RESET);
+        System.out.println(ANSI_BLUE+"Vous allez entrer dans le Far West "+ANSI_RESET);
         System.out.println("");
-        System.out.println(ANSI_GREEN+"X"+ANSI_RESET+" : votre position");
-        System.out.println(ANSI_RED+"X"+ANSI_RESET+" : du bruit !");
+        System.out.println(ANSI_GREEN+"X"+ANSI_RESET+" : Votre position");
+        System.out.println(ANSI_RED+"X"+ANSI_RESET+" : Du bruit !");
         System.out.println("");
         map.printchemin(curseur,random);
         System.out.println("");
@@ -79,10 +79,10 @@ public class FarWest extends Location implements Move_Location, Menu{
         System.out.println("");
         System.out.println(ANSI_BLUE+"Vous avez actuellement :"+ player.getHP()+" HP"+ANSI_RESET);
         System.out.println("");
-        System.out.println("1) Gauche \n2) Milieu \n3) Droite \n4) Revenir en arriere \n5) Quitter");
+        System.out.println("1) Gauche \n2) Milieu \n3) Droite \n4) Revenir en arrière \n5) Quitter");
         System.out.println("");
         System.out.println("Où voulez-vous aller ?");
-        System.out.print("Selection :");
+        System.out.print("Sélection :");
          Scanner q = new Scanner(System.in);  
         switch (q.nextInt()) 
 	{
@@ -222,14 +222,17 @@ public class FarWest extends Location implements Move_Location, Menu{
              else {
                 Brigand brigand = player.getBrigand();
                 System.out.println("");
-                System.out.println(ANSI_BLUE+"Le brigand de la quete !"+ANSI_RESET);
+                System.out.println(ANSI_BLUE+"Le brigand de la quête !"+ANSI_RESET);
                 System.out.println("");
                 duel(player,brigand);
                 player.setquetedone(true);
                 System.out.println("");
-                System.out.println(ANSI_BLUE+"Vous avez complété la quete du sherif !"+ANSI_RESET);
-                System.out.println(ANSI_BLUE+"Voici votre récompense !"+ANSI_RESET);
+                System.out.println(ANSI_BLUE+"Vous avez complété la quête du sherif !"+ANSI_RESET);
+                System.out.println(ANSI_BLUE+"Voici votre première récompense !"+ANSI_RESET);
+                System.out.println(ANSI_BLUE+"Retournez voir le Sherif pour réclamer votre prime !"+ANSI_RESET);
+             
                 player.add_argent(200, player);
+                pressenter();
 
             }
             
@@ -256,13 +259,13 @@ public class FarWest extends Location implements Move_Location, Menu{
     
     public void display_menu(){
         System.out.println("");
-        System.out.println("Selection: ");
+        System.out.println("Sélection: ");
         System.out.println("1) Explorer  \n4) Partir");
     }
     
     public void display_location(){
         
-        System.out.println("Selection: ");
+        System.out.println("Sélection: ");
         System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Eglise \n5) Banque \n6) Rester");
     }
     @Override
@@ -321,13 +324,13 @@ public class FarWest extends Location implements Move_Location, Menu{
                 break;
               
 	}
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
 
     @Override
     public void Menu(Player player) {
         System.out.println();
-        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans au FarWest !"+ ANSI_RESET);
+        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes au FarWest !"+ ANSI_RESET);
         System.out.println();
         Scanner q = new Scanner(System.in);
         display_menu();
@@ -348,12 +351,12 @@ public class FarWest extends Location implements Move_Location, Menu{
 	    default:
                 Menu(player);
                 System.out.println();
-                System.err.println ( "Unrecognized option" );
+                System.err.println ( "Erreur" );
                 break;
               
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
 
        

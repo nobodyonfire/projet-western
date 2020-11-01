@@ -95,7 +95,7 @@ public class Arme implements Comparable{
     
     
    public static int minijeu1(){
-       System.out.println("TIR 1 ; Des chiffres vont apparaitre, il faut les écrire le plus vite possible !");
+       System.out.println("TIR 1 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
        System.out.println("3");
        sleep(1000);
@@ -131,7 +131,7 @@ public class Arme implements Comparable{
   
   
    public static int minijeu2(){
-       System.out.println("TIR 2 ; Des chiffres vont apparaitre, il faut les réécrier le plus vite possible !");
+       System.out.println("TIR 2 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
        System.out.println("3");
        sleep(1000);
@@ -153,7 +153,7 @@ public class Arme implements Comparable{
        sleep(500);
        int valeur =test.getvaleur();
        if (a==valeur){
-           System.out.println("Vous avez fait un réussi !");
+           System.out.println("Vous avez réussi !");
            return 1;
        }
        else{
@@ -171,7 +171,7 @@ public class Arme implements Comparable{
    
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
-		throw new IllegalArgumentException("max must be greater than min");
+		throw new IllegalArgumentException("MAX > MIN");
 	}
 	Random r = new Random();
 	return r.nextInt((max - min) + 1) + min;

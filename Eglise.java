@@ -48,8 +48,8 @@ public class Eglise extends Location implements Move_Location, Menu{
     
      public void display_location()
     {
-        System.out.println("Selection: ");
-        System.out.println("1) Saloon  \n2) Banque \n3) Armurie \n4) Prison \n5) Extérieur de la ville \n6) Rester");
+        System.out.println("Sélection: ");
+        System.out.println("1) Saloon  \n2) Banque \n3) Armurerie \n4) Prison \n5) Extérieur de la ville \n6) Rester");
 	
     }
     
@@ -111,11 +111,11 @@ public class Eglise extends Location implements Move_Location, Menu{
                 break;            
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
     
     public void display_menu(){
-        System.out.println("Selection: ");
+        System.out.println("Sélection: ");
         System.out.println("1) Sauvegarder  \n2) Quitter le jeu \n3) Partir");
     }
     
@@ -149,12 +149,12 @@ public class Eglise extends Location implements Move_Location, Menu{
 	    default:
                 Menu(player);
                 System.out.println();
-                System.err.println ( "Unrecognized option" );
+                System.err.println ( "Erreur" );
                 break;
               
 	}
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Erreur"); 
     }
     
     

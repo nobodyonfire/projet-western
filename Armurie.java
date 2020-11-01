@@ -53,14 +53,14 @@ public class Armurie extends Location implements Move_Location, Menu{
     
     public void Vendre(Player player){
         System.out.println("");
-        System.out.println(ANSI_BLUE+"Vous possedez actuellement un "+ player.Gun.getname()+ " qui vaut " + player.Gun.getprix()+" $"+ ANSI_RESET);
+        System.out.println(ANSI_BLUE+"Vous possédez actuellement un "+ player.Gun.getname()+ " qui vaut " + player.Gun.getprix()+" $"+ ANSI_RESET);
         System.out.println("Voulez-vous le vendre ?");
         Scanner q = new Scanner(System.in);
         System.out.println("");
         System.out.println("1) Oui");
         System.out.println("2) Non");
         System.out.println("");
-        System.out.print("selection ?=");
+        System.out.print("sélection ?=");
 	switch (q.nextInt()) 
 	{  
 	    case 1: 
@@ -75,7 +75,7 @@ public class Armurie extends Location implements Move_Location, Menu{
             default:
             Vendre(player);
             System.out.println();
-	    System.err.println ( "Unrecognized option" );
+	    System.err.println ( "Erreur" );
 	    break;
              }
            Menu(player); 
