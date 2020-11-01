@@ -42,7 +42,7 @@ public class FarWest extends Location implements Move_Location, Menu{
         clearScreen(50);
         
         int curseur = 50;
-        int[] profondeur = {50,0,0,0,0,0};
+        int[] profondeur = {50,0,0,0,0,0,0,0,0,0};
         int niveau= 0;
         int random=1;
         
@@ -64,8 +64,14 @@ public class FarWest extends Location implements Move_Location, Menu{
     
     public void explorercarte2(Player player,int niveau,int[] profondeur,int curseur,int random){
         
-        
-        /*random=1; */
+        if (profondeur[8]!=0){
+            
+            System.out.println(ANSI_BLUE+"Vous vous êtes égaré.."+ANSI_RESET);
+            player.soin(-10, player);
+            Explorer(player);
+            
+        }
+
         random= getRandomNumberInRange(1,3);
         
         printcarteactuelle(profondeur,niveau,curseur,random);
@@ -192,7 +198,14 @@ public class FarWest extends Location implements Move_Location, Menu{
 
      
 
-             int brigandrd = getRandomNumberInRange(0,2); 
+             int brigandrd = 0;
+             if (player.getquetedone()==false){
+                 getRandomNumberInRange(0,2); 
+             }
+             else{
+                 brigandrd = 1;
+             }
+                     
              
              
              if (brigandrd!=0){
@@ -212,21 +225,16 @@ public class FarWest extends Location implements Move_Location, Menu{
                 System.out.println(ANSI_BLUE+"Le brigand de la quete !"+ANSI_RESET);
                 System.out.println("");
                 duel(player,brigand);
+                player.setquetedone(true);
                 System.out.println("");
                 System.out.println(ANSI_BLUE+"Vous avez complété la quete du sherif !"+ANSI_RESET);
                 System.out.println(ANSI_BLUE+"Voici votre récompense !"+ANSI_RESET);
                 player.add_argent(200, player);
-                 
-                 
-             
-    
 
             }
             
             
-            
-            
-            
+ 
             
         }
         
@@ -235,19 +243,7 @@ public class FarWest extends Location implements Move_Location, Menu{
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
     
      private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {

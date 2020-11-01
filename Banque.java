@@ -112,10 +112,11 @@ public class Banque extends Location implements Move_Location, Menu{
     
 
     private void Braquage(Player player){
-        Brigand Braqueur;
-        Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, "NULL", 0, false, 11, 0);
+        
         int a=getRandomNumberInRange(0,8);
         if (a==0){
+            Brigand Braqueur;
+            Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, "NULL", 0, false, 11, 0);
             Braqueur = brigand.createBrigand(1, Banque_Populaire, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
             Braqueur.talkstr("Ceci est un Hold Up! Les mains en l'air et que personne ne bouge!");
             System.out.println("");

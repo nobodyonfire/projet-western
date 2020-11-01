@@ -79,7 +79,20 @@ public class Prison extends Location implements Move_Location, Menu{
         Menu(player);
     }
     
-    public void Vendre(){
+    public void recalmerprime(Player player){
+        
+        if (player.getquetedone()==true){
+
+            System.out.println("");
+            System.out.println(ANSI_GREEN+"Sherif : WOW ! tu as fait du bon boulot !"+ANSI_RESET);
+            System.out.println(ANSI_GREEN+"Sherif : Voici ta récompense .."+ANSI_RESET);
+            System.out.println("");
+            player.niveau.add_xp(player, player.brigand.Drop_xp_curve(player.brigand));
+            player.add_argent(500, player);
+            player.soin(50, player);
+            
+            
+        }
         
     }
     
@@ -119,7 +132,7 @@ public class Prison extends Location implements Move_Location, Menu{
     
       public void display_menu() 
     {
-	System.out.println("1) Parler au sherif \n3) Partir");
+	System.out.println("1) Parler au sherif \n2) Réclamer prime \n3) Partir");
 	System.out.print("Selection: ");  
     }
     
@@ -229,7 +242,7 @@ public class Prison extends Location implements Move_Location, Menu{
 	    case 2:
                 System.out.println("");
                 System.out.println ( "PROCHAINE MAJ DU JEU !" );
-                Menu(player);
+                recalmerprime(player);
 	    break;
             case 3:
                 System.out.println("");

@@ -31,9 +31,9 @@ public class Eglise extends Location implements Move_Location, Menu{
     }
 
      
-    public void Save(Player player){  
+    public void Save(Banque banque,Player player){  
         
-        player.playersave();
+        player.playersave(banque);
         Menu(player);
 
     }
@@ -126,13 +126,14 @@ public class Eglise extends Location implements Move_Location, Menu{
         System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans l'église !"+ ANSI_RESET);
         System.out.println();
         Scanner q = new Scanner(System.in);
+        Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         display_menu();
         switch (q.nextInt()) 
 	{
    
 	    case 1:
                 System.out.println();    
-                Save(player);
+                Save(Banque_Populaire,player);
                 break;
   
 	    case 2:

@@ -16,14 +16,16 @@ public class Player extends Personnages{
     public static final String ANSI_BLUE = "\u001B[34m";
     private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
     public Brigand brigand;
+    boolean quetedone=false;
     
     
-  public Player(String Name, Location Location, Arme Gun , String Job , Niveau niveau, int Argent, int etat, int HP,Brigand brigand) {
+  public Player(String Name, Location Location, Arme Gun , String Job , Niveau niveau, int Argent, int etat, int HP,Brigand brigand,boolean quetedone) {
         super(Name,Location,Gun,Job,Argent);
         this.niveau = niveau;
         this.etat = etat;
         this.HP = HP;
         this.brigand =null;
+        this.quetedone=quetedone;
 
         
     }
@@ -79,6 +81,15 @@ public class Player extends Personnages{
        this.etat = etat;
    }
    
+    public void setquetedone(boolean quetedone){
+        this.quetedone=quetedone;
+    }
+    
+    
+   
+    public boolean getquetedone(){
+        return this.quetedone;
+    }
    
     public Brigand getBrigand(){
         return this.brigand;
@@ -110,9 +121,9 @@ public class Player extends Personnages{
         return this.HP;
     }
     
-    public void playersave(){
+    public void playersave(Banque banque){
         String string="";
-        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+ 45 ;
+        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
         save.Save(string);
     }
 
@@ -120,7 +131,7 @@ public class Player extends Personnages{
      
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Niveau rest = new Niveau(0,0,500);
-        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", rest, 0, 0, 100,null); 
+        Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", rest, 0, 0, 100,null,false); 
         String string = save.lire();
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
@@ -147,9 +158,9 @@ public class Player extends Personnages{
         setEtat(Integer.parseInt((mots[13])));
 
         
-        final String SEPARATEUR2 = "null";
-        String mots2[] = mots[13].split(SEPARATEUR2);
         SetHP(Integer.parseInt(mots[14]));
+        setquetedone(Boolean.parseBoolean(mots[15]));
+        
         
         clearScreen(50);
         map.printbienvenu(player,mots[0],0);
