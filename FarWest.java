@@ -43,11 +43,8 @@ public class FarWest extends Location implements Move_Location, Menu{
         
         int curseur = 50;
         int[] profondeur = {50,0,0,0,0,0};
-        int niveau= 1;
-        int random = 1;
-        int randomnext=1;
-                
-        int reponse=4;
+        int niveau= 0;
+        int random=1;
         
         System.out.println("");
         System.out.println(ANSI_BLUE+"Vous allez Entrer dans le far West "+ANSI_RESET);
@@ -56,26 +53,23 @@ public class FarWest extends Location implements Move_Location, Menu{
         System.out.println(ANSI_RED+"X"+ANSI_RESET+" : du bruit !");
         System.out.println("");
         map.printchemin(curseur,random);
+        System.out.println("");
+        pressenter();
+        explorercarte2(player,niveau,profondeur,curseur,random);
         
-
-        explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
-        
-        sleep(5000);
+        sleep(50000);
         
     }
+   
     
-    public void explorercarte(Player player,int niveau,int[] profondeur,int curseur,int random,int reponse,int randomnext){
+    public void explorercarte2(Player player,int niveau,int[] profondeur,int curseur,int random){
         
         
-        if (profondeur[5]!=0){
-            System.out.println("Vous êtes trop loin ! vous rencontrez le chef de tribu indienne !"); 
-        }
-        randomnext=random;
-        random = getRandomNumberInRange(0,2);
+        /*random=1; */
+        random= getRandomNumberInRange(1,3);
         
-        System.out.println("randomnext " + random);
-        System.out.println("reponse " + reponse);
-        
+        printcarteactuelle(profondeur,niveau,curseur,random);
+   
         System.out.println("");
         System.out.println(ANSI_BLUE+"Vous avez actuellement :"+ player.getHP()+" HP"+ANSI_RESET);
         System.out.println("");
@@ -83,113 +77,53 @@ public class FarWest extends Location implements Move_Location, Menu{
         System.out.println("");
         System.out.println("Où voulez-vous aller ?");
         System.out.print("Selection :");
-        
-        
-        Scanner q = new Scanner(System.in);  
+         Scanner q = new Scanner(System.in);  
         switch (q.nextInt()) 
 	{
 	    case 1:
-                
-                clearScreen(50);
-                for (int i = 0; i < niveau; ++i) {
-                    map.printpartchemin(profondeur[i]);
-                }
-                
+                niveau=niveau+1; 
                 curseur=curseur-5;
                 profondeur[niveau]=curseur;
-                niveau=niveau+1;
-                reponse=1;
                 
-                map.printchemin(curseur,random);
-                
-                if (random+1==reponse){
-                actionexplorer(player,randomnext, reponse);
-                
-                clearScreen(50);
-                 for (int i = 0; i < niveau-1; ++i) {
-                    map.printpartchemin(profondeur[i]);
+                if (random==1){
+                    actionexplorer(player);
+                    pressenter();
                 }
-                 map.printchemin(curseur+5,random);
-                }
-                
-
-                explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
-                break;  
-                
+                explorercarte2(player,niveau,profondeur,curseur,random);
+       
+            break;
+            
             case 2:
-                
-                clearScreen(50);
-                 for (int i = 0; i < niveau; ++i) {
-                    map.printpartchemin(profondeur[i]);
-                }
-                 
+                niveau=niveau+1; 
                 profondeur[niveau]=curseur;
-                niveau=niveau+1;
-                reponse=2;
                 
-                map.printchemin(curseur,random);
-                
-                if (random+1==reponse){
-                actionexplorer(player,randomnext, reponse);
-                
-                clearScreen(50);
-                for (int i = 0; i < niveau-1; ++i) {
-                    map.printpartchemin(profondeur[i]);
+                if (random==2){
+                    actionexplorer(player);
+                    pressenter();
                 }
-                 map.printchemin(curseur,random);
-                }
-                
-                
-                
-                explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
-                break;
-                
+                explorercarte2(player,niveau,profondeur,curseur,random);
+       
+            break;
             case 3:
-                clearScreen(50);
-                 for (int i = 0; i < niveau; ++i) {
-                    map.printpartchemin(profondeur[i]);
-                }
-
-                profondeur[niveau]=curseur;
-                niveau=niveau+1;
+                niveau=niveau+1; 
                 curseur=curseur+5;
-                reponse=3;
-                
-                map.printchemin(curseur,random);
-                
-                
-                if (random+1==reponse){
-                actionexplorer(player,randomnext, reponse);
-                
-                clearScreen(50);
-                 for (int i = 0; i < niveau-1; ++i) {
-                    map.printpartchemin(profondeur[i]);
-                }
-                 map.printchemin(curseur-5,random);
-                }
-                
-                
+                profondeur[niveau]=curseur;
 
-                explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
-                break;
-                
+                if (random==3){
+                    actionexplorer(player);
+                    pressenter();
+                }
+                explorercarte2(player,niveau,profondeur,curseur,random);
+       
+            break;
+            
             case 4:
                 if (niveau<1){      
-                    explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
+                    explorercarte2(player,niveau,profondeur,curseur,random);
                 }
                 niveau=niveau-1;
-                reponse=4;
-                
-                clearScreen(50);
-                 for (int i = 0; i < niveau-1; ++i) {
-                    map.printpartchemin(profondeur[i]);
-                }
-                 
-                reponse=3;                
-                curseur=profondeur[niveau-1];
-                map.printpartchemin(curseur);
-                random = getRandomNumberInRange(0,2);
-                explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
+                curseur=profondeur[niveau];
+                explorercarte2(player,niveau,profondeur,curseur,random);
                 break;  
                 
             case 5:
@@ -197,11 +131,27 @@ public class FarWest extends Location implements Move_Location, Menu{
                 break;
   
             default:
-                explorercarte(player,niveau,profondeur,curseur,random,reponse,randomnext);
-                break;
+                explorercarte2(player,niveau,profondeur,curseur,random);
+            break;
+            
         }
         
     }
+    
+    
+    public void printcarteactuelle(int[] profondeur,int niveau,int curseur,int random){
+        clearScreen(50);
+        for (int i = 0; i < niveau; ++i) {
+             map.printpartchemin(profondeur[i]);
+        }    
+        profondeur[niveau]=curseur;
+        map.printchemin(curseur,random-1);
+    }
+    
+    
+    
+    
+    
     
     
     public void majcarte(int niveau,int[] profondeur , int curseur,int random){
@@ -209,7 +159,7 @@ public class FarWest extends Location implements Move_Location, Menu{
         
     }
     
-    public void actionexplorer(Player player,int random, int reponse){
+    public void actionexplorer(Player player){
         
         
       
@@ -410,8 +360,19 @@ public class FarWest extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void cleanScreen(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+    public static void clearScreen(int j) {  
+        for (int i = 0; i < j; ++i) System.out.println("");
+
+    }
+    
+    public static void pressenter(){
+        Scanner readinput = new Scanner(System.in);
+        String enterkey = "appuyer sur entrer...";
+        System.out.print(enterkey);
+        enterkey = readinput.nextLine();
+        System.out.print(enterkey);
+    
     }
     
 }

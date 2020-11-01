@@ -22,17 +22,21 @@ public class map {
     public static final String ANSI_PURPLE = "\u001B[35m";
     
     public static void printcarte(){
+         
         System.out.println(" ");
-        System.out.println("                               ____________           ____________	     ____________");
-        System.out.println("                            __/ ///////// /|	   __/ ///////// /|	  __/ ///////// /|");
-        System.out.println("                           /              Â¯/|	  /              Â¯/|	 /              Â¯/|");
-        System.out.println("                          /_______________/ |	 /_______________/ |	/_______________/ |");
-        System.out.println("    ________________      |  __________  |  |	 |  __________  |  |	|  __________  |  |");
-        System.out.println("   /               /|     | |          | |  |	 | |          | |  |	| |          | |  |");
-        System.out.println("  /               / |     | |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"PRISON"+ANSI_RESET+"  | |  |	 | |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"SALOON"+ANSI_RESET+"  | |  |	| |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"BANQUE"+ANSI_RESET+"  | |  |");
-        System.out.println(" /_______________/  |     | |          | |  |	 | |          | |  |	| |          | |  |");
-        System.out.println("(_______________(   |     | |__________| | /     | |__________| | / 	| |__________| | /");
-        System.out.println("(____"+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"ARMURIE"+ANSI_RESET+"____(   |     |______________|/      |_____|_|______|/ 	|______________|/");
+        System.out.println("		                                                                                         ___");
+        System.out.println("	                                                                                               __|_|__");
+        System.out.println("                                                                                                      |_______|");
+        System.out.println("                               ____________           ____________	     ____________              	 | |");
+        System.out.println("                            __/ ///////// /|	   __/ ///////// /|	  __/ ///////// /|	       __| |___");
+        System.out.println("                           /              Â¯/|	  /              Â¯/|	 /              Â¯/|	      / ///\\\\\\ \\");
+        System.out.println("                          /_______________/ |	 /_______________/ |	/_______________/ |	     / ////\\\\\\\\ \\");
+        System.out.println("    ________________      |  __________  |  |	 |  __________  |  |	|  __________  |  |     ____/ /////\\\\\\\\\\ \\");
+        System.out.println("   /               /|     | |          | |  |	 | |          | |  |	| |          | |  |    |		  |	");
+        System.out.println("  /               / |     | |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"PRISON"+ANSI_RESET+"  | |  |    | |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"SALOON"+ANSI_RESET+"  | |  |	| |  "+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"BANQUE"+ANSI_RESET+"  | |  |    |  ___	"+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"EGLISE"+ANSI_RESET+"     |");
+        System.out.println(" /_______________/  |     | |          | |  |	 | |          | |  |	| |          | |  |    |  | |	|  | |	  |");
+        System.out.println("(_______________(   |     | |__________| | /     | |__________| | / 	| |__________| | /     |	|  | |	  |");
+        System.out.println("(____"+ANSI_GREEN_BACKGROUND+ANSI_WHITE+"ARMURIE"+ANSI_RESET+"____(   |     |______________|/      |_____|_|______|/ 	|______________|/      |________|__|_|____|	");
         System.out.println("(_______________(  /     |____>______<_____|____>______<_____|____>______<_____|_______<_____|");
         System.out.println("(_______________( /     /                                                               / ");
         System.out.println("(               (/     /                                                               /");
