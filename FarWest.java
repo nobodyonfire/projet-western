@@ -131,6 +131,12 @@ public class FarWest extends Location implements Move_Location, Menu{
                 explorercarte2(player,niveau,profondeur,curseur,random);
                 break;  
                 
+            case 778899:
+                /* EASTER EGG / CHEAT CODE  ( pour ajouter de la profondeur au jeu ) */
+                player.soin(20, player);
+                explorercarte2(player,niveau,profondeur,curseur,random);
+                break;  
+                
             case 5:
                 Menu(player);
                 break;
@@ -215,8 +221,10 @@ public class FarWest extends Location implements Move_Location, Menu{
                 System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);
                 player.soin(10, player);
                 player.add_argent(20, player);
+                Menu(player);
 
              }
+             
              
              else {
                 Brigand brigand = player.getBrigand();
@@ -232,6 +240,8 @@ public class FarWest extends Location implements Move_Location, Menu{
              
                 player.add_argent(200, player);
                 pressenter();
+                Menu(player);
+
 
             }
             

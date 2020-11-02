@@ -6,6 +6,7 @@
 package projet.java.western;
 
 import java.util.Scanner;
+import static projet.java.western.ProjetJavaWestern.pressenter;
 
 
 /**
@@ -40,6 +41,7 @@ public class Eglise extends Location implements Move_Location, Menu{
     
     private void Quitter(){
         System.out.println("Vous quittez la partie.");
+        pressenter();
     }
     
     

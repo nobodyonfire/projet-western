@@ -104,6 +104,9 @@ public class ProjetJavaWestern {
                     String Player_name = Robbert.StoryTelling();     
                     player.SetName(Player_name);
                     player.playersave(Banque_Populaire);
+                    clearScreen(50);
+                     map.printbienvenu(player," ",1);
+                    sleep(2300);
                     SantaMaria.changelocation(player);
                     break;
 
