@@ -207,6 +207,11 @@ public class Banque extends Location implements Move_Location, Menu{
                 System.out.println();
                 Menu(player);
                 break;
+            default:
+                System.out.println("");
+                System.err.println ( "Erreur" );
+                changelocation(player);
+	    break;
               
 	}
         throw new UnsupportedOperationException("Erreur"); 
@@ -215,7 +220,7 @@ public class Banque extends Location implements Move_Location, Menu{
     @Override
     public void Menu(Player player) {
         System.out.println();
-        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la prison !"+ ANSI_RESET);
+        System.out.println(ANSI_GREEN_BACKGROUND+ ANSI_WHITE+"Vous êtes dans la Banque!"+ ANSI_RESET);
         System.out.println();
         Braquage(player);
 

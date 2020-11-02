@@ -91,10 +91,12 @@ public class Prison extends Location implements Move_Location, Menu{
             System.out.println("");
             player.niveau.add_xp(player, player.brigand.Drop_xp_curve(player.brigand));
             player.add_argent(500, player);
-            player.soin(50, player);
-            
-            
+            player.soin(50, player);     
+            player.setquetedone(false);
         }
+        Menu(player);
+            
+        
         
     }
     
@@ -205,6 +207,11 @@ public class Prison extends Location implements Move_Location, Menu{
                 System.err.println ( "Je vais rester. Peut-être qu'un prisonnier va s'échapper." );
                 Menu(player);
                 break;
+           default:
+                System.out.println("");
+                System.err.println ( "Erreur" );
+                changelocation(player);
+	    break;
               
 	}
         

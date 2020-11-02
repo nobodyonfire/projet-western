@@ -110,7 +110,13 @@ public class Eglise extends Location implements Move_Location, Menu{
             case 6:
                 System.out.println("");
                 Menu(player);
-                break;            
+                break;  
+                
+            default:
+                System.out.println("");
+                System.err.println ( "Erreur" );
+                changelocation(player);
+	    break;
 	}
         
         throw new UnsupportedOperationException("Erreur"); 

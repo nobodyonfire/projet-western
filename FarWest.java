@@ -205,7 +205,7 @@ public class FarWest extends Location implements Move_Location, Menu{
 
              int brigandrd = 0;
              if (player.getquetedone()==false){
-                 getRandomNumberInRange(0,2); 
+                 brigandrd=getRandomNumberInRange(0,2); 
              }
              else{
                  brigandrd = 1;
@@ -332,6 +332,11 @@ public class FarWest extends Location implements Move_Location, Menu{
                 Menu(player);
                 break;
               
+            default:
+                System.out.println("");
+                System.err.println ( "Erreur" );
+                changelocation(player);
+	    break;
 	}
         throw new UnsupportedOperationException("Erreur"); 
     }

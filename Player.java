@@ -123,7 +123,7 @@ public class Player extends Personnages{
     
     public void playersave(Banque banque){
         String string="";
-        string = string +getName()+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
+        string = string +getName().replaceAll("\\s", "#")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
         save.Save(string);
     }
 
@@ -135,7 +135,7 @@ public class Player extends Personnages{
         String string = save.lire();
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
-        setName(mots[0]);
+        setName(mots[0].replaceAll("#", " "));
            
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         this.setLocation(SantaMaria);

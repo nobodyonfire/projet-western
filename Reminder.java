@@ -23,10 +23,17 @@ public class Reminder {
         
         timer.schedule(new RemindTask(), seconds*1000);
 
+        int valeur =0;
         Scanner readinput = new Scanner(System.in);
-        int enterkey = 0;
-        enterkey = readinput.nextInt();
-        valeur=enterkey;       
+        String enterkey = "0";
+        enterkey = readinput.nextLine();
+        if (isNumeric(enterkey)){
+            valeur=Integer. parseInt(enterkey); 
+        }
+        else{
+            valeur=0;
+        }
+              
 }
 
     class RemindTask extends TimerTask {
@@ -41,6 +48,18 @@ public class Reminder {
        new Reminder(args);
        
     }
+    
+    public static boolean isNumeric(String strNum) {
+    if (strNum == null) {
+        return false;
+    }
+    try {
+        int d =  Integer. parseInt(strNum);
+    } catch (NumberFormatException nfe) {
+        return false;
+    }
+    return true;
+}
     
     
     public int getvaleur(){
