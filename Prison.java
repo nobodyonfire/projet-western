@@ -10,6 +10,7 @@ package projet.java.western;
 
 import java.util.Random;
 import java.util.Scanner;
+import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.Personnages.ANSI_RESET;
 import static projet.java.western.ProjetJavaWestern.duel;
 import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
@@ -70,7 +71,7 @@ public class Prison extends Location implements Move_Location, Menu{
     
      public void Sherifquete(Player player){
         System.out.println("");
-        Brigand brigandquete = Brigand.createBrigand(1,new Eglise("SantaMaria",10),new Arme("Pistolet de seconde main", 10, 1, 80, 10), player);
+        Brigand brigandquete = Brigand.createBrigand(1,Farwest, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
         player.setBrigand(brigandquete);
         System.out.println("");
         System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");

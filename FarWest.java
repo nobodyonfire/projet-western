@@ -6,6 +6,7 @@
 package projet.java.western;
 import java.util.Random;
 import java.util.Scanner; 
+import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.ProjetJavaWestern.clearScreen;
 import static projet.java.western.ProjetJavaWestern.duel;
 import static projet.java.western.ProjetJavaWestern.sleep;
@@ -215,7 +216,7 @@ public class FarWest extends Location implements Move_Location, Menu{
              
              if (brigandrd!=0){
                  
-                Brigand brigand=Brigand.createBrigand(1,FarWest,new Arme("Pistolet de seconde main", 10, 1, 80, 10), player);
+                Brigand brigand = Brigand.createBrigand(1,Farwest, listearme().get(getRandomNumberInRange(0, listearme().size())), player);;
                 duel(player,brigand);
                 System.out.println("");
                 System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);
