@@ -39,7 +39,7 @@ public class Sherif extends CowBoy{
     
     public String StoryTelling(){
         String say = " Toi le nouveau! Tu viens jouer les chasseurs de prime à Widowchapel. \n"+ ANSI_GREEN
-                + "           Quelle erreur minable. On appelle pas cette ville Widowchapel pour rien. \n"+ANSI_GREEN
+                + "           Quelle erreur minable. On n'appelle pas cette ville Widowchapel pour rien. \n"+ANSI_GREEN
         + "           C'est ici que viennent se recueillir les femmes qui ont perdu leurs maris \n"+ANSI_GREEN
         + "           Mais toi tu m'as l'air d'être un chasseur de prime déterminé.";
         super.talkb(ANSI_GREEN+ say+ANSI_RESET);

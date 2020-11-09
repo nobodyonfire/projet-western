@@ -146,11 +146,10 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public int paiement(Player player){
         int mise = 0;
-        Scanner q = new Scanner(System.in);
         boolean paiement = false;
         while (paiement == false){
             System.out.println("Combien voulez-vous miser ?");
-            mise = q.nextInt();    
+            mise = Test.test();
             if (mise > player.getArgent()){
                 System.out.println("Vous ne pouvez pas miser de l'argent que vous n'avez pas.");
             }
@@ -212,8 +211,7 @@ public class Saloon extends Location implements Move_Location, Menu{
        
        while((a!=valeur) && (Stop == false)){
             System.out.println("");
-            Scanner q = new Scanner(System.in);
-            valeur = q.nextInt();
+            valeur = Test.test();
             if (valeur == 0 ){
                 Stop = true; 
             }
@@ -251,11 +249,9 @@ public class Saloon extends Location implements Move_Location, Menu{
        
        while((a!=valeur) && (Stop == false)){
             System.out.print("A= ");
-            Scanner q = new Scanner(System.in);
-            int tmp = q.nextInt();
+            int tmp = Test.test();
             System.out.print("B= ");
-            Scanner q1 = new Scanner(System.in);
-            int tmp2 = q1.nextInt();
+            int tmp2 = Test.test();
             valeur = tmp*6+tmp2+1;
             if (valeur == 1 ){
                 Stop = true; 
@@ -278,8 +274,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public void display_menu() 
     {
-	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Seduire \n4) PlayPiano \n5) leave");
-	System.out.print("Sélection: ");  
+	System.out.println("1) Aller voir le Barman  \n2) Jouer au BlackJack \n3) Séduire \n4) Jouer du Piano  \n5) Partir");  
     }
     
     
@@ -287,7 +282,6 @@ public class Saloon extends Location implements Move_Location, Menu{
  
     public void display_location()
     {
-        System.out.println("Sélection: ");
         System.out.println("1) Prison  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
@@ -429,8 +423,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public void display_menututo() 
     {
-	System.out.println("1) Barman  \n2) Jouer \n3) Séduire \n4) Piano \n5) Quitter");
-	System.out.print("Sélection: ");    
+	System.out.println("1) Aller voir le Barman  \n2) Jouer au BlackJack \n3) Séduire \n4) Jouer du Piano  \n5) Partir");  
+  
     }    
     
     public void boiretuto(Player player){
@@ -465,8 +459,7 @@ public class Saloon extends Location implements Move_Location, Menu{
      
      public void display_menututo2() 
     {
-	System.out.println("1) Barman  \n2) Jouer ( BlackJack ) \n3) Séduire \n4) PlayPiano \n5) Sherif  \n6) leave");
-	System.out.print("Sélection: ");           
+	System.out.println("1) Aller voir le Barman  \n2) Jouer au BlackJack \n3) Séduire \n4) Jouer du Piano \n5) Aller voir le Sherif  \n6) Partir");        
     }
      
     public void questiontuto(Player player)

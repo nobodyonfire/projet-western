@@ -1,6 +1,5 @@
 
 
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,7 +22,7 @@ import static projet.java.western.Saloon.ANSI_WHITE;
 public class Prison extends Location implements Move_Location, Menu{
     
     
-    
+    public static final FarWest Farwest = new FarWest("Farwest", 0);
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -95,6 +94,15 @@ public class Prison extends Location implements Move_Location, Menu{
             player.soin(50, player);     
             player.setquetedone(false);
         }
+        else {
+            if (player.getquetedone()){
+                System.out.println("Vous n'avez ramené le brigand !");
+            }
+            else {
+                System.out.println("Vous n'avez aucune prime !");
+            }
+            
+        }
         Menu(player);
             
         
@@ -138,14 +146,13 @@ public class Prison extends Location implements Move_Location, Menu{
       public void display_menu() 
     {
 	System.out.println("1) Parler au sherif \n2) Réclamer prime \n3) Partir");
-	System.out.print("Selection: ");  
     }
     
     
     
      public void display_location()
     {
-        System.out.println("Sélection: ");
+
         System.out.println("1) Saloon  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }

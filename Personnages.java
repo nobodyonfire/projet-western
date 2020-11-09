@@ -27,7 +27,7 @@ public class Personnages {
         this.Niveau=Niveau;
         this.Argent=Argent;
         
-        introduceYourself();
+        /*introduceYourself();*/
     }
     
     

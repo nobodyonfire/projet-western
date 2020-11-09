@@ -143,30 +143,22 @@ public class Barman extends Personnages{
 	    case 1:
                 System.out.println();   
                 talkb(" Monsieur veut donc un jus de pomme ! Qui suis-je pour juger.." );
-                player.soin(5, player);
-                display_menuboissonbonustuto(player);          
                 break;
   
 	    case 2:
                System.out.println();
                 talkb( "Très bon choix ! je vous mets la dose " );
-                player.soin(10, player);
-                
-                display_menuboissonbonustuto(player);
                 break;
   
 	    case 3:
                 talkb( "Vous plaisentez ?" );
                 talkb( "Que voulez-vous sérieusement ?");
-                questionboissontuto(player);
                 break;
             
             case 4:
                 System.out.println();
 
                 talkb( "Excellent , une pinte pour monsieur !" );
-                player.soin(5, player);
-                display_menuboissonbonustuto(player);
                 break;
             
             case 5:               

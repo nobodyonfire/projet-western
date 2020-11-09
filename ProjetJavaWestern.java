@@ -86,38 +86,7 @@ public class ProjetJavaWestern {
 	{
    
 	    case 1:
-                clearScreen(2);
-                System.out.println("Voulez-vous ?");
-                System.out.println("");
-                System.out.println("1) Faire le didactiel (conseillé)");
-                System.out.println("2) Skip");
-                System.out.println("");
-                int q1 = Test.test();   
-                switch (q1) 
-                {
-                    case 1:
-                    clearScreen(3);
-                    break;
-                    case 2:
-                    player.SetArgent(500);
-                    player.SetNiveau(1);
-                    String Player_name = Robbert.StoryTelling();     
-                    player.SetName(Player_name);
-                    player.playersave(Banque_Populaire);
-                    clearScreen(50);
-                     map.printbienvenu(player," ",1);
-                    sleep(2300);
-                    SantaMaria.changelocation(player);
-                    break;
-
-                    default:
-                    System.out.println("");
-                    System.err.println ( "faites un choix !" );
-                    System.out.println("");
-                    menudepart(player);
-                    break;   
-
-        } 
+                menudidactitiel(player);
             break;
             
             case 2:
@@ -135,6 +104,39 @@ public class ProjetJavaWestern {
         } 
     }
     
+    public static void menudidactitiel(Player player){
+        clearScreen(2);
+        System.out.println("Voulez-vous ?");
+        System.out.println("");
+        System.out.println("1) Faire le didactitiel (conseillé)");
+        System.out.println("2) Skip");
+        System.out.println("");
+        int q1 = Test.test();   
+        switch (q1) 
+        {
+            case 1:
+            clearScreen(3);
+            break;
+            case 2:
+            player.SetArgent(500);
+            player.SetNiveau(1);
+            String Player_name = Robbert.StoryTelling();     
+            player.SetName(Player_name);
+            player.playersave(Banque_Populaire);
+            clearScreen(50);
+             map.printbienvenu(player," ",1);
+            sleep(2300);
+            SantaMaria.changelocation(player);
+            break;
+
+            default:
+            System.out.println("");
+            System.err.println ( "faites un choix !" );
+            System.out.println("");
+            menudidactitiel(player);
+            break;   
+            } 
+    }
 
     public static void didactitiel(){
         

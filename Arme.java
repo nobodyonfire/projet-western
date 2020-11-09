@@ -151,10 +151,12 @@ public class Arme implements Comparable{
 
        Reminder test= new Reminder(10);
        sleep(500);
-       int valeur =test.getvaleur();
+       int valeur =intToString(test.getvaleur());
+       System.out.println("valeur" + "a "+valeur+a);
        if (a==valeur){
            System.out.println("Vous avez réussi !");
            return 1;
+                   
        }
        else{
            System.out.println("Vous avez échoué..");
@@ -163,6 +165,12 @@ public class Arme implements Comparable{
        
        
    }
+   
+     static int intToString(int valeur) {
+       String valeurstring= Integer.toString(valeur);
+       valeurstring.substring(1);
+       return Integer.parseInt(valeurstring);
+    }
 
 
    

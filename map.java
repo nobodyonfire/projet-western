@@ -106,7 +106,7 @@ public class map {
         for (int i = 0; i < a; ++i) System.out.print(" ");
         System.out.print(" | /\\/ /\\/ /\\ || /\\/ /\\/ /\\ |"); 
         for (int i = 0; i < taille/2+2 ; ++i) System.out.print(" ");
-        System.out.print("BIENVENU");  
+        System.out.print("BIENVENUE");  
         for (int i = 0; i < taille/2+2 ; ++i) System.out.print(" ");
         System.out.println("| /\\ \\/\\ \\/\\ || /\\ \\/\\ \\/\\ |"); 
         
@@ -167,7 +167,7 @@ public class map {
         for (int i = 0; i < a+8; ++i) System.out.print(" ");
         System.out.println("| |");
         for (int i = 0; i < a+8; ++i) System.out.print(" ");
-        System.out.println("|"+ANSI_GREEN+"X"+ANSI_RESET+"|");
+        System.out.println("|"+ANSI_GREEN+"0"+ANSI_RESET+"|");
         for (int i = 0; i < a; ++i) System.out.print(" ");
         System.out.println("       /   \\");
         for (int i = 0; i < a; ++i) System.out.print(" ");

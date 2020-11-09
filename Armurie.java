@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import static projet.java.western.Arme.sleep;
 import static projet.java.western.Personnages.ANSI_RESET;
 import static projet.java.western.ProjetJavaWestern.ANSI_BLUE;
 import static projet.java.western.ProjetJavaWestern.ANSI_RESET;
@@ -169,7 +170,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[0].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[0]);   }
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -179,8 +183,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[1].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[1]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -191,8 +197,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 System.out.println("a= "+a);
                 if (a>-1){
                     player.SetGun(listearme2[2]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -202,8 +210,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[3].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[3]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -213,8 +223,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[4].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[4]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -224,8 +236,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(listearme2[5].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[5]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -235,8 +249,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[6].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[6]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -246,8 +262,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[7].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[7]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -257,8 +275,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[8].getprix(), player);
                 if (a>-1){ 
                     player.SetGun(listearme2[8]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -268,8 +288,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[9].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[9]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -279,8 +301,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[10].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[10]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -290,8 +314,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[11].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[11]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -301,8 +327,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[12].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[12]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -312,8 +340,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[13].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[13]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
             
@@ -323,8 +353,10 @@ public class Armurie extends Location implements Move_Location, Menu{
                 player.add_argent(-listearme2[14].getprix(), player);
                 if (a>-1){
                     player.SetGun(listearme2[14]); }
-
-                Menu(player);
+                else {
+                    sleep(1000);
+                }
+                Acheter(player);
             System.out.println("");    
 	    break;
            
@@ -356,7 +388,7 @@ public class Armurie extends Location implements Move_Location, Menu{
              break;
   
              case 19:
-            Menu(player);
+            Acheter(player);
             System.out.println(" ");
 	    break;
             default:
@@ -396,13 +428,11 @@ public class Armurie extends Location implements Move_Location, Menu{
     public void display_menu() 
     {
 	System.out.println("1) Acheter  \n2) Vendre \n3) Quitter");
-	System.out.print("Selection: ");  
     }
 
     
      public void display_location()
     {
-        System.out.println("Selection: ");
         System.out.println("1) Saloon  \n2) Banque \n3) Prison \n4) Eglise \n5) Extérieur \n6) Rester");
 	
     }

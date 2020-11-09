@@ -50,9 +50,7 @@ public class Player extends Personnages{
    
    public void SetHP(int HP){
        this.HP = HP;
-       System.out.println("");
-       System.out.println(ANSI_BLUE + "Vous avez été soigné. Vous avez actuellement " + HP + " points de vie."+ANSI_RESET);
-       System.out.println("");
+       
    }
    
     
@@ -123,19 +121,19 @@ public class Player extends Personnages{
     
     public void playersave(Banque banque){
         String string="";
-        string = string +getName().replaceAll("\\s", "#")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
+        string = string +getName().replaceAll("\\s", "/")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
         save.Save(string);
     }
 
     public void playerload(){
-     
+        
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
         Niveau rest = new Niveau(0,0,500);
         Player player = new Player("Billi", le7iemeciel ,Couteau, "NULL", rest, 0, 0, 100,null,false); 
         String string = save.lire();
         final String SEPARATEUR = " ";
         String mots[] = string.split(SEPARATEUR);
-        setName(mots[0].replaceAll("#", " "));
+        setName(mots[0].replaceAll("#", "\\s"));
            
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         this.setLocation(SantaMaria);
@@ -165,7 +163,7 @@ public class Player extends Personnages{
         clearScreen(50);
         map.printbienvenu(player,mots[0],0);
         sleep(3000);
-        clearScreen(30);
+        clearScreen(50);
         }
     
 
@@ -173,11 +171,23 @@ public class Player extends Personnages{
  
    
    public void soin(int amount, Player player){
-        if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
+       
+       if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
            player.SetHP(100+15*player.niveau.GetLevel());}
        else{
            player.SetHP(player.HP + amount);
-       }      
+        }    
+       if (amount>=0){
+           System.out.println("");
+           System.out.println(ANSI_BLUE + "Vous avez été soigné. Vous avez actuellement " + HP + " points de vie."+ANSI_RESET);
+           System.out.println("");
+       }
+       else {
+            System.out.println("");
+            System.out.println(ANSI_BLUE + "Vous avez perdu des PV. Vous avez actuellement " + HP + " points de vie."+ANSI_RESET);
+            System.out.println("");
+       }
+       
    }
    
    public void add_argent(int amount, Player player){

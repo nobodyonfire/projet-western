@@ -1,32 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projet.java.western;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- *
- * @author ASUS
- */
+
 public class Reminder {
     
     Timer timer;
+    int valeur;
     
-    public static int valeur=0;
 
     public Reminder(int seconds) {
         timer = new Timer();
-        
         timer.schedule(new RemindTask(), seconds*1000);
 
-        int valeur =0;
+        
         Scanner readinput = new Scanner(System.in);
-        String enterkey = "0";
+        String enterkey = "";
         enterkey = readinput.nextLine();
+        setvaleur(valeur);
         if (isNumeric(enterkey)){
             valeur=Integer. parseInt(enterkey); 
         }
@@ -40,7 +33,7 @@ public class Reminder {
         public void run() {
             System.out.println(""); 
             System.out.println(""); 
-            timer.cancel(); //Terminate the timer thread
+            timer.cancel(); 
         }
     }
 
@@ -62,8 +55,13 @@ public class Reminder {
 }
     
     
-    public int getvaleur(){
-        return this.valeur;
+    public void setvaleur(int valeur ){
+        this.valeur=valeur;   
     }
     
+    public int getvaleur(){
+        return valeur;
+    }
+    
+  
 }
