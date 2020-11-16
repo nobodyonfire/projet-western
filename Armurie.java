@@ -388,7 +388,7 @@ public class Armurie extends Location implements Move_Location, Menu{
              break;
   
              case 19:
-            Acheter(player);
+            Menu(player);
             System.out.println(" ");
 	    break;
             default:

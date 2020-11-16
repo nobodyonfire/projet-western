@@ -305,7 +305,10 @@ public class ProjetJavaWestern {
     public static boolean duel(Player player, Brigand brigand){
         
         System.out.println("");
-        Arme.minijeurandom();
+        
+        /* Mini jeu avant chaque duel mais encore quelques bugs */
+        /* Arme.minijeurandom(); */
+        
         boolean victoire = false;
         int degat;
         
@@ -358,8 +361,9 @@ public class ProjetJavaWestern {
             if (player.Gun.toucher(player.Gun) == true){
 
                 degat = player.Gun.puissance(player.Gun);
+                
                 brigand.HP = brigand.HP - degat;
-                 if (brigand.HP > 0 ){
+                if (brigand.HP > 0 ){
                 System.out.println(ANSI_GREEN+"Touché ! Vous lui avait fait " + degat + " dégats! Il lui reste encore " + brigand.HP + " HP"+ANSI_RESET);
                 }
                  else{
@@ -393,6 +397,7 @@ public class ProjetJavaWestern {
             System.out.println("");
             System.out.println(ANSI_RED_BACKGROUND+ANSI_WHITE+"Vous êtes mort!"+ANSI_RESET);
             System.out.println(ANSI_BLUE+"Chargement de la dernière sauvegarde.."+ANSI_RESET);
+            sleep(1000);
             player.playerload();
         }
         else {
@@ -428,7 +433,7 @@ public class ProjetJavaWestern {
     private static final Arme Fusil_double_canon = new Arme("Fusil double canon", 130, 40, 55, 700);
     private static final Arme Fusil_canon_scie = new Arme("Fusil a canon scié", 170, 50, 33, 900);
     private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
-    private static final Arme Couteau = new Arme("Couteau", 10, 9, 100, 0);
+    private static final Arme Couteau = new Arme("Couteau", 10, 2, 100, 0);
   
     
      /*

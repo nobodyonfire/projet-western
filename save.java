@@ -58,9 +58,9 @@ public class save {
 		try
 		{
 				
-			String adressedufichier = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\Projet Java Western\\src\\projet\\java\\western\\save.txt";
+			FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\save.txt";
 			
-			FileReader fr = new FileReader(adressedufichier);
+			FileReader fr = new FileReader(FILENAME);
 			BufferedReader br = new BufferedReader(fr);
 			
 			String texte = "";

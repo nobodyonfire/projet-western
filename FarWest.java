@@ -216,12 +216,16 @@ public class FarWest extends Location implements Move_Location, Menu{
              
              if (brigandrd!=0){
                  
-                Brigand brigand = Brigand.createBrigand(1,FarWest, listearme().get(getRandomNumberInRange(0, listearme().size())), player);;
-                duel(player,brigand);
-                System.out.println("");
-                System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);
-                player.soin(10, player);
-                player.add_argent(20, player);
+                
+                Brigand brigand = Brigand.createBrigand(1,FarWest, listearme().get(getRandomNumberInRange(0, listearme().size()-1)), player);
+                
+                if (duel(player,brigand)==true){
+                    System.out.println("");
+                    System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);
+                    player.soin(10, player);
+                    player.add_argent(20, player);
+                }
+                    
                 Menu(player);
 
              }

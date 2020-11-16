@@ -26,6 +26,7 @@ public class Player extends Personnages{
         this.HP = HP;
         this.brigand =null;
         this.quetedone=quetedone;
+        this.Gun=Couteau;
 
         
     }
@@ -41,6 +42,7 @@ public class Player extends Personnages{
         System.out.println("");
         System.out.println(ANSI_BLUE + "Vous avez obtenu un " + Gun.getname() + "."+ANSI_RESET);
         System.out.println("");
+        sleep(1000);
     } 
    
    @Override
@@ -121,7 +123,7 @@ public class Player extends Personnages{
     
     public void playersave(Banque banque){
         String string="";
-        string = string +getName().replaceAll("\\s", "/")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
+        string = string +getName().replaceAll("\\s", "#")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
         save.Save(string);
     }
 
@@ -149,7 +151,6 @@ public class Player extends Personnages{
         this.niveau.SetLevel(Integer.parseInt(mots[9]));
 
         this.niveau.SetXp_actuel(Double.parseDouble((mots[10])));
-        System.out.println("SSS");
         this.niveau.SetXp_necessaire(Double.parseDouble((mots[11])));
         
         SetArgent(Integer.parseInt((mots[12])));
@@ -161,7 +162,7 @@ public class Player extends Personnages{
         
         
         clearScreen(50);
-        map.printbienvenu(player,mots[0],0);
+        map.printbienvenu(player,(mots[0].replaceAll("#", " ")),0);
         sleep(3000);
         clearScreen(50);
         }

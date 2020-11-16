@@ -17,7 +17,7 @@ public class Reminder {
 
         
         Scanner readinput = new Scanner(System.in);
-        String enterkey = "";
+        String enterkey = "12";
         enterkey = readinput.nextLine();
         setvaleur(valeur);
         if (isNumeric(enterkey)){

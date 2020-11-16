@@ -59,16 +59,17 @@ public class Arme implements Comparable{
     } 
     
     public int puissance(Arme gun){
-        Random r = new Random();
-        int interval = gun.puissanceMax - gun.puissanceMin;
-        int degat = r.nextInt(interval) + gun.puissanceMin;
+        int interval = gun.getpuissanceMax() - gun.getpuissanceMin();
+           
+        int a =getRandomNumberInRange(0,interval);
+        int degat = a + gun.getpuissanceMin();
         return degat;
     }
     
     public boolean toucher(Arme gun){
-        Random r = new Random();
+        int a =getRandomNumberInRange(1,100);
         boolean toucher = false;
-        if (r.nextInt(100)< gun.accuracy){
+        if (a <= gun.accuracy){
             toucher = true;
         }
         return toucher;
@@ -151,16 +152,15 @@ public class Arme implements Comparable{
 
        Reminder test= new Reminder(10);
        sleep(500);
-       int valeur =intToString(test.getvaleur());
-       System.out.println("valeur" + "a "+valeur+a);
+       int valeur =test.getvaleur();
        if (a==valeur){
            System.out.println("Vous avez réussi !");
-           return 1;
+           return 2;
                    
        }
        else{
            System.out.println("Vous avez échoué..");
-           return 0;
+           return 1;
        }  
        
        

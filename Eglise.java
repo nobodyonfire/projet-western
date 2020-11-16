@@ -42,6 +42,7 @@ public class Eglise extends Location implements Move_Location, Menu{
     private void Quitter(){
         System.out.println("Vous quittez la partie.");
         pressenter();
+        System.exit(0); 
     }
     
     
