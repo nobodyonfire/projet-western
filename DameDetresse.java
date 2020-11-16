@@ -1,16 +1,14 @@
 
 package projet.java.western;
 
-
-
-
-
+/* CLASSE NON UTILISE POUR L'INSTANT */
 public class DameDetresse extends Personnages{
     
-    
+    /* Initialisation des variables */
     protected String Etat;
     protected String Vetement;
     
+    /* Constructeur */
     public DameDetresse(String Name, Location Location, Arme Gun , String Job, int Argent, String Etat,String Vetement) {
         super(Name,Location,Gun,Job,Argent);
         this.Etat=Etat;
@@ -18,6 +16,7 @@ public class DameDetresse extends Personnages{
 
     }
     
+    /* Accessors */
     public String getEtat(){
         return this.Etat;
     }
@@ -26,10 +25,7 @@ public class DameDetresse extends Personnages{
         return this.Vetement;
     }
     
-    
-    
-    
-    
+    /* Mutators */
     public void setEtat(String Etat){
         this.Etat = Etat;
     }
@@ -38,9 +34,7 @@ public class DameDetresse extends Personnages{
         this.Vetement=Vetement;
     }
     
-    
   
-    
     @Override 
     public void introduceYourself(){
         super.introduceYourself();

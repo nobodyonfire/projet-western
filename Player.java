@@ -1,14 +1,12 @@
-
 package projet.java.western;
 
 import static projet.java.western.ProjetJavaWestern.clearScreen;
 import static projet.java.western.ProjetJavaWestern.sleep;
 
-
-
-
+/* Classe Player qui est un personnage */
 public class Player extends Personnages{
     
+    /* Initialisation des variables */
     int etat;
     int HP;
     public Niveau niveau;
@@ -18,7 +16,7 @@ public class Player extends Personnages{
     public Brigand brigand;
     boolean quetedone=false;
     
-    
+  /* Constructeur */  
   public Player(String Name, Location Location, Arme Gun , String Job , Niveau niveau, int Argent, int etat, int HP,Brigand brigand,boolean quetedone) {
         super(Name,Location,Gun,Job,Argent);
         this.niveau = niveau;
@@ -31,11 +29,13 @@ public class Player extends Personnages{
         
     }
     
+  /* Méthode pour faire parler le joueur */
    @Override 
    public void introduceYourself(){
         talk("Il est temps de rendre l'honneur et la prospérité à ce village !"); 
    }
    
+   /* Méthode qui permet de personaliser le message du SETGUN */
    @Override
    public void SetGun(Arme Gun){
         this.Gun = Gun;
@@ -45,11 +45,14 @@ public class Player extends Personnages{
         sleep(1000);
     } 
    
+   /* Méthode qui permet de personaliser le SET ARGENT */
    @Override
    public void SetArgent(int Argent){
         this.Argent = Argent;
     } 
    
+  
+   /* Mutators */
    public void SetHP(int HP){
        this.HP = HP;
        
@@ -86,7 +89,7 @@ public class Player extends Personnages{
     }
     
     
-   
+    /* Accessors*/
     public boolean getquetedone(){
         return this.quetedone;
     }
@@ -121,12 +124,14 @@ public class Player extends Personnages{
         return this.HP;
     }
     
+    /* Méthode permettant d'enregistrer les informations du joueur dans un fichier grace à la classe save */
     public void playersave(Banque banque){
         String string="";
         string = string +getName().replaceAll("\\s", "#")+" "+"SantaMaria" +" "+ 0 +" "+this.Gun.getname().replaceAll("\\s", "#")+" "+ this.Gun.getpuissanceMax ()+" "+ this.Gun.getpuissanceMin ()+ " "+this.Gun.getaccuracy()+" " +this.Gun.getprix ()+ " "+this.getJob()+" "+this.niveau.GetLevel()+" "+ this.niveau.GetXp_actuel()+" "+this.niveau.GetXp_necessaire()+" "+this.getArgent()+" "+this.getetat()+" "+this.getHP()+" "+this.getquetedone()+" "+banque.GetStocke()+" "+ 45 ;
         save.Save(string);
     }
 
+    /* Méthode permettant de faire convertir les informations du fichier dans les variables voulues */
     public void playerload(){
         
         Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
@@ -167,10 +172,7 @@ public class Player extends Personnages{
         clearScreen(50);
         }
     
-
-    
- 
-   
+   /* méthode permettant de soigner le joueur, et de ne pas dépasser les HP max */
    public void soin(int amount, Player player){
        
        if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
@@ -191,6 +193,7 @@ public class Player extends Personnages{
        
    }
    
+   /* Méthode permettant d'ajuster l'argent d'un joueur en fonction de sa disponibilité */
    public void add_argent(int amount, Player player){
        if ( amount < 0){
            if (amount + player.Argent < 0 ){

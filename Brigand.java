@@ -1,18 +1,16 @@
-
 package projet.java.western;
 
 import java.util.Random;
 
-
-
-
-
+/* Classe Brigand qui est un personnage */
 public class Brigand extends Personnages {
     
+    /* Initialisation des variables */
     public int niveau;
     protected Boolean EstEnPrison;
     public int HP;
     
+    /* Constructeur */
     public Brigand(String Name, Location Location, Arme Gun , String Job, int Argent, Boolean EstEnPrison, int HP, int niveau) {
         super(Name,Location,Gun,Job,Argent);
         this.niveau = niveau;
@@ -21,6 +19,7 @@ public class Brigand extends Personnages {
 
     }
     
+   /* Accessors */ 
    public int getNiveau(){
         return this.niveau;
    }
@@ -29,10 +28,11 @@ public class Brigand extends Personnages {
         return this.EstEnPrison;
     }
     
+    public int getHP(){
+        return this.HP;
+    }
     
-    
-    
-    
+    /* Mutators */
    public void setNiveau(int niveau){
         this.niveau = niveau;
     }
@@ -41,12 +41,8 @@ public class Brigand extends Personnages {
         this.EstEnPrison=EstEnPrison;
     }
     
-     public int getHP(){
-        return this.HP;
-    }
-    
-     
-     public Brigand[] BrigandFarWest(int i,Location location,Arme arme,Brigand brigand){
+    /* Méthode permettant de créer une liste de brigand ( non utilisé ) */
+    public Brigand[] BrigandFarWest(int i,Location location,Arme arme,Brigand brigand){
          Brigand[] listebrigand2= {new Brigand("Jacob dit le tueur", location, arme, "Voleur" , 1,false, 11, niveau),
                                  new Brigand("Jose dit l'ecorcheur", location, arme, "Voleur" , 1,false, 13, niveau)   
           };
@@ -60,6 +56,7 @@ public class Brigand extends Personnages {
           return listebrigand;
      }
      
+    /* Méthode permetant de créer un brigand avec un nom aléatoire */
     public static Brigand createBrigand(int i ,Location location,Arme arme, Player player){
         
         String[] nom={
@@ -89,6 +86,7 @@ public class Brigand extends Personnages {
         return brigand;
     }
     
+    /* Méthode qui permet d'avoir un nom entre min et max */
       private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX>MIN");
@@ -97,7 +95,7 @@ public class Brigand extends Personnages {
 	return r.nextInt((max - min) + 1) + min;
     }
      
-    
+    /* Méthode permettant d'associé le brigand et la récompense en XP */
      public double Drop_xp_curve(Brigand brigand){
          return (500 + Math.pow(15*brigand.niveau, 2));
      }

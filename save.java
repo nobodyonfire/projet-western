@@ -1,30 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 import java.io.IOException;
-/**
- *
- * @author ASUS
- */
+
 import java.io.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
+/* Classe pour sauvegarder */
 public class save {
     
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
-   
-   
+
     private static String FILENAME = "";
     
+    /* Méthode permettant de sauvegarder dans le fichier save.txt */
     public static void Save(String args) {
         
         FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\save.txt";
@@ -44,20 +36,19 @@ public class save {
 
     }
     
+    /* Méthode permettant de chercher le repertoire courant */
     public static String Main(String FILENAME) 
   {
     String curDir = System.getProperty("user.dir");
     
-    System.out.println ("Le répertoire courant est: "+curDir);
     return curDir;
   }
     
-    
+    /* Méthode permettant de lire dans le fichier save.txt */
     public static String lire(){
 		
 		try
-		{
-				
+		{	
 			FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\save.txt";
 			
 			FileReader fr = new FileReader(FILENAME);
@@ -81,9 +72,5 @@ public class save {
                 return "NULL";
 		
 	}
-    
-    
-    
-
-
+   
 }

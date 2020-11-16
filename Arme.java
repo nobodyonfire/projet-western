@@ -1,9 +1,11 @@
-
 package projet.java.western;
 import java.util.Random;
 import java.util.Scanner;
 
+/* Nous initions la classe Arme avec l'implements "Comparable" afin de pouvoir les trier par la suite */
 public class Arme implements Comparable{
+    
+    /* Dans la classe Arme nous avons les attributs suivants */
     String name;
     int puissanceMax;
     int puissanceMin;
@@ -12,7 +14,7 @@ public class Arme implements Comparable{
     String Savename;
     
     
-    
+    /* Constructeur */
     public Arme(String name, int puissanceMax, int puissanceMin, int accuracy, int prix){
         this.name = name;
         this.puissanceMax = puissanceMax;
@@ -22,7 +24,7 @@ public class Arme implements Comparable{
     }
     
     
-    
+    /* Accessors */
     public String getname(){
         return this.name;
     }
@@ -41,7 +43,7 @@ public class Arme implements Comparable{
     
  
 
-    
+    /* Mutators */
     public void Setname(String name){
         this.name = name;
     } 
@@ -58,6 +60,7 @@ public class Arme implements Comparable{
         this.prix = prix;
     } 
     
+    /* Cette méthode sert à retourner un nombre de dégat qui dépent des caractéristiques de l'arme , ainsi qu'une part d'aléatoire */
     public int puissance(Arme gun){
         int interval = gun.getpuissanceMax() - gun.getpuissanceMin();
            
@@ -66,6 +69,7 @@ public class Arme implements Comparable{
         return degat;
     }
     
+    /* Cette méthode sert à savoir si l'arme à toucher sa cible en fonction de sa précision */
     public boolean toucher(Arme gun){
         int a =getRandomNumberInRange(1,100);
         boolean toucher = false;
@@ -77,10 +81,9 @@ public class Arme implements Comparable{
     
     
     
-    
-    
-    
-    
+
+    /* Cette méthode permet de choisir un mini-jeu aléatoire dans ceux que l'on a fait 
+    mais pour l'instant il y a quelques soucis avec la classe reminder...*/
     public static void minijeurandom(){
         int a =getRandomNumberInRange(1,2);
         
@@ -94,7 +97,8 @@ public class Arme implements Comparable{
     }
     
     
-    
+   /* Nous avons ici la méthode pour le mini-jeu numéro 1 , où nous faisons appaître des chiffres et avec la classe reminder 
+    l'utilisateur a un temps donné pour les rentrer*/ 
    public static int minijeu1(){
        System.out.println("TIR 1 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
@@ -130,7 +134,8 @@ public class Arme implements Comparable{
    }
    
   
-  
+   /* Nous avons ici la méthode du mini-jeu 2 où avec la classe reminder , nous affichons une série de chiffre et nous demandons à l'utilisateur 
+   de les réécrire dans le bon ordre*/
    public static int minijeu2(){
        System.out.println("TIR 2 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
@@ -166,17 +171,14 @@ public class Arme implements Comparable{
        
    }
    
+   /* Méthode qui nous aide pour les minis jeux, enlever les 0 superflus */
      static int intToString(int valeur) {
        String valeurstring= Integer.toString(valeur);
        valeurstring.substring(1);
        return Integer.parseInt(valeurstring);
     }
-
-
    
-   
-   
-   
+   /* Méthode qui permet d'avoir un nom entre min et max */
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
@@ -185,15 +187,19 @@ public class Arme implements Comparable{
 	return r.nextInt((max - min) + 1) + min;
     }
     
+    /* Méthode pour sleep */
     public static void sleep(int temps){
         try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
     }
     
+    /* Méthode pour passer à la ligne j fois*/
     public static void clearScreen(int j) {  
 
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
+    
+    /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
     public static void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
@@ -203,10 +209,8 @@ public class Arme implements Comparable{
     
     }
     
-    
-    
-    
-    
+    /* Méthode qui permet de comparer les armes en fonction de leur prix
+    mais nous avons des classes dédiées pour les autres comparaisons*/
     @Override
     public int compareTo(Object other) {
         Arme user1 = (Arme) other;

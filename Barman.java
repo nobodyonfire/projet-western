@@ -1,43 +1,38 @@
-
 package projet.java.western;
 
 import java.util.Scanner;
 
-
-
-
-
+/* Class Barman qui est un personnage */
 public class Barman extends Personnages{
     
+    /* Initialisation des valeurs */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     
-    
-    
+    /*  Constructeur*/
     public Barman(String Name, Location Location, Arme Gun , String Job, int Argent) {
         super(Name,Location,Gun,Job,Argent);
         
     }
     
+    /* Méthode pour afficher le barman qui parle */
     public void boire(Player player){
         talkb("Je te sers quoi ?"); 
     }
     
+    /*  */
     @Override 
     public void introduceYourself(){
     }
     
+    /* Méthode pour se présenter */
     public void sepresenter(){
       
         talkb( "Hey salut moi c'est " + Name + " .Je suis le barman de ce bar, je te sers quelque chose ? une ptite bière ?" ); 
 
     }
     
-    
-    
-    
-    
-    
+    /* Méthode pour afficher le menu Boisson */
     public void display_menuboisson() 
     {
         System.out.println("");
@@ -48,6 +43,7 @@ public class Barman extends Personnages{
 	talkb("Je vous mets quoi ?: ");
     }
     
+    /* Méthode pour afficher le menu des boisson bonus */
     public void display_menuboissonbonus(Player player) 
     {   
         try {  Thread.sleep(1000); } catch (InterruptedException ie) {}
@@ -56,19 +52,15 @@ public class Barman extends Personnages{
 	System.out.println("\n1) Jus de fruit  \n2) Vodka \n3) Ice Tea \n4) Bière \n5) quitter");
         questionboisson(player);
     }
-    
-    
-    
-    
+
+    /* Méthode pour le choix de la boisson */
     public void questionboisson(Player player)
     {
         display_menuboisson();
         choixboisson(player);
     }
     
-    
-    
-    
+    /* Méthode qui permet à l'utilisateur de choisir sa boisson */
     public void choixboisson(Player player){
         int q = Test.test();
 	switch (q) 
@@ -132,8 +124,7 @@ public class Barman extends Personnages{
     }
     
     /* FONCTION DU BARMAN POUR LE TUTORIEL */
-    
-    
+  
     public void choixboissontuto(Player player){
         talkb("Vous êtes nouveau ? Dans ce cas, la première tournée est gratuite pour vous !");
         int q = Test.test();
@@ -173,12 +164,14 @@ public class Barman extends Personnages{
 	}
     }
     
+    /*  Méthode pour question tuto */
     public void questionboissontuto(Player player){
         display_menuboisson();
         choixboissontuto(player);
         
     }
     
+    /*  */
     public void display_menuboissonbonustuto(Player player) 
     {   
         try {  Thread.sleep(1000); } catch (InterruptedException ie) {}

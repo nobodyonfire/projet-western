@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 
 import java.util.ArrayList;
@@ -20,14 +15,11 @@ import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
-/**
- *
- * @author ASUS
- */
+
+/* Classe de la location Armurie */
 public class Armurie extends Location implements Move_Location, Menu{
     
-    
-    
+    /* Initialisation des valeurs */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -39,19 +31,20 @@ public class Armurie extends Location implements Move_Location, Menu{
     
     protected String Name;
     
+    /* Constructeur */
     public Armurie(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
     }
 
-     
+    /* Méthode du menu de l'armurie*/
     public void Acheter(Player player){  
         
         questionAcheterArme(player,1);
 
     }
     
-    
+    /* Méthode du menu de l'armurie permettant de vendre son arme*/
     public void Vendre(Player player){
         System.out.println("");
         System.out.println(ANSI_BLUE+"Vous possédez actuellement un "+ player.Gun.getname()+ " qui vaut " + player.Gun.getprix()+" $"+ ANSI_RESET);
@@ -81,8 +74,7 @@ public class Armurie extends Location implements Move_Location, Menu{
            Menu(player); 
     }
     
-
-    
+    /* Méthode qui permet d'afficher la liste des armes trier en fonction du choix de l'utilisateur*/
     private static void printList(Arme[] maliste) {
        int compteur=0;
        System.out.print("N*  "+"Nom                       "+"PMAX"+" PMIN"+ "  ACC." + "   Prix" ); 
@@ -111,16 +103,7 @@ public class Armurie extends Location implements Move_Location, Menu{
     }
     
     
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
+    /* Méthode qui permet de fabriquer le contenu du magasin, et de trier la liste qui sera afficher*/
     public Arme[]  display_menuAcheter(int tri) 
     {
         
@@ -145,7 +128,10 @@ public class Armurie extends Location implements Move_Location, Menu{
     }
 
 
-    
+    /* Méthode qui permet de demander à l'utilisateur le choix de l'arme qu'il veut faire 
+    ou le choix du tri des armes*/
+    /* NB : l'arme acheté n'a pas de position fixe , c'est a dire que quelque soit le choix 
+    de l'utilisateur , l'arme acheté correspondra au numéro à coté de manière dynamique*/
     public void questionAcheterArme(Player player, int i ) 
     {
         clearScreen(20);
@@ -394,7 +380,7 @@ public class Armurie extends Location implements Move_Location, Menu{
             default:
             questionAcheterArme(player,1);
             System.out.println();
-	    System.err.println ( "Unrecognized option" );
+	    System.err.println ( "Erreur" );
 	    break;
       
 	}
@@ -402,18 +388,21 @@ public class Armurie extends Location implements Move_Location, Menu{
     }
    
     
-    
+    /* Méthode qui permet d'afficher un nombre d'espace voulu */
       private static void taille(String mot,int max){
         int taillemot=mot.length();
         for (int i = 0; i < max-taillemot; ++i) 
             System.out.print(" ");
     }
-   
+
+      
+    /* Méthode pour passer à la ligne j fois*/
     public static void clearScreen(int j) {  
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
-    
+
+    /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
     public static void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
@@ -422,21 +411,21 @@ public class Armurie extends Location implements Move_Location, Menu{
         System.out.print(enterkey);
     
     }
-     
     
-    
+    /* Méthode affichant le menu */
     public void display_menu() 
     {
 	System.out.println("1) Acheter  \n2) Vendre \n3) Quitter");
     }
-
-    
+ 
+    /* Méthode affichant la localisation*/
      public void display_location()
     {
         System.out.println("1) Saloon  \n2) Banque \n3) Prison \n4) Eglise \n5) Extérieur \n6) Rester");
 	
     }
     
+     /* Override d'interfance location pour changer le player d'endroit*/
     @Override
     public void changelocation(Player player) {
         
@@ -498,7 +487,8 @@ public class Armurie extends Location implements Move_Location, Menu{
         
         throw new UnsupportedOperationException("Not supported yet."); 
     }
-
+    
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
         

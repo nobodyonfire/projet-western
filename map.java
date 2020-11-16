@@ -1,26 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
-
 
 import java.util.Random;
 import static projet.java.western.Personnages.ANSI_GREEN;
 
-/**
- *
- * @author ASUS
- */
+/* Classe Map qui contient tous les "affichage particulier" */
+/* Je tiens à préciser que chacun des jeu / carte / affichage a été fait manuellement sans aucune forme d'aide exterieur */
+/* ( oui sur la carte tous les batiments ont été fait à la main sur un fichier texte) */
 public class map {
     
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_WHITE = "\u001B[37m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     
+    /* Méthode pour afficher la carte */
     public static void printcarte(){
          
         System.out.println(" ");
@@ -45,6 +40,7 @@ public class map {
         
     }
     
+    /* Méthode pour afficher le piano */
     public static void printpiano(int emplacement,String valeur){
         String[] liste= {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "};
         liste[emplacement]=valeur;
@@ -61,8 +57,7 @@ public class map {
         System.out.println("");
     }
     
-    
-    
+    /* Méthode pour afficher le jeu séduire */
     public static void printseduire(int emplacement){
         String[] liste= {" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "};
         liste[emplacement]="X";
@@ -82,7 +77,7 @@ public class map {
         
     }   
     
-    
+    /* Méthode pour afficher l'écran de chargement */
     public static void printbienvenu(Player player,String string,int k){
         
         int taille = 0;
@@ -155,6 +150,7 @@ public class map {
         
     }
     
+    /* Méthode pour afficher le chemin actuel */
     public static int printchemin(int a,int random){
         
         String[] liste= {" "," "," "};
@@ -183,6 +179,7 @@ public class map {
         return random;
     }
     
+    /* Méthode pour afficher le chemin suivant */
     public static void printpartchemin(int a){
         
         for (int i = 0; i < a+8; ++i) System.out.print(" ");
@@ -209,10 +206,8 @@ public class map {
         for (int i = 0; i < a; ++i) System.out.print(" ");
         System.out.println("   | |  | |  | | "); 
     }
-    
-    
-    
-    
+
+    /* Méthode qui permet d'avoir un nom entre min et max */
      private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");

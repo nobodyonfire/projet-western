@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
-
 import java.util.Comparator;
 
-/**
- *
- * @author ASUS
- */
+/* Classe de comparaison */
 public class Armecomparator implements Comparator {
     
+    /* Méthode permetant de trier par prix */
     public int compare(Object o1,Object o2) {
         Arme arme1=(Arme) o1;
         Arme arme2=(Arme) o2;

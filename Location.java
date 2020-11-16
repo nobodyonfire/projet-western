@@ -1,22 +1,19 @@
-
 package projet.java.western;
 
-
-
-
-
-
+/* Interface de location */
 public class Location {
     
+    /* Initialisation des variables */
     protected String Nom;
     protected int Danger;
     
+    /* Constructeur */
     public Location(String Nom, int Danger){
         this.Nom= Nom;
         this.Danger=Danger;
     }
     
-    
+    /* Accessors */
      public String getNom(){
         return this.Nom;
     }
@@ -25,10 +22,7 @@ public class Location {
         return this.Danger;
     }
     
-    
-    
-    
-    
+    /* Mutators */
     public void setNom(String Nom){
         this.Nom = Nom;
     }

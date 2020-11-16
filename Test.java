@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 
 import java.util.Scanner;
 
-/**
- *
- * @author ASUS
- */
-
-
+/* Classe test pour éviter les erreurs */
 public class Test {
 
+    /* Méthode qui permet de demander un chiffre valable lors des questions à l'utilisateur */
     public static int test() {
     boolean a = false;
     Scanner scan = new Scanner(System.in);

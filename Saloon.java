@@ -1,4 +1,3 @@
-
 package projet.java.western;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,12 +7,10 @@ import java.util.Scanner;
 import static projet.java.western.Arme.sleep;
 import projet.java.western.Barman;
 
-
-
-
-
+/* Classe Saloon qui est une location */
 public class Saloon extends Location implements Move_Location, Menu{
     
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -26,12 +23,13 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     protected String Name;
     
+    /* Constructeur */
     public Saloon(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
     }
 
-    
+    /* Méthode qui permet au joueur de choisir l'action de boire */
     public void boire(Player player){
         
         Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,1000);       
@@ -40,8 +38,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     }
     @SuppressWarnings("empty-statement")
     
-    
-  public void Jouer(Player player){
+   /* Méthode qui est un jeu de black jack codé par nos soin de A à Z */ 
+    public void Jouer(Player player){
         
         List<Integer> Deckinit = Arrays.asList(11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10);
         ArrayList<Integer> Deck = new ArrayList<Integer>(); 
@@ -144,6 +142,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         
     }
     
+    /* Méthode qui permet de demander au joueur la mise */
     public int paiement(Player player){
         int mise = 0;
         boolean paiement = false;
@@ -167,6 +166,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         return mise;
     }
     
+    /* Méthode d'un jeu qui permet de gagner des récompenses */
     public void Seduire(Player player){
         System.out.println("");
         System.out.println(ANSI_BLUE+"Jouer pour augmenter vos HP max !"+ANSI_RESET);
@@ -174,6 +174,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         display_seduire(player);
     }
     
+    /* méthode d'un jeu qui permet de gagner des récompenses */
     public void PlayPiano(Player player){
         System.out.println("");
         System.out.println(ANSI_BLUE+"Jouer pour gagner de l'argent et des HP !"+ANSI_RESET);
@@ -181,12 +182,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         display_piano(player);  
     }
     
-    public void leave(){
-        
-    }
-    
-    
-    
+    /* Méthode de récompense aléatoire pour le piano */
     public void recompensepiano(Player player){
         int a =getRandomNumberInRange(1,3);
         int b =getRandomNumberInRange(1,2);
@@ -201,7 +197,9 @@ public class Saloon extends Location implements Move_Location, Menu{
             player.SetArgent(player.getArgent()+1);
             System.out.println(ANSI_BLUE +"Vous avez gagné 1$ ! " + ANSI_RESET);   
         }  
-    }      
+    }   
+    
+    /* Méthode pour afficher le piano */
     public void display_piano(Player player){
        int a =getRandomNumberInRange(1,9);
        int b =getRandomNumberInRange(0,20);
@@ -226,7 +224,7 @@ public class Saloon extends Location implements Move_Location, Menu{
      
     }
     
-    
+    /* Méthode pour faire la récompense du jeu séduire */
     public void recompenseseduire(Player player){
         int a =getRandomNumberInRange(1,3);
  
@@ -241,6 +239,8 @@ public class Saloon extends Location implements Move_Location, Menu{
             }
         }
     }      
+    
+    /* Méthode pour afficher le jeu séduire */
      public void display_seduire(Player player){
           int a =getRandomNumberInRange(1,36);
           map.printseduire(a);
@@ -267,26 +267,20 @@ public class Saloon extends Location implements Move_Location, Menu{
      
      }
     
-    
-    
-    
-    
-    
+    /* Méthode pour afficher le menu */
     public void display_menu() 
     {
 	System.out.println("1) Aller voir le Barman  \n2) Jouer au BlackJack \n3) Séduire \n4) Jouer du Piano  \n5) Partir");  
     }
     
-    
-    
- 
+    /* Méthode pour afficher les locations */
     public void display_location()
     {
         System.out.println("1) Prison  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
 	
     }
     
-    
+    /* Override d'interfance location pour changer le player d'endroit*/
     @Override
     public void changelocation(Player player) {
         
@@ -350,7 +344,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
     
-    
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
 
@@ -401,6 +395,7 @@ public class Saloon extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
     
+    /* Méthode qui permet d'avoir un nom entre min et max */
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
@@ -409,10 +404,12 @@ public class Saloon extends Location implements Move_Location, Menu{
 	return r.nextInt((max - min) + 1) + min;
     }
     
+    /* Méthode pour sleep */
     public static void sleep(int temps){
         try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
     }
     
+    /* Méthode pour passer à la ligne j fois*/
     public static void clearScreen(int j) {  
 
         for (int i = 0; i < j; ++i) System.out.println("");

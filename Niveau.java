@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 
-/**
- *
- * @author Eloi Texier
- */
+/* Classe niveau */
 public class Niveau {
     
+    /* Initialisation des variables */
     int level;
     double xp_actuel;
     double xp_necessaire;
@@ -18,31 +11,40 @@ public class Niveau {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_BLUE = "\u001B[34m";
     
+    /* Constructeur */
     public Niveau(int level, int xp_actuel, int xp_necessaire){
         this.level = level;
         this.xp_actuel = xp_actuel;
         this.xp_necessaire = xp_necessaire;
     }
     
-    public void SetLevel(int level){
-        this.level = level;
-    }
+    /* Accessors */
     public int GetLevel(){
         return this.level;
     }
-    public void SetXp_actuel(double xp){
-        this.xp_actuel = xp;
-    }
+    
     public double GetXp_actuel(){
         return this.xp_actuel;
     }
-    public void SetXp_necessaire(double xp){
-        this.xp_necessaire = xp;
-    }
+    
     public double GetXp_necessaire(){
         return this.xp_necessaire;
     }
     
+    /* Mutators */
+    public void SetLevel(int level){
+        this.level = level;
+    }
+    
+    public void SetXp_actuel(double xp){
+        this.xp_actuel = xp;
+    }
+   
+    public void SetXp_necessaire(double xp){
+        this.xp_necessaire = xp;
+    }
+    
+    /* Méthode permettant d'ajouter un nombre d'xp à un joueur */
     public void add_xp(Player player, double xp){
         System.out.println("");
         System.out.println(ANSI_PURPLE+"Vous avez gagné " + xp + " points d'expériences."+ANSI_RESET);
@@ -50,6 +52,7 @@ public class Niveau {
         levelup(player);
     }
     
+    /* Méthode permettant de level up le player s'il possède plus d'xp que le nombre requis pour passer un niveau */
     private void levelup(Player player){
         if (player.niveau.xp_actuel >= player.niveau.xp_necessaire){
             if (player.niveau.GetLevel() != 10){
@@ -64,6 +67,7 @@ public class Niveau {
         }
     }
     
+    /* Méthode permettant d'avoir la courbe d'xp */
     private void CurveXp_necessaire(Player player){
         SetXp_necessaire(500 + 50*Math.pow(player.niveau.GetLevel(),2));        
     }

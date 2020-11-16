@@ -10,8 +10,7 @@ import java.util.Random;
 import static projet.java.western.Armurie.clearScreen;
 
 
-
-
+/* Class MAIN */
 public class ProjetJavaWestern {
     
     public static final String ANSI_RESET = "\u001B[0m";
@@ -33,17 +32,16 @@ public class ProjetJavaWestern {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+    /* MAIN */
     public static void main(String[] args) {
         
-        
+        /* Nous lançons les différentes étapes , l'initialisation , le didactitiel puis le monde libre */
         initialisation();
         didactitiel();
-        
 
-  
     }
     
-    
+    /* Méthode permettant de lancer l'initialisation */
     public static void initialisation(){
         
         
@@ -70,10 +68,10 @@ public class ProjetJavaWestern {
         System.out.println(" ");
         System.out.println(" ");
         clearScreen(4);
-        
-        
+          
     }
     
+    /* Méthode permettant d'afficher les menus de départ et de faire choisir au joueur l'état de son aventure */
     public static void menudepart(Player player){
         
         System.out.println("Voulez-vous ?");
@@ -104,6 +102,7 @@ public class ProjetJavaWestern {
         } 
     }
     
+    /* méthode permettant de faire choisir au joueur de skip le didactiel */
     public static void menudidactitiel(Player player){
         clearScreen(2);
         System.out.println("Voulez-vous ?");
@@ -138,20 +137,13 @@ public class ProjetJavaWestern {
             } 
     }
 
+    /* Méthode du qui représente toutes les actions du didactitiel pour faire comprendre les mécaniques du jeu au joueur */
     public static void didactitiel(){
         
 
         /* ZONE TEST */
 
-        /*
-        Lockcity.Menu(player);
-        FarWest.Explorer(player);
-        
-        Bangout.questionAcheter(player) ;
-        player.playersave();
-        player.playerload();
-        map.printcarte();
-        Bangout.questionAcheter(); */
+        /* FIN ZONE TEST */
         
 
         
@@ -246,15 +238,11 @@ public class ProjetJavaWestern {
         clearScreen(3);
         sleep(3000);
         Lockcity.Menu(player);
-              
-        
-         /*try {  Thread.sleep(5000); } catch (InterruptedException ie) {}   */
-        
-        
+                    
     }
     
     
-    
+    /* Méthode permettant de créer une lista composée de toutes les armes du jeu */
     public static ArrayList<Arme> listearme(){
         ArrayList <Arme> listearme = new ArrayList < Arme> ();
         listearme.add(Pistolet_de_seconde_main);
@@ -276,23 +264,26 @@ public class ProjetJavaWestern {
         return listearme;
     }
     
-    
+    /* Méthode pour retourner la taille d'un mot et afficher le nombre d'espace associé */
     private static void taille(String mot,int max){
         int taillemot=mot.length();
         for (int i = 0; i < max-taillemot; ++i) 
             System.out.print(" ");
     }
     
-   
+
+    /* Méthode pour sleep */
     public static void sleep(int temps){
         try {  Thread.sleep(temps); } catch (InterruptedException ie) {}
     }
     
+    /* Méthode pour passer à la ligne j fois*/
     public static void clearScreen(int j) {  
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
     
+    /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
     public static void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
@@ -302,6 +293,7 @@ public class ProjetJavaWestern {
     
     }
     
+    /* Méthode pour le duel */
     public static boolean duel(Player player, Brigand brigand){
         
         System.out.println("");

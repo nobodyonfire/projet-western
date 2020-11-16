@@ -1,28 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 import java.util.Random;
 import java.util.Scanner; 
 import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.ProjetJavaWestern.duel;
-import static projet.java.western.ProjetJavaWestern.clearScreen;
-import static projet.java.western.Prison.ANSI_GREEN;
-import static projet.java.western.Prison.ANSI_RESET;
-import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
-import static projet.java.western.Saloon.ANSI_RESET;
-import static projet.java.western.Saloon.ANSI_WHITE;
 
-/**
- *
- * @author Eloi Texier
- */
+
+/* Class de la location Banque */
 public class Banque extends Location implements Move_Location, Menu{
     
-    
-    
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -35,11 +21,13 @@ public class Banque extends Location implements Move_Location, Menu{
     
     int Stocke;
     
+    /* Constructeur */
     public Banque(String Nom,int Danger, int Stocke){
         super(Nom,Danger);
         this.Stocke = Stocke;
     }
  
+    /* Accessors */
     public void SetName(String Nom){
         this.Nom = Nom;
     } 
@@ -52,6 +40,7 @@ public class Banque extends Location implements Move_Location, Menu{
         this.Stocke = Stocke;
     }
     
+    /* Mutators */
     public String GetName(){
         return this.Nom;
     }
@@ -64,7 +53,7 @@ public class Banque extends Location implements Move_Location, Menu{
         return this.Stocke;
     }
     
-    
+    /* Méthode qui permet de déposer de l'argent à la banque */
     public void Deposer(Player player){
         System.out.println(ANSI_BLUE+"Combien voulez-vous déposer ?"+ANSI_RESET);
         Scanner q = new Scanner(System.in);
@@ -86,6 +75,7 @@ public class Banque extends Location implements Move_Location, Menu{
         
     }
     
+    /* Méthode qui permet de récuperer l'argent du joueur stocké dans la banque */
     public void Recuperer(Player player){
         System.out.println(ANSI_BLUE+"Combien voulez-vous récupérer ? Vous avez actuellement " + Banque_Populaire.GetStocke() + "$ en banque."+ANSI_RESET);
         Scanner q = new Scanner(System.in);
@@ -105,12 +95,13 @@ public class Banque extends Location implements Move_Location, Menu{
         Menu(player);
     }
     
+    /* Méthode qui permet de voir l'argent stocké dans la banque */
     public void Monargent(Player player){
         System.out.println(ANSI_BLUE+"Vous avez " + Banque_Populaire.GetStocke() + "$ sur votre compte"+ANSI_RESET);
         Menu(player);
     }
     
-
+    /* Méthode qui permet d'initialiser avec une certaine chance un braquage dans la banque */
     private void Braquage(Player player){
         
         int a=getRandomNumberInRange(0,8);
@@ -126,11 +117,13 @@ public class Banque extends Location implements Move_Location, Menu{
         }
     }
     
+    /* Méthode qui permet de donner une récompense après un braquage */
     private void recompense(Player player){
         System.out.println("Nelson : Merci de votre aide. Tenez un peu d'argent, après tout, vous le méritez bien.");
         player.add_argent(getRandomNumberInRange(500,800), player);
-}
+    }   
     
+    /* Méthode qui permet d'avoir un nom entre min et max */
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
@@ -139,20 +132,21 @@ public class Banque extends Location implements Move_Location, Menu{
 	return r.nextInt((max - min) + 1) + min;
     }
     
-    
-    
-    
+    /* Méthode qui permet d'afficher le menu */
     public void display_menu(){
         System.out.println("");
         System.out.println("Sélection: ");
         System.out.println("1) Déposer  \n2) Récupérer \n3) Vérifier mon compte \n4) Partir");
     }
     
+    /* Méthode qui permet d'afficher le menu de la location */
     public void display_location(){
         
         System.out.println("Sélection: ");
         System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Eglise \n5) Extérieur de la ville \n6) Rester");
     }
+    
+    /* Override d'interfance location pour changer le player d'endroit*/
     @Override
     public void changelocation(Player player) {
         
@@ -217,6 +211,8 @@ public class Banque extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
 
+
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
         System.out.println();

@@ -1,10 +1,3 @@
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 
 import java.util.Random;
@@ -15,13 +8,10 @@ import static projet.java.western.ProjetJavaWestern.duel;
 import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
-/**
- *
- * @author ASUS
- */
+/* Classe prison qui est une location */
 public class Prison extends Location implements Move_Location, Menu{
     
-    
+    /* Initialisation des variables */
     public static final FarWest Farwest = new FarWest("Farwest", 0);
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -33,18 +23,13 @@ public class Prison extends Location implements Move_Location, Menu{
     
     protected String Name;
     
+    /* Constructeurs */
     public Prison(String Nom,int Danger,String Name){
         super(Nom,Danger);
         this.Name=Name;
     }
     
-    
-    
-    
-    
-    
-    
-     
+    /* Méthode pour la rencontre avec le shérif */
     public void Sherif(Player player){  
         
         System.out.println("");
@@ -68,7 +53,8 @@ public class Prison extends Location implements Move_Location, Menu{
         }  
     }
     
-     public void Sherifquete(Player player){
+    /* Méthode qui permet de recevoir la quete */
+    public void Sherifquete(Player player){
         System.out.println("");
         Brigand brigandquete = Brigand.createBrigand(1,Farwest, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
         player.setBrigand(brigandquete);
@@ -81,6 +67,7 @@ public class Prison extends Location implements Move_Location, Menu{
         Menu(player);
     }
     
+    /* Méthode pour réclamer la prime ( oui on a écrit recalmer au lieu de reclamer ) */
     public void recalmerprime(Player player){
         
         if (player.getquetedone()==true){
@@ -103,12 +90,11 @@ public class Prison extends Location implements Move_Location, Menu{
             }
             
         }
-        Menu(player);
-            
-        
-        
+        Menu(player); 
     }
     
+    /* Méthode qui permet de faire un test d'évasion
+    Il y a une chance que en arrivant dans la prison , un prisonier s'échape*/
     public void testevasion(Player player){
         int a=getRandomNumberInRange(0,4);
         if (a==0){
@@ -124,12 +110,13 @@ public class Prison extends Location implements Move_Location, Menu{
         }
     }
     
+    /* Méthode qui permet de donner une récompense au joueur */
     public void recompense(Player player){
-        player.add_argent(20, player);
+        player.add_argent(200, player);
     }
     
     
-    
+    /* Méthode qui permet d'avoir un nom entre min et max */
     private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
@@ -138,18 +125,13 @@ public class Prison extends Location implements Move_Location, Menu{
 	return r.nextInt((max - min) + 1) + min;
     }
     
-    
-    
-    
-    
-    
+    /* Méthode permettant d'afficher le menu */
       public void display_menu() 
     {
 	System.out.println("1) Parler au sherif \n2) Réclamer prime \n3) Partir");
     }
     
-    
-    
+    /* Méthode permettant d'afficher la localisation */
      public void display_location()
     {
 
@@ -157,6 +139,7 @@ public class Prison extends Location implements Move_Location, Menu{
 	
     }
     
+    /* Méthode qui permet de changer de location */
     @Override
     public void changelocation(Player player) {
         
@@ -226,6 +209,7 @@ public class Prison extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
 
+    /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
      public static void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
@@ -234,6 +218,8 @@ public class Prison extends Location implements Move_Location, Menu{
         System.out.print(enterkey);
     
     }
+
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
         
@@ -274,8 +260,4 @@ public class Prison extends Location implements Move_Location, Menu{
               
 	}
     }
-    
-    
-    
-    
 }

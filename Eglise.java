@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 
 import java.util.Scanner;
 import static projet.java.western.ProjetJavaWestern.pressenter;
 
-
-/**
- *
- * @author ASUS
- */
+/* Classe église qui est une location  */
 public class Eglise extends Location implements Move_Location, Menu{
     
-    
-    
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -26,12 +16,12 @@ public class Eglise extends Location implements Move_Location, Menu{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     
-    
+    /* Constructeur */
     public Eglise(String Nom,int Danger){
         super(Nom,Danger);
     }
 
-     
+   /* Méthode permettant d'appeler la save */  
     public void Save(Banque banque,Player player){  
         
         player.playersave(banque);
@@ -39,24 +29,23 @@ public class Eglise extends Location implements Move_Location, Menu{
 
     }
     
+    /* Méthode permettant de quitter */
     private void Quitter(){
         System.out.println("Vous quittez la partie.");
         pressenter();
         System.exit(0); 
     }
     
-    
-    
-    
-    
+    /* Méthode permettant d'afficher la location */  
      public void display_location()
     {
         System.out.println("Sélection: ");
         System.out.println("1) Saloon  \n2) Banque \n3) Armurerie \n4) Prison \n5) Extérieur de la ville \n6) Rester");
 	
     }
-    
-     @Override
+     
+    /* Override d'interfance location pour changer le player d'endroit*/
+    @Override
     public void changelocation(Player player) {
         
         Prison Lockcity = new Prison("Lockcity",50,"NULL");
@@ -123,12 +112,13 @@ public class Eglise extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
     
+    /* Méthode pour afficher le menu */
     public void display_menu(){
         System.out.println("Sélection: ");
         System.out.println("1) Sauvegarder  \n2) Quitter le jeu \n3) Partir");
     }
     
-
+    /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
         System.out.println();
@@ -165,8 +155,6 @@ public class Eglise extends Location implements Move_Location, Menu{
         
         throw new UnsupportedOperationException("Erreur"); 
     }
-    
-    
-    
+     
     
 }

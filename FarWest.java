@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projet.java.western;
 import java.util.Random;
 import java.util.Scanner; 
@@ -14,14 +9,10 @@ import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_RESET;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
-/**
- *
- * @author Eloi Texier
- */
+/* Classe FarWest qui est une location */
 public class FarWest extends Location implements Move_Location, Menu{
     
-    
-    
+    /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -33,11 +24,13 @@ public class FarWest extends Location implements Move_Location, Menu{
     
     int Stocke;
     
+    /* Constructeur */
     public FarWest(String Nom,int Danger){
         super(Nom,Danger);
 
     }
 
+    /* Méthode permettant de commmencer l'exploration */
     public void Explorer (Player player){
         
         clearScreen(50);
@@ -62,7 +55,7 @@ public class FarWest extends Location implements Move_Location, Menu{
         
     }
    
-    
+    /* Méthode qui permet d'afficher la carte actuelle + la carte visité + effectuer une action si l'endroit vaut le lieu */
     public void explorercarte2(Player player,int niveau,int[] profondeur,int curseur,int random){
         
         if (profondeur[8]!=0){
@@ -150,7 +143,7 @@ public class FarWest extends Location implements Move_Location, Menu{
         
     }
     
-    
+    /* Méthode pour afficher la carte actuelle */
     public void printcarteactuelle(int[] profondeur,int niveau,int curseur,int random){
         clearScreen(50);
         for (int i = 0; i < niveau; ++i) {
@@ -160,21 +153,9 @@ public class FarWest extends Location implements Move_Location, Menu{
         map.printchemin(curseur,random-1);
     }
     
-    
-    
-    
-    
-    
-    
-    public void majcarte(int niveau,int[] profondeur , int curseur,int random){
-        
-        
-    }
-    
+    /* Méthode qui permet d'effectuer une action aléatoire en cas de rencontre avec un bruit */
     public void actionexplorer(Player player){
         
-        
-      
             clearScreen(50);
             int action = getRandomNumberInRange(0,10);
             
@@ -211,12 +192,10 @@ public class FarWest extends Location implements Move_Location, Menu{
              else{
                  brigandrd = 1;
              }
-                     
-             
+
              
              if (brigandrd!=0){
-                 
-                
+
                 Brigand brigand = Brigand.createBrigand(1,FarWest, listearme().get(getRandomNumberInRange(0, listearme().size()-1)), player);
                 
                 if (duel(player,brigand)==true){
@@ -249,20 +228,12 @@ public class FarWest extends Location implements Move_Location, Menu{
 
 
             }
-            
-            
- 
-            
-        }
-        
-        
+        }  
     }
-    
-    
-    
+   
         
-    
-     private static int getRandomNumberInRange(int min, int max) {
+    /* Méthode qui permet d'avoir un nom entre min et max */
+    private static int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
@@ -270,18 +241,21 @@ public class FarWest extends Location implements Move_Location, Menu{
 	return r.nextInt((max - min) + 1) + min;
     }
     
-    
+    /* Méthode pour afficher le nom des actions */
     public void display_menu(){
         System.out.println("");
         System.out.println("Sélection: ");
         System.out.println("1) Explorer  \n4) Partir");
     }
     
+    /* Méthode pour afficher les locations possibles */
     public void display_location(){
         
         System.out.println("Sélection: ");
         System.out.println("1) Saloon  \n2) Armurerie \n3) Prison \n4) Eglise \n5) Banque \n6) Rester");
     }
+
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void changelocation(Player player) {
         
@@ -345,7 +319,8 @@ public class FarWest extends Location implements Move_Location, Menu{
 	}
         throw new UnsupportedOperationException("Erreur"); 
     }
-
+    
+     /* Override d'interfance Menu pour faire un choix à l'utilisateur*/
     @Override
     public void Menu(Player player) {
         System.out.println();
@@ -379,12 +354,13 @@ public class FarWest extends Location implements Move_Location, Menu{
         throw new UnsupportedOperationException("Erreur"); 
     }
 
-       
+    /* Méthode pour passer à la ligne j fois*/
     public static void clearScreen(int j) {  
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
     
+    /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
     public static void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
