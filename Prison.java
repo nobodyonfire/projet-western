@@ -21,12 +21,11 @@ public class Prison extends Location implements Move_Location, Menu{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     
-    protected String Name;
+
     
     /* Constructeurs */
-    public Prison(String Nom,int Danger,String Name){
+    public Prison(String Nom,int Danger){
         super(Nom,Danger);
-        this.Name=Name;
     }
     
     /* Méthode pour la rencontre avec le shérif */
@@ -143,8 +142,8 @@ public class Prison extends Location implements Move_Location, Menu{
     @Override
     public void changelocation(Player player) {
         
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
+        Armurie Bangout = new Armurie("Bangout",10);
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         FarWest Farwest = new FarWest("Farwest", 0);

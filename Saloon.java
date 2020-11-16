@@ -19,20 +19,19 @@ public class Saloon extends Location implements Move_Location, Menu{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     private static final Arme Couteau = new Arme("Couteau", 10, 10, 100, 0);
-    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
     
-    protected String Name;
     
     /* Constructeur */
-    public Saloon(String Nom,int Danger,String Name){
+    public Saloon(String Nom,int Danger){
         super(Nom,Danger);
-        this.Name=Name;
+
     }
 
     /* Méthode qui permet au joueur de choisir l'action de boire */
     public void boire(Player player){
         
-        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman" ,1000);       
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau);       
         Barman.questionboisson(player);
         
     }
@@ -284,8 +283,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50);
+        Armurie Bangout = new Armurie("Bangout",10);
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
         FarWest Farwest = new FarWest("Farwest", 0);
@@ -425,7 +424,7 @@ public class Saloon extends Location implements Move_Location, Menu{
     }    
     
     public void boiretuto(Player player){
-        Barman Barman = new Barman("Luis",le7iemeciel,Couteau,"Barman",1000);       
+        Barman Barman = new Barman("Luis",le7iemeciel,Couteau);       
         Barman.questionboissontuto(player);
     }
     

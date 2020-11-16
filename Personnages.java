@@ -9,22 +9,16 @@ public class Personnages {
     protected String Name;
     protected Location Location;
     protected Arme Gun;
-    protected String Job;
-    protected int Niveau;
-    protected int Argent;
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     
     /* Constructeur */
-    public Personnages(String Name, Location Location, Arme Gun , String Job , int Argent) {
+    public Personnages(String Name, Location Location, Arme Gun) {
         if(Name.equals(null) || Name.equals("")){this.Name="Player";}else{this.Name=Name;}
         this.Location=Location;
         this.Gun=Gun;
-        this.Job=Job;
-        this.Niveau=Niveau;
-        this.Argent=Argent;
-        
+ 
         /*introduceYourself();*/
     }
     
@@ -38,15 +32,7 @@ public class Personnages {
     public Arme getGun (){
         return this.Gun;
     }
-    public String getJob (){
-        return this.Job;
-    }
-    public int Argent (){
-        return this.Argent;
-    }
-    public int Niveau (){
-        return this.Niveau;
-    }
+
     
    /* Mutators */
     public void SetName(String Name){
@@ -55,18 +41,10 @@ public class Personnages {
     public void SetLocation(Location Location){
         this.Location = Location;
     } 
-    public void SetJob(String Job){
-        this.Job = Job;
-    } 
     public void SetGun(Arme Gun){
         this.Gun = Gun;
     } 
-    public void SetNiveau(int Niveau){
-        this.Niveau = Niveau;
-    } 
-    public void SetArgent(int Argent){
-        this.Argent = Argent;
-    }
+
     
     /* Méthode pour les différentes manières de parler du personnage */
     public void talk(String say){

@@ -22,7 +22,6 @@ public class FarWest extends Location implements Move_Location, Menu{
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     private static final FarWest FarWest = new FarWest("Far West",0);
     
-    int Stocke;
     
     /* Constructeur */
     public FarWest(String Nom,int Danger){
@@ -259,10 +258,10 @@ public class FarWest extends Location implements Move_Location, Menu{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50);
+        Armurie Bangout = new Armurie("Bangout",10);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
-        Saloon le7iemeciel = new Saloon("le7iemeciel", 10, "NULL");
+        Saloon le7iemeciel = new Saloon("le7iemeciel", 10);
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
         
         System.out.println("Où voulez-vous aller ?");
