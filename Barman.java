@@ -10,8 +10,8 @@ public class Barman extends Personnages{
     public static final String ANSI_PURPLE = "\u001B[35m";
     
     /*  Constructeur*/
-    public Barman(String Name, Location Location, Arme Gun , String Job, int Argent) {
-        super(Name,Location,Gun,Job,Argent);
+    public Barman(String Name, Location Location, Arme Gun ) {
+        super(Name,Location,Gun);
         
     }
     
@@ -110,7 +110,7 @@ public class Barman extends Personnages{
             
             
             case 5: 
-                Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+                Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
                 System.out.println("A plus tard " + player.getName() + ".");
                 le7iemeciel.Menu(player);
     
