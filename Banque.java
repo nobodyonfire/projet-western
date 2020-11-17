@@ -107,7 +107,7 @@ public class Banque extends Location implements Move_Location, Menu{
         int a=getRandomNumberInRange(0,8);
         if (a==0){
             Brigand Braqueur;
-            Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, "NULL", 0, false, 11, 0);
+            Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, false, 11, 0);
             Braqueur = brigand.createBrigand(1, Banque_Populaire, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
             Braqueur.talkstr(ANSI_RED+"Ceci est un Hold Up! Les mains en l'air et que personne ne bouge!"+ANSI_RESET);
             System.out.println("");
@@ -150,10 +150,10 @@ public class Banque extends Location implements Move_Location, Menu{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
-        Armurie Bangout = new Armurie("Bangout",10,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50);
+        Armurie Bangout = new Armurie("Bangout",10);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
-        Saloon le7iemeciel = new Saloon("le7iemeciel", 10, "NULL");
+        Saloon le7iemeciel = new Saloon("le7iemeciel", 10);
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");
