@@ -29,12 +29,11 @@ public class Armurie extends Location implements Move_Location, Menu{
     
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     
-    protected String Name;
+
     
     /* Constructeur */
-    public Armurie(String Nom,int Danger,String Name){
+    public Armurie(String Nom,int Danger){
         super(Nom,Danger);
-        this.Name=Name;
     }
 
     /* Méthode du menu de l'armurie*/
@@ -430,10 +429,10 @@ public class Armurie extends Location implements Move_Location, Menu{
     public void changelocation(Player player) {
         
         System.out.println("Ou voulez-vous aller ?");
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10,"NULL");
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
         Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
         Eglise SantaMaria = new Eglise("SantaMaria",10);
-        Prison Lockcity = new Prison("Lockcity",50,"NULL");
+        Prison Lockcity = new Prison("Lockcity",50);
         FarWest Farwest = new FarWest("Farwest", 0);
         
         display_location();
