@@ -11,8 +11,8 @@ public class Brigand extends Personnages {
     public int HP;
     
     /* Constructeur */
-    public Brigand(String Name, Location Location, Arme Gun , String Job, int Argent, Boolean EstEnPrison, int HP, int niveau) {
-        super(Name,Location,Gun,Job,Argent);
+    public Brigand(String Name, Location Location, Arme Gun ,Boolean EstEnPrison, int HP, int niveau) {
+        super(Name,Location,Gun);
         this.niveau = niveau;
         this.EstEnPrison=EstEnPrison;
         this.HP = HP+niveau*25;
@@ -43,8 +43,8 @@ public class Brigand extends Personnages {
     
     /* Méthode permettant de créer une liste de brigand ( non utilisé ) */
     public Brigand[] BrigandFarWest(int i,Location location,Arme arme,Brigand brigand){
-         Brigand[] listebrigand2= {new Brigand("Jacob dit le tueur", location, arme, "Voleur" , 1,false, 11, niveau),
-                                 new Brigand("Jose dit l'ecorcheur", location, arme, "Voleur" , 1,false, 13, niveau)   
+         Brigand[] listebrigand2= {new Brigand("Jacob dit le tueur", location, arme,false, 11, niveau),
+                                 new Brigand("Jose dit l'ecorcheur", location, arme,false, 13, niveau)   
           };
            Brigand[] listebrigand={};
            
@@ -82,7 +82,7 @@ public class Brigand extends Personnages {
         "Morris dit le the Loner"};
         
         
-        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, "Voleur" , 1, false, 35, getRandomNumberInRange(player.niveau.level-1, player.niveau.level+1));
+        Brigand brigand = new Brigand(nom[getRandomNumberInRange(0,19)],location,arme, false, 35, getRandomNumberInRange(player.niveau.level-1, player.niveau.level+1));
         return brigand;
     }
     
