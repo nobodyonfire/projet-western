@@ -6,7 +6,7 @@ import static projet.java.western.ProjetJavaWestern.duel;
 
 
 /* Class de la location Banque */
-public class Banque extends Location implements Move_Location, Menu{
+public class Banque extends Location{
     
     /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -104,7 +104,7 @@ public class Banque extends Location implements Move_Location, Menu{
     /* Méthode qui permet d'initialiser avec une certaine chance un braquage dans la banque */
     private void Braquage(Player player){
         
-        int a=getRandomNumberInRange(0,8);
+        int a=getRandomNumberInRange(0,10-GetDanger());
         if (a==0){
             Brigand Braqueur;
             Brigand brigand = new Brigand("null", Banque_Populaire, Couteau, false, 11, 0);
@@ -124,7 +124,8 @@ public class Banque extends Location implements Move_Location, Menu{
     }   
     
     /* Méthode qui permet d'avoir un nom entre min et max */
-    private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
@@ -133,6 +134,7 @@ public class Banque extends Location implements Move_Location, Menu{
     }
     
     /* Méthode qui permet d'afficher le menu */
+    @Override
     public void display_menu(){
         System.out.println("");
         System.out.println("Sélection: ");
@@ -140,6 +142,7 @@ public class Banque extends Location implements Move_Location, Menu{
     }
     
     /* Méthode qui permet d'afficher le menu de la location */
+    @Override
     public void display_location(){
         
         System.out.println("Sélection: ");

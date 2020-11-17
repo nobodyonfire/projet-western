@@ -19,7 +19,7 @@ public class save {
     /* Méthode permettant de sauvegarder dans le fichier save.txt */
     public static void Save(String args) {
         
-        FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\save.txt";
+        FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\projet-western\\save.txt";
         
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))) {
             String content =args;
@@ -49,7 +49,7 @@ public class save {
 		
 		try
 		{	
-			FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\save.txt";
+			FILENAME=Main(FILENAME) + "\\src\\projet\\java\\western\\projet-western\\save.txt";
 			
 			FileReader fr = new FileReader(FILENAME);
 			BufferedReader br = new BufferedReader(fr);

@@ -6,7 +6,7 @@ import static projet.java.western.Personnages.ANSI_GREEN;
 /* Classe Map qui contient tous les "affichage particulier" */
 /* Je tiens à préciser que chacun des jeu / carte / affichage a été fait manuellement sans aucune forme d'aide exterieur */
 /* ( oui sur la carte tous les batiments ont été fait à la main sur un fichier texte) */
-public class map {
+public class map implements getRandomNumberInRange{
     
     /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -208,7 +208,8 @@ public class map {
     }
 
     /* Méthode qui permet d'avoir un nom entre min et max */
-     private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}

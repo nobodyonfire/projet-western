@@ -17,7 +17,7 @@ import static projet.java.western.Saloon.ANSI_WHITE;
 
 
 /* Classe de la location Armurie */
-public class Armurie extends Location implements Move_Location, Menu{
+public class Armurie extends Location{
     
     /* Initialisation des valeurs */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -74,7 +74,7 @@ public class Armurie extends Location implements Move_Location, Menu{
     }
     
     /* Méthode qui permet d'afficher la liste des armes trier en fonction du choix de l'utilisateur*/
-    private static void printList(Arme[] maliste) {
+    private void printList(Arme[] maliste) {
        int compteur=0;
        System.out.print("N*  "+"Nom                       "+"PMAX"+" PMIN"+ "  ACC." + "   Prix" ); 
        clearScreen(2);
@@ -396,13 +396,15 @@ public class Armurie extends Location implements Move_Location, Menu{
 
       
     /* Méthode pour passer à la ligne j fois*/
-    public static void clearScreen(int j) {  
+    @Override
+    public void clearScreen(int j) {  
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
 
     /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
-    public static void pressenter(){
+    @Override
+    public void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
         System.out.print(enterkey);
@@ -412,12 +414,14 @@ public class Armurie extends Location implements Move_Location, Menu{
     }
     
     /* Méthode affichant le menu */
+    @Override
     public void display_menu() 
     {
 	System.out.println("1) Acheter  \n2) Vendre \n3) Quitter");
     }
  
     /* Méthode affichant la localisation*/
+    @Override
      public void display_location()
     {
         System.out.println("1) Saloon  \n2) Banque \n3) Prison \n4) Eglise \n5) Extérieur \n6) Rester");

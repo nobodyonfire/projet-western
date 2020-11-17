@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Random;
-import static projet.java.western.Armurie.clearScreen;
 
 
 /* Class MAIN */
@@ -118,7 +117,7 @@ public class ProjetJavaWestern {
             break;
             case 2:
             player.SetArgent(500);
-            player.SetNiveau(Niveau.SetLevel(1));
+            player.SetNiveau(1);
             String Player_name = Robbert.StoryTelling();     
             player.SetName(Player_name);
             player.playersave(Banque_Populaire);
@@ -432,17 +431,17 @@ public class ProjetJavaWestern {
     Initialisation des lieux 
     */
     
-    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
-    private static final Prison Lockcity = new Prison("Lockcity",50);
-    private static final Armurie Bangout = new Armurie("Bangout",10);
-    private static final Eglise SantaMaria = new Eglise("SantaMaria",10);
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",0);
+    private static final Prison Lockcity = new Prison("Lockcity",6);
+    private static final Armurie Bangout = new Armurie("Bangout",0);
+    private static final Eglise SantaMaria = new Eglise("SantaMaria",0);
     private static final FarWest FarWest = new FarWest("Far West",0);
-    private static final Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
+    private static final Banque Banque_Populaire = new Banque("Banque Populaire", 2, 0);
     /*
     Initialisation des personnages
     */
     private static final Niveau niveau = new Niveau(0 , 0, 500);
-    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", niveau, 1500, 0, 100,null,false); 
+    private static final Player player = new Player("Billi",le7iemeciel,Couteau, "NULL", niveau, 0, 0, 100,null,false); 
     private static final Sherif Robbert = new Sherif("Robbert",le7iemeciel, Winchester_modele_1897);   
     private static final Barman Luis = new Barman("Luis",le7iemeciel,Couteau );
     private static final Brigand Jacob = new Brigand("Jacob", Lockcity, Pistolet_de_seconde_main, false, 11, 0);

@@ -9,7 +9,7 @@ import static projet.java.western.Saloon.ANSI_GREEN_BACKGROUND;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
 /* Classe prison qui est une location */
-public class Prison extends Location implements Move_Location, Menu{
+public class Prison extends Location{
     
     /* Initialisation des variables */
     public static final FarWest Farwest = new FarWest("Farwest", 0);
@@ -26,6 +26,10 @@ public class Prison extends Location implements Move_Location, Menu{
     /* Constructeurs */
     public Prison(String Nom,int Danger){
         super(Nom,Danger);
+    }
+    
+    public int getDanger(){
+        return this.Danger;
     }
     
     /* Méthode pour la rencontre avec le shérif */
@@ -95,7 +99,7 @@ public class Prison extends Location implements Move_Location, Menu{
     /* Méthode qui permet de faire un test d'évasion
     Il y a une chance que en arrivant dans la prison , un prisonier s'échape*/
     public void testevasion(Player player){
-        int a=getRandomNumberInRange(0,4);
+        int a=getRandomNumberInRange(0,10-getDanger());
         if (a==0){
             
         System.out.println(ANSI_GREEN+"Robert: Un prisonnier s'échappe !"+ANSI_RESET);
@@ -116,7 +120,8 @@ public class Prison extends Location implements Move_Location, Menu{
     
     
     /* Méthode qui permet d'avoir un nom entre min et max */
-    private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
@@ -125,12 +130,14 @@ public class Prison extends Location implements Move_Location, Menu{
     }
     
     /* Méthode permettant d'afficher le menu */
+    @Override
       public void display_menu() 
     {
 	System.out.println("1) Parler au sherif \n2) Réclamer prime \n3) Partir");
     }
     
     /* Méthode permettant d'afficher la localisation */
+    @Override
      public void display_location()
     {
 
@@ -209,7 +216,8 @@ public class Prison extends Location implements Move_Location, Menu{
     }
 
     /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
-     public static void pressenter(){
+    @Override
+     public void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
         System.out.print(enterkey);

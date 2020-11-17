@@ -8,21 +8,12 @@ public class Sherif extends Personnages{
     /* Initialisation des valeurs */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    protected int NombreDeCapture;
     
     /* Constructeur */
     public Sherif(String Name, Location Location, Arme Gun) {
         super(Name,Location,Gun);
 
         
-    }
-    
-
-    /* Méthode pour s'introduire de manière personaliser */
-    @Override 
-    public void introduceYourself(){
-        super.introduceYourself();
-        talkb(" Je suis également le Sherif de cette ville et j'ai déjà "+this.NombreDeCapture+ " captures à mon actif !"); 
     }
     
     /* Méthode utilisé lors du début de l'histoire quand le shérif nous demande notre nom */

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import static projet.java.western.ProjetJavaWestern.pressenter;
 
 /* Classe église qui est une location  */
-public class Eglise extends Location implements Move_Location, Menu{
+public class Eglise extends Location{
     
     /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -37,6 +37,7 @@ public class Eglise extends Location implements Move_Location, Menu{
     }
     
     /* Méthode permettant d'afficher la location */  
+    @Override
      public void display_location()
     {
         System.out.println("Sélection: ");
@@ -113,6 +114,12 @@ public class Eglise extends Location implements Move_Location, Menu{
     }
     
     /* Méthode pour afficher le menu */
+
+    /**
+     *
+     */
+
+    @Override
     public void display_menu(){
         System.out.println("Sélection: ");
         System.out.println("1) Sauvegarder  \n2) Quitter le jeu \n3) Partir");

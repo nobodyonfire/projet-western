@@ -4,9 +4,9 @@ package projet.java.western;
 public class Niveau {
     
     /* Initialisation des variables */
-    int level;
-    double xp_actuel;
-    double xp_necessaire;
+    public int level;
+    public double xp_actuel;
+    public double xp_necessaire;
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_BLUE = "\u001B[34m";

@@ -70,8 +70,8 @@ public class Player extends Personnages{
     public void setLocation(Location Location){
        this.Location = Location;
    }
-    public void SetNiveau(Niveau niveau){
-       this.niveau = niveau;
+    public void SetNiveau(int niveau){
+       this.niveau.level = niveau;
    }
    
     public void setquetedone(boolean quetedone){

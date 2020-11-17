@@ -10,7 +10,7 @@ import static projet.java.western.Saloon.ANSI_RESET;
 import static projet.java.western.Saloon.ANSI_WHITE;
 
 /* Classe FarWest qui est une location */
-public class FarWest extends Location implements Move_Location, Menu{
+public class FarWest extends Location{
     
     /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -232,7 +232,8 @@ public class FarWest extends Location implements Move_Location, Menu{
    
         
     /* Méthode qui permet d'avoir un nom entre min et max */
-    private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
@@ -241,6 +242,7 @@ public class FarWest extends Location implements Move_Location, Menu{
     }
     
     /* Méthode pour afficher le nom des actions */
+    @Override
     public void display_menu(){
         System.out.println("");
         System.out.println("Sélection: ");
@@ -248,6 +250,7 @@ public class FarWest extends Location implements Move_Location, Menu{
     }
     
     /* Méthode pour afficher les locations possibles */
+    @Override
     public void display_location(){
         
         System.out.println("Sélection: ");
@@ -354,13 +357,15 @@ public class FarWest extends Location implements Move_Location, Menu{
     }
 
     /* Méthode pour passer à la ligne j fois*/
-    public static void clearScreen(int j) {  
+    @Override
+    public void clearScreen(int j) {  
         for (int i = 0; i < j; ++i) System.out.println("");
 
     }
     
     /* Méthode pour demander à l'utilisateur d'appuyer sur entrer */
-    public static void pressenter(){
+    @Override
+    public void pressenter(){
         Scanner readinput = new Scanner(System.in);
         String enterkey = "appuyer sur entrer...";
         System.out.print(enterkey);

@@ -8,7 +8,7 @@ import static projet.java.western.Arme.sleep;
 import projet.java.western.Barman;
 
 /* Classe Saloon qui est une location */
-public class Saloon extends Location implements Move_Location, Menu{
+public class Saloon extends Location{
     
     /* Initialisation des variables */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -267,12 +267,14 @@ public class Saloon extends Location implements Move_Location, Menu{
      }
     
     /* Méthode pour afficher le menu */
+    @Override
     public void display_menu() 
     {
 	System.out.println("1) Aller voir le Barman  \n2) Jouer au BlackJack \n3) Séduire \n4) Jouer du Piano  \n5) Partir");  
     }
     
     /* Méthode pour afficher les locations */
+    @Override
     public void display_location()
     {
         System.out.println("1) Prison  \n2) Banque \n3) Armurerie \n4) Eglise \n5) Sortir de la ville \n6) Rester");
@@ -395,7 +397,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     }
     
     /* Méthode qui permet d'avoir un nom entre min et max */
-    private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
@@ -409,7 +412,8 @@ public class Saloon extends Location implements Move_Location, Menu{
     }
     
     /* Méthode pour passer à la ligne j fois*/
-    public static void clearScreen(int j) {  
+    @Override
+    public void clearScreen(int j) {  
 
         for (int i = 0; i < j; ++i) System.out.println("");
 

@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /* Nous initions la classe Arme avec l'implements "Comparable" afin de pouvoir les trier par la suite */
-public class Arme implements Comparable{
+public class Arme implements Comparable, getRandomNumberInRange{
     
     /* Dans la classe Arme nous avons les attributs suivants */
     String name;
@@ -84,7 +84,7 @@ public class Arme implements Comparable{
 
     /* Cette méthode permet de choisir un mini-jeu aléatoire dans ceux que l'on a fait 
     mais pour l'instant il y a quelques soucis avec la classe reminder...*/
-    public static void minijeurandom(){
+    public void minijeurandom(){
         int a =getRandomNumberInRange(1,2);
         
         if (a==1){
@@ -99,7 +99,7 @@ public class Arme implements Comparable{
     
    /* Nous avons ici la méthode pour le mini-jeu numéro 1 , où nous faisons appaître des chiffres et avec la classe reminder 
     l'utilisateur a un temps donné pour les rentrer*/ 
-   public static int minijeu1(){
+   public int minijeu1(){
        System.out.println("TIR 1 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
        System.out.println("3");
@@ -136,7 +136,7 @@ public class Arme implements Comparable{
   
    /* Nous avons ici la méthode du mini-jeu 2 où avec la classe reminder , nous affichons une série de chiffre et nous demandons à l'utilisateur 
    de les réécrire dans le bon ordre*/
-   public static int minijeu2(){
+   public int minijeu2(){
        System.out.println("TIR 2 ; Des chiffres vont apparaître, il faut les réécrire le plus vite possible !");
        pressenter();
        System.out.println("3");
@@ -179,7 +179,8 @@ public class Arme implements Comparable{
     }
    
    /* Méthode qui permet d'avoir un nom entre min et max */
-    private static int getRandomNumberInRange(int min, int max) {
+    @Override
+    public int getRandomNumberInRange(int min, int max) {
 	if (min >= max) {
 		throw new IllegalArgumentException("MAX > MIN");
 	}
