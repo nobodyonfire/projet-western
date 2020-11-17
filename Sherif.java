@@ -2,8 +2,8 @@ package projet.java.western;
 import java.util.Scanner; 
 
 
-/* Classe shérif qui est un Cowboy et un personnage */
-public class Sherif extends CowBoy{
+/* Classe shérif qui est un personnage */
+public class Sherif extends Personnages{
     
     /* Initialisation des valeurs */
     public static final String ANSI_RESET = "\u001B[0m";
@@ -11,22 +11,13 @@ public class Sherif extends CowBoy{
     protected int NombreDeCapture;
     
     /* Constructeur */
-    public Sherif(String Name, Location Location, Arme Gun , String Job, int Argent,int TruthLevel,String FavoritePlate,int NombreDeCapture) {
-        super(Name,Location,Gun,Job,Argent,TruthLevel,FavoritePlate);
-        this.NombreDeCapture=NombreDeCapture;
+    public Sherif(String Name, Location Location, Arme Gun) {
+        super(Name,Location,Gun);
+
         
     }
     
-    /* Accessor */
-    public int getNombreDeCapture(){
-        return this.NombreDeCapture;
-    }
-    
-    /* Mutator */
-    public void setNombreDeCapture(int NombreDeCapture){
-        this.NombreDeCapture = NombreDeCapture;
-    }
-    
+
     /* Méthode pour s'introduire de manière personaliser */
     @Override 
     public void introduceYourself(){
