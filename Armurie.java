@@ -433,10 +433,10 @@ public class Armurie extends Location{
     public void changelocation(Player player) {
         
         System.out.println("Ou voulez-vous aller ?");
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
-        Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
-        Eglise SantaMaria = new Eglise("SantaMaria",10);
-        Prison Lockcity = new Prison("Lockcity",50);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",0);
+        Banque Banque_Populaire = new Banque("Banque Populaire",2,0);
+        Eglise SantaMaria = new Eglise("SantaMaria",0);
+        Prison Lockcity = new Prison("Lockcity",6);
         FarWest Farwest = new FarWest("Farwest", 0);
         
         display_location();

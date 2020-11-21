@@ -285,10 +285,10 @@ public class Saloon extends Location{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50);
-        Armurie Bangout = new Armurie("Bangout",10);
+        Prison Lockcity = new Prison("Lockcity",6);
+        Armurie Bangout = new Armurie("Bangout",2);
         Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
-        Eglise SantaMaria = new Eglise("SantaMaria",10);
+        Eglise SantaMaria = new Eglise("SantaMaria",0);
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");

@@ -32,7 +32,6 @@ public class Eglise extends Location{
     /* Méthode permettant de quitter */
     private void Quitter(){
         System.out.println("Vous quittez la partie.");
-        pressenter();
         System.exit(0); 
     }
     
@@ -49,10 +48,10 @@ public class Eglise extends Location{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50);
-        Armurie Bangout = new Armurie("Bangout",10);
-        Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
+        Prison Lockcity = new Prison("Lockcity",6);
+        Armurie Bangout = new Armurie("Bangout",0);
+        Banque Banque_Populaire = new Banque("Banque Populaire", 2, 0);
+        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",0);
         FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ?");

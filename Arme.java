@@ -71,7 +71,7 @@ public class Arme implements Comparable, getRandomNumberInRange{
     
     /* Cette méthode sert à savoir si l'arme à toucher sa cible en fonction de sa précision */
     public boolean toucher(Arme gun){
-        int a =getRandomNumberInRange(1,100);
+        int a =getRandomNumberInRange(0,100);
         boolean toucher = false;
         if (a <= gun.accuracy){
             toucher = true;

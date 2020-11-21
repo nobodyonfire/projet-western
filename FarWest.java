@@ -201,7 +201,7 @@ public class FarWest extends Location{
                     System.out.println("");
                     System.out.println(ANSI_BLUE+"Vous l'avez terrassé !"+ANSI_RESET);
                     player.soin(10, player);
-                    player.add_argent(20, player);
+                    player.add_argent(100, player);
                 }
                     
                 Menu(player);
@@ -217,6 +217,8 @@ public class FarWest extends Location{
                 duel(player,brigand);
                 player.setquetedone(true);
                 System.out.println("");
+                player.soin(10, player);
+                 System.out.println("");
                 System.out.println(ANSI_BLUE+"Vous avez complété la quête du sherif !"+ANSI_RESET);
                 System.out.println(ANSI_BLUE+"Voici votre première récompense !"+ANSI_RESET);
                 System.out.println(ANSI_BLUE+"Retournez voir le Sherif pour réclamer votre prime !"+ANSI_RESET);
@@ -261,11 +263,11 @@ public class FarWest extends Location{
     @Override
     public void changelocation(Player player) {
         
-        Prison Lockcity = new Prison("Lockcity",50);
-        Armurie Bangout = new Armurie("Bangout",10);
-        Eglise SantaMaria = new Eglise("SantaMaria",10);
-        Saloon le7iemeciel = new Saloon("le7iemeciel", 10);
-        Banque Banque_Populaire = new Banque("Banque Populaire", 10, 0);
+        Prison Lockcity = new Prison("Lockcity",6);
+        Armurie Bangout = new Armurie("Bangout",0);
+        Eglise SantaMaria = new Eglise("SantaMaria",0);
+        Saloon le7iemeciel = new Saloon("le7iemeciel", 0);
+        Banque Banque_Populaire = new Banque("Banque Populaire", 2, 0);
         
         System.out.println("Où voulez-vous aller ?");
 

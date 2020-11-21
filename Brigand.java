@@ -15,7 +15,7 @@ public class Brigand extends Personnages {
         super(Name,Location,Gun);
         this.niveau = niveau;
         this.EstEnPrison=EstEnPrison;
-        this.HP = HP+niveau*25;
+        this.HP = HP+niveau*20;
 
     }
     

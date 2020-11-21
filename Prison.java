@@ -2,6 +2,7 @@ package projet.java.western;
 
 import java.util.Random;
 import java.util.Scanner;
+import projet.java.western.Sherif;
 import static projet.java.western.ProjetJavaWestern.listearme;
 import static projet.java.western.Personnages.ANSI_RESET;
 import static projet.java.western.ProjetJavaWestern.duel;
@@ -58,14 +59,32 @@ public class Prison extends Location{
     
     /* Méthode qui permet de recevoir la quete */
     public void Sherifquete(Player player){
-        System.out.println("");
-        Brigand brigandquete = Brigand.createBrigand(1,Farwest, listearme().get(getRandomNumberInRange(0, listearme().size())), player);
-        player.setBrigand(brigandquete);
-        System.out.println("");
-        System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");
-        System.out.println("");
-        System.out.println(ANSI_GREEN+"Sherif : Bon courage petit !"+ANSI_RESET);
-        System.out.println("");
+        
+        
+        if (player.getNiveau() == 10 && finale == false){
+            
+            finale = true;
+            System.out.println("");
+            Sherif Robbert = new Sherif("Robbert",le7iemeciel, The_Lucky_Luck);
+            Brigand Boss = new Brigand("Mike le M", Farwest, The_Lucky_Luck, false, 100, 10);
+            player.setBrigand(Boss);
+            Robbert.chefbrigand(player);
+            System.out.println("");
+            System.out.println("Partons à la recherche de '"+ Boss.getName()+"'");
+            System.out.println("");
+            System.out.println(ANSI_GREEN+"Sherif : Bon courage petit !"+ANSI_RESET);
+            System.out.println("");
+        }
+        else{
+            System.out.println("");
+            Brigand brigandquete = Brigand.createBrigand(1,Farwest, listearme().get(getRandomNumberInRange(0, listearme().size()-1)), player);
+            player.setBrigand(brigandquete);
+            System.out.println("");
+            System.out.println("Partons à la recherche de '"+ brigandquete.getName()+"'");
+            System.out.println("");
+            System.out.println(ANSI_GREEN+"Sherif : Bon courage petit !"+ANSI_RESET);
+            System.out.println("");
+        }
         pressenter();
         Menu(player);
     }
@@ -74,14 +93,24 @@ public class Prison extends Location{
     public void recalmerprime(Player player){
         
         if (player.getquetedone()==true){
-
+            
+            if ("Mike le M".equals(player.getBrigand().getName())) {
+                Robbert.fin(player);
+                System.out.println("");
+                player.niveau.add_xp(player, player.brigand.Drop_xp_curve(player.brigand));
+                player.add_argent(3000, player);
+                player.soin(300, player);  
+                player.setBrigand(null);
+                player.setquetedone(false);
+            }
             System.out.println("");
             System.out.println(ANSI_GREEN+"Sherif : WOW ! tu as fait du bon boulot !"+ANSI_RESET);
             System.out.println(ANSI_GREEN+"Sherif : Voici ta récompense .."+ANSI_RESET);
             System.out.println("");
             player.niveau.add_xp(player, player.brigand.Drop_xp_curve(player.brigand));
             player.add_argent(500, player);
-            player.soin(50, player);     
+            player.soin(50, player);  
+            player.setBrigand(null);
             player.setquetedone(false);
         }
         else {
@@ -148,12 +177,6 @@ public class Prison extends Location{
     /* Méthode qui permet de changer de location */
     @Override
     public void changelocation(Player player) {
-        
-        Saloon le7iemeciel = new Saloon("Le 7 ième ciel",10);
-        Armurie Bangout = new Armurie("Bangout",10);
-        Banque Banque_Populaire = new Banque("Banque Populaire",0,0);
-        Eglise SantaMaria = new Eglise("SantaMaria",10);
-        FarWest Farwest = new FarWest("Farwest", 0);
         
         System.out.println("Où voulez-vous aller ? ?");
         System.out.println("");
@@ -267,4 +290,14 @@ public class Prison extends Location{
               
 	}
     }
+    
+    Sherif Robbert = new Sherif("Robbert",Lockcity, The_Lucky_Luck);
+    private static final Saloon le7iemeciel = new Saloon("Le 7 ième ciel",0);
+    private static final Prison Lockcity = new Prison("Lockcity",6);
+    private static final Armurie Bangout = new Armurie("Bangout",0);
+    private static final Eglise SantaMaria = new Eglise("SantaMaria",0);
+    private static final FarWest FarWest = new FarWest("Far West",0);
+    private static final Banque Banque_Populaire = new Banque("Banque Populaire", 2, 0);
+    private static final Arme The_Lucky_Luck = new Arme("The Lucky Luke", 200, 1, 50, 1500);
+    private static boolean finale = false;
 }

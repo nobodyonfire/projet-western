@@ -51,12 +51,9 @@ public class Player extends Personnages{
    
   
    /* Mutators */
-   public void SetHP(int HP){
-       this.HP = HP;
-       
-   }
    public void setHP(int HP){
        this.HP = HP;
+      
    }
    
    public void setBrigand(Brigand brigand){
@@ -96,8 +93,8 @@ public class Player extends Personnages{
      public Arme getGun(){
      return this.Gun;
     }
-    public Niveau getNiveau(){
-     return this.niveau;
+    public int getNiveau(){
+     return this.niveau.GetLevel();
     }
     public int getArgent(){
      return this.Argent;
@@ -138,7 +135,7 @@ public class Player extends Personnages{
         //setLocation();
         this.Gun.Setname(mots[3].replaceAll("#", " "));
         this.Gun.SetpuissanceMax(Integer.parseInt((mots[4])));
-        this.Gun.SetpuissanceMax(Integer.parseInt((mots[5])));
+        this.Gun.SetpuissanceMin(Integer.parseInt((mots[5])));
         this.Gun.Setaccuracy(Integer.parseInt((mots[6])));
         this.Gun.Setprix(Integer.parseInt((mots[7])));
 
@@ -151,7 +148,7 @@ public class Player extends Personnages{
         SetArgent(Integer.parseInt((mots[11])));
 
         
-        SetHP(Integer.parseInt(mots[12]));
+        setHP(Integer.parseInt(mots[12]));
         setquetedone(Boolean.parseBoolean(mots[13]));
         
         
@@ -165,9 +162,9 @@ public class Player extends Personnages{
    public void soin(int amount, Player player){
        
        if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
-           player.SetHP(100+15*player.niveau.GetLevel());}
+           player.setHP(100+20*player.niveau.GetLevel());}
        else{
-           player.SetHP(player.HP + amount);
+           player.setHP(player.HP + amount);
         }    
        if (amount>=0){
            System.out.println("");

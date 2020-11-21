@@ -31,4 +31,17 @@ public class Sherif extends Personnages{
         talkb("Ainsi soit-il " + Player_name + ". Bienvenue en enfer.");
         return Player_name;
     }
+    
+    public void chefbrigand(Player player){
+        talkb("Ah tu es la " + player.getName() + ". Je t'attendais. Mes espions ont repéré le chef des bandits.");
+        talkb("Je pense qu'aujourd'hui tu es assez fort pour le battre. Fais attention a toi !");
+        talkb("Le destin de Widowchapel est entre tes mains."); 
+    }
+    
+    public void fin(Player player){
+        talkb("Tu, tu l'as eu ? Je n'y crois pas mes yeux tu as capturé Mike le M !!");
+        talkb("Tiens voila ta prime Héros. Tu as sauvais la réputation de Widowchapel.");
+        talkb("Les habitants te remercient.");
+    }
+    
 }
