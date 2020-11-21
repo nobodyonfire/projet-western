@@ -161,7 +161,7 @@ public class Player extends Personnages{
    /* méthode permettant de soigner le joueur, et de ne pas dépasser les HP max */
    public void soin(int amount, Player player){
        
-       if (player.HP + amount >= 100+15*player.niveau.GetLevel()){
+       if (player.HP + amount >= 100+20*player.niveau.GetLevel()){
            player.setHP(100+20*player.niveau.GetLevel());}
        else{
            player.setHP(player.HP + amount);
